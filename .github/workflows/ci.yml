@@ -31,7 +31,7 @@ jobs:
       run: npx --yes c8 --reporter=text-lcov --reporter=text node tests/scoring.test.mjs && node tests/integration.test.mjs
     - name: Upload coverage to Codecov (Node 20.x only)
       if: matrix.node-version == '20.x'
-      uses: codecov/codecov-action@v4
+      uses: codecov/codecov-action@v7
       with:
         files: ./coverage/lcov.info
         token: ${{ secrets.CODECOV_TOKEN }}
