@@ -1,0 +1,25 @@
+name: Mark and close stale issues/PRs
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # weekly Sunday 00:00 UTC
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 30
+          days-before-close: 7
+          stale-issue-label: 'stale'
+          stale-pr-label: 'stale'
+          exempt-issue-labels: 'pinned,security'
+          exempt-pr-labels: 'pinned,security,dependencies'
+          operations: 'close,label'
+          # Dependabot PRs are exempt via the 'dependencies' label auto-applied

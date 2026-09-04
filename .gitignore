@@ -1,7 +1,37 @@
-# Project-specific gitignore
-.env
-.env.local
+# Node
 node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Build
 dist/
 build/
+out/
+
+# Env
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Test
+coverage/
+.nyc_output/
+
+# Python (for hybrid projects)
+__pycache__/
+*.py[cod]
 .venv/
+venv/
+
+# Misc
+*.log
+.tmp/
+.cache/
