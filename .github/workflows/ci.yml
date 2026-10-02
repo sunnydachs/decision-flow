@@ -6,31 +6,77 @@ on:
   pull_request:
     branches: [ "main", "master" ]
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         node-version: [18.x, 20.x, 22.x]
 
     steps:
     - uses: actions/checkout@v7
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v7
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Install dependencies
+        # NOTE: no `cache: 'npm'` here. setup-node fails the job outright when the
+        # lock file it wants to hash does not exist, which makes a fresh repo red
+        # before it has any code. Add the cache back once package-lock.json is
+        # committed.
+
+    # A template has no application code yet, so the job detects the stack and
+    # does the right thing instead of failing on a missing manifest. Delete this
+    # step (and the guards below) once the repo has one stack.
+    - name: Detect the project stack
+      id: stack
+      run: |
+        if [ -f package.json ]; then
+          echo "kind=node" >> "$GITHUB_OUTPUT"
+        elif [ -f pyproject.toml ]; then
+          echo "kind=python" >> "$GITHUB_OUTPUT"
+        else
+          echo "kind=none" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: No manifest yet
+      if: steps.stack.outputs.kind == 'none'
+      run: echo "No package.json or pyproject.toml yet - nothing to test. This is expected for the template repository itself."
+
+    - name: Set up Python
+      if: steps.stack.outputs.kind == 'python'
+      uses: actions/setup-python@v6
+      with:
+        python-version: '3.12'
+
+    - name: Install (python)
+      if: steps.stack.outputs.kind == 'python'
+      run: pip install -e ".[dev]"
+
+    - name: Run tests (python)
+      if: steps.stack.outputs.kind == 'python'
+      run: python -m pytest -q
+
+    - name: Install dependencies (node)
+      if: steps.stack.outputs.kind == 'node'
       run: npm install
-    - name: Run tests
+
+    - name: Run tests (node)
+      if: steps.stack.outputs.kind == 'node'
       run: npm test
+
     # Optional: Codecov upload. Requires CODECOV_TOKEN in repo secrets.
     - name: Generate coverage (Node 20.x only)
-      if: matrix.node-version == '20.x'
-      run: npx --yes c8 --reporter=text-lcov --reporter=text node tests/scoring.test.mjs && node tests/integration.test.mjs
+      if: matrix.node-version == '20.x' && steps.stack.outputs.kind == 'node'
+      run: npx --yes c8 --reporter=text-lcov --reporter=text npm test
+
     - name: Upload coverage to Codecov (Node 20.x only)
-      if: matrix.node-version == '20.x'
+      if: matrix.node-version == '20.x' && steps.stack.outputs.kind == 'node'
       uses: codecov/codecov-action@v7
       with:
         files: ./coverage/lcov.info
