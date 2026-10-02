@@ -16,10 +16,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        # Only lines that still receive security patches. Node 18 (EOL
+        # 2025-04-30) and 20 (EOL 2026-04-30) used to be listed here, so the
+        # matrix was green on runtimes nobody patches any more.
+        # scripts/check_runtimes.py fails the build if this list goes stale.
+        node-version: [22.x, 24.x]
 
     steps:
     - uses: actions/checkout@v7
+
+    - name: Check the matrix versions are still supported
+      run: python3 scripts/check_runtimes.py
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v7
