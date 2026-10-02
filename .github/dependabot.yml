@@ -1,14 +1,13 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "npm"
-
+  # Only github-actions is declared here, because a template cannot know the
+  # project's stack. A repo created from this template adds its own ecosystem:
+  #
+  #   - package-ecosystem: "npm"   # when package.json is committed
+  #   - package-ecosystem: "pip"   # when pyproject.toml / requirements.txt is committed
+  #
+  # Declaring one that has no manifest produces a failing Dependabot run on every
+  # push ("dependency_file_not_found"), which is why they are left out.
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

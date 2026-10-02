@@ -6,16 +6,24 @@ Default template for sunnydachs' projects. Batteries-included with a CI/CD and s
 
 ### CI (`ci.yml`)
 - Node.js matrix test on 18.x, 20.x, 22.x
+- Detects the project stack: runs `npm test` when `package.json` exists, `pytest`
+  when `pyproject.toml` exists, and skips cleanly when neither does (so a fresh
+  repo is not red before it has any code). Delete the detection step once the
+  repo has picked a stack.
 - Optional Codecov coverage upload (Node 20.x leg only)
 
 ### Security
-- **CodeQL** at `security-extended` query pack (catches more than default)
+- **CodeQL** at `security-extended` query pack (catches more than default), and it
+  skips cleanly while the repo has no source for the configured language
 - **gitleaks** pre-commit hook + CI action on every push/PR
 - **Secret scanning** (GitHub native, public repos)
 - **Push protection** on public repos
 
 ### Automation
-- **Dependabot** version updates for npm + github-actions (weekly, grouped minor/patch)
+- **Dependabot** weekly updates for github-actions (grouped minor/patch). Add the
+  `npm` or `pip` ecosystem in `dependabot.yml` once that manifest is committed —
+  declaring an ecosystem with no manifest makes every push produce a failing
+  Dependabot run.
 - **Dependabot auto-merge** for patch/minor/security updates only
 - **Stale workflow** to clean up old issues/PRs weekly
 

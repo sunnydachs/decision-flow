@@ -28,13 +28,37 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v7
 
+    # CodeQL FAILS the job when it finds no source for the configured language
+    # ("no code was seen during the build"), so a repository that has not chosen
+    # its language yet - like this template - has to skip cleanly instead.
+    # Remove this guard once the repo has source in ${{ matrix.language }}.
+    - name: Detect source for ${{ matrix.language }}
+      id: detect
+      run: |
+        case "${{ matrix.language }}" in
+          javascript-typescript)
+            pattern='\.(js|jsx|mjs|cjs|ts|tsx|mts|cts)$' ;;
+          python)
+            pattern='\.py$' ;;
+          *)
+            pattern='\.' ;;
+        esac
+        count=$(find . -type f -regextype posix-extended -regex ".*${pattern}" \
+                  -not -path './.git/*' -not -path './node_modules/*' | wc -l)
+        echo "files=$count" >> "$GITHUB_OUTPUT"
+        if [ "$count" -eq 0 ]; then
+          echo "No source files for ${{ matrix.language }} - skipping the analysis."
+        fi
+
     - name: Initialize CodeQL
+      if: steps.detect.outputs.files != '0'
       uses: github/codeql-action/init@v4
       with:
         languages: ${{ matrix.language }}
         queries: ${{ matrix.queries }}
 
     - name: Perform CodeQL Analysis
+      if: steps.detect.outputs.files != '0'
       uses: github/codeql-action/analyze@v4
       with:
         category: "/language:${{ matrix.language }}/queries:${{ matrix.queries }}"
