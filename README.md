@@ -5,7 +5,9 @@ Default template for sunnydachs' projects. Batteries-included with a CI/CD and s
 ## What's included
 
 ### CI (`ci.yml`)
-- Node.js matrix test on 18.x, 20.x, 22.x
+- Node.js matrix on the **supported LTS lines** (currently 22.x and 24.x)
+- `scripts/check_runtimes.py` fails the build when a version in the matrix has
+  reached end of life, so the list cannot silently go stale
 - Detects the project stack: runs `npm test` when `package.json` exists, `pytest`
   when `pyproject.toml` exists, and skips cleanly when neither does (so a fresh
   repo is not red before it has any code). Delete the detection step once the
