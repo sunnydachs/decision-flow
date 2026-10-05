@@ -1,33 +1,63 @@
 {
-  "dataset": "data/test/support_classification.jsonl",
-  "n_items": 500,
-  "prompt_fingerprint": "d499c1498750-c6a751eda813",
-  "data_fingerprint": "c6a751eda813",
+  "dataset": "/home/arari/projects/decision-flow/data/test/support_classification.jsonl",
+  "n_items": 50,
+  "prompt_fingerprint": "d499c1498750-6bb62d6d30fa",
+  "data_fingerprint": "6bb62d6d30fa",
   "train_on": {
     "path": "data/calib/support_classification.jsonl",
     "oof": false
   },
   "free_tier_remaining_at_start": 0,
   "methods": {
+    "rule": {
+      "tier": "local",
+      "model": "keyword-rules",
+      "n": 50,
+      "ok": 50,
+      "errors": 0,
+      "pending": 0,
+      "quota_exhausted": false,
+      "out": "/home/arari/projects/decision-flow/results/raw_variants/support_classification__rule__run103.jsonl"
+    },
+    "embedding_lr": {
+      "tier": "local",
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "n": 50,
+      "ok": 50,
+      "errors": 0,
+      "pending": 0,
+      "quota_exhausted": false,
+      "out": "/home/arari/projects/decision-flow/results/raw_variants/support_classification__embedding_lr__run103.jsonl"
+    },
     "llm_prompt": {
       "tier": "external_free",
       "model": "openai/gpt-oss-20b",
-      "n": 500,
-      "ok": 499,
-      "errors": 1,
+      "n": 50,
+      "ok": 50,
+      "errors": 0,
       "pending": 0,
       "quota_exhausted": false,
-      "out": "/home/arari/projects/decision-flow/results/raw/support_classification__llm_prompt.jsonl"
+      "out": "/home/arari/projects/decision-flow/results/raw_variants/support_classification__llm_prompt__run103.jsonl"
     },
     "llm_json_schema": {
       "tier": "external_free",
       "model": "openai/gpt-oss-20b",
-      "n": 500,
-      "ok": 499,
-      "errors": 1,
+      "n": 50,
+      "ok": 50,
+      "errors": 0,
       "pending": 0,
       "quota_exhausted": false,
-      "out": "/home/arari/projects/decision-flow/results/raw/support_classification__llm_json_schema.jsonl"
+      "out": "/home/arari/projects/decision-flow/results/raw_variants/support_classification__llm_json_schema__run103.jsonl"
+    },
+    "pplx_decider": {
+      "tier": "paid",
+      "model": "pplx-decider-v1-27b",
+      "n": 50,
+      "ok": 50,
+      "errors": 0,
+      "pending": 0,
+      "quota_exhausted": false,
+      "out": "/home/arari/projects/decision-flow/results/raw_variants/support_classification__pplx_decider__run103.jsonl"
     }
   },
   "free_tier_used_today": 0,

@@ -1,0 +1,112 @@
+{
+  "dataset": "/home/arari/projects/decision-flow/data/test/support_classification.jsonl",
+  "subset": 50,
+  "variants": [
+    "base",
+    "paraphrase_1",
+    "paraphrase_2",
+    "order_rotated"
+  ],
+  "methods": {
+    "rule": {
+      "n_items": 50,
+      "n_runs": 4,
+      "items_with_any_error": 0,
+      "probability": {
+        "mean_std": 0.0,
+        "max_std": 0.0,
+        "mean_iqr": 0.0,
+        "mean_range": 0.0,
+        "mean_abs_dev": 0.0
+      },
+      "threshold_flip": {
+        "threshold": 0.0,
+        "mean_flip_fraction": 0.0,
+        "items_ever_flipping": 0,
+        "items_always_uncertain": 0
+      },
+      "label_disagreement_rate": 0.0,
+      "label_disagreement_items": 0
+    },
+    "embedding_lr": {
+      "n_items": 50,
+      "n_runs": 4,
+      "items_with_any_error": 0,
+      "probability": {
+        "mean_std": 0.0,
+        "max_std": 0.0,
+        "mean_iqr": 0.0,
+        "mean_range": 0.0,
+        "mean_abs_dev": 0.0
+      },
+      "threshold_flip": {
+        "threshold": 0.015788075722113375,
+        "mean_flip_fraction": 0.0,
+        "items_ever_flipping": 0,
+        "items_always_uncertain": 0
+      },
+      "label_disagreement_rate": 0.0,
+      "label_disagreement_items": 0
+    },
+    "llm_prompt": {
+      "n_items": 50,
+      "n_runs": 4,
+      "items_with_any_error": 0,
+      "probability": {
+        "mean_std": 0.034363371967174094,
+        "max_std": 0.3710373970370103,
+        "mean_iqr": 0.029075,
+        "mean_range": 0.08209999999999999,
+        "mean_abs_dev": 0.029637499999999994
+      },
+      "threshold_flip": {
+        "threshold": 0.05,
+        "mean_flip_fraction": 0.12,
+        "items_ever_flipping": 20,
+        "items_always_uncertain": 4
+      },
+      "label_disagreement_rate": 0.08,
+      "label_disagreement_items": 4
+    },
+    "llm_json_schema": {
+      "n_items": 50,
+      "n_runs": 4,
+      "items_with_any_error": 1,
+      "probability": {
+        "mean_std": 0.045483079723270876,
+        "max_std": 0.42148546831415196,
+        "mean_iqr": 0.04964999999999999,
+        "mean_range": 0.106,
+        "mean_abs_dev": 0.0409611111111111
+      },
+      "threshold_flip": {
+        "threshold": 0.05,
+        "mean_flip_fraction": 0.175,
+        "items_ever_flipping": 26,
+        "items_always_uncertain": 9
+      },
+      "label_disagreement_rate": 0.1,
+      "label_disagreement_items": 5
+    },
+    "pplx_decider": {
+      "n_items": 50,
+      "n_runs": 4,
+      "items_with_any_error": 0,
+      "probability": {
+        "mean_std": 0.0017213266271055483,
+        "max_std": 0.03425944058046531,
+        "mean_iqr": 0.0009938083915226653,
+        "mean_range": 0.003975233566090635,
+        "mean_abs_dev": 0.001490712587283988
+      },
+      "threshold_flip": {
+        "threshold": 0.0018564013669209514,
+        "mean_flip_fraction": 0.04,
+        "items_ever_flipping": 8,
+        "items_always_uncertain": 0
+      },
+      "label_disagreement_rate": 0.02,
+      "label_disagreement_items": 1
+    }
+  }
+}
