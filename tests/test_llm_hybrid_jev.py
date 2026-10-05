@@ -121,8 +121,84 @@ def test_jev_dry_run_builds_request_and_estimates_cost():
     assert report["estimated_total_input_tokens"] == 600
     # 600 tokens * $0.042/M
     assert report["estimated_cost_usd"] == pytest.approx(600 / 1_000_000 * 0.042)
+    assert report["transport"] in ("typesafe-sdk", "http")
     with pytest.raises(RuntimeError):
         adapter.predict(item)
+
+
+# --- jev SDK 経由のパース(偽クライアント。ネットワーク不要) -----------------
+class _FakeUsage:
+    input_tokens = 312
+    output_tokens = 48
+
+
+class _FakeAnswer:
+    model_type = "choice"
+
+    def __init__(self):
+        self.type = "choice"
+        self.choice = "urgent_claim"
+        self.confidence = 0.82
+        self.probabilities = {"urgent_claim": 0.8, "billing": 0.1, "technical": 0.05,
+                              "sales": 0.03, "other": 0.02}
+
+    def model_dump(self):
+        return {"type": self.type, "choice": self.choice, "confidence": self.confidence,
+                "probabilities": self.probabilities}
+
+
+class _FakeResponse:
+    model = "jev-1.13.0"
+    usage = _FakeUsage()
+    answers = {"category": _FakeAnswer()}
+
+
+class _FakeClient:
+    def __init__(self):
+        self.calls = []
+
+    def system_one(self, *, state, questions, model=None):
+        self.calls.append({"state": state, "model": model, "questions": questions})
+        return _FakeResponse()
+
+
+def test_jev_sdk_path_parses_answer_and_usage():
+    config = load_config(repo_root=REPO_ROOT)
+    task = load_task(REPO_ROOT / "config" / "tasks" / "support_classification.toml")
+    item = Item(id="x", text="本番が停止しています。", label="urgent_claim", severity="high", language="ja")
+    client = _FakeClient()
+    adapter = JevAdapter(task, config, key="not-used", http=None, sdk_client=client)
+    assert adapter.use_sdk is True
+    pred = adapter.predict(item)
+    assert pred.label == "urgent_claim"
+    assert pred.value_type == "probability"
+    assert pred.risk_score == pytest.approx(0.8)
+    assert pred.input_tokens == 312 and pred.output_tokens == 48
+    # コストは入力トークン × $0.042/M
+    assert pred.estimated_cost_usd == pytest.approx(312 / 1_000_000 * 0.042)
+    assert pred.error_type is None
+    # 固定バージョンで呼んでいる(jev-latest は使わない)
+    assert client.calls[0]["model"] == "jev-1.13.0"
+    # confidence は確率として扱わない(raw に残すだけ)
+    assert pred.probabilities is not None
+    assert pred.probabilities["urgent_claim"] == pytest.approx(0.8)
+
+
+def test_jev_sdk_error_is_classified():
+    config = load_config(repo_root=REPO_ROOT)
+    task = load_task(REPO_ROOT / "config" / "tasks" / "support_classification.toml")
+    item = Item(id="x", text="test", label="billing", severity="normal", language="ja")
+    # SDK の例外クラス名で分類されることを見る(実クラスと同じ名前を使う)
+    fake_rate_limit = type("TypeSafeRateLimitError", (Exception,), {})
+
+    class _Boom:
+        def system_one(self, **_kwargs):
+            raise fake_rate_limit("429")
+
+    adapter = JevAdapter(task, config, key="k", http=None, sdk_client=_Boom())
+    pred = adapter.predict(item)
+    assert pred.error_type == "http_429"
+    assert pred.label is None
 
 
 def test_estimate_tokens_rough_positive():
