@@ -159,6 +159,28 @@ def test_fixed_recall_report_uses_calib_threshold_on_test():
     assert report["test"]["automation_rate"] == pytest.approx(0.25)  # 0.1 のみ自動処理
 
 
+def test_fixed_recall_report_adds_bootstrap_bounds():
+    calib_p = [0.1, 0.2, 0.4, 0.6, 0.9]
+    calib_y = [1, 1, 1, 1, 0]
+    test_p = [0.6, 0.5, 0.2, 0.1]
+    test_y = [1, 1, 0, 0]
+    report = fixed_recall_report(calib_p, calib_y, test_p, test_y, target=0.75, n_boot=200)
+    rci = report["test"]["recall_high_ci"]
+    aci = report["test"]["automation_rate_ci"]
+    assert rci["n_positives"] == 2  # 高リスクは正例だけリサンプルする
+    assert rci["lo"] <= rci["point"] <= rci["hi"]
+    assert aci["n"] == 4
+    assert aci["lo"] <= aci["point"] <= aci["hi"]
+    assert 0.0 <= rci["lo"] <= 1.0 and 0.0 <= aci["lo"] <= 1.0
+
+
+def test_fixed_recall_report_is_reproducible():
+    args = ([0.1, 0.3, 0.5, 0.7, 0.9], [1, 1, 1, 0, 0], [0.2, 0.4, 0.6, 0.8], [1, 1, 0, 0])
+    a = fixed_recall_report(*args, target=0.66, n_boot=100)
+    b = fixed_recall_report(*args, target=0.66, n_boot=100)
+    assert a["test"]["recall_high_ci"] == b["test"]["recall_high_ci"]  # seed 固定
+
+
 # --- bootstrap --------------------------------------------------------------
 def test_bootstrap_ci_is_deterministic_and_bounds_point():
     def mean_fn(x):

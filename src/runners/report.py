@@ -144,6 +144,7 @@ def build_report(
     calib_raw_dir: Path | None = None,
     calib_dataset_path: Path | None = None,
     hybrid_paths: list[Path] | None = None,
+    throughput_path: Path | None = None,
     out_path: Path | None = None,
 ) -> dict:
     stem = dataset_path.stem
@@ -190,6 +191,7 @@ def build_report(
         "calib_source": "separate" if calib_raw_dir else "same_as_test (smoke only)",
         "methods": results,
         "hybrid": _load_hybrid(hybrid_paths or []),
+        "throughput": _load_json_file(throughput_path),
     }
     if out_path:
         out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -247,17 +249,22 @@ def render_markdown(aggregate: dict) -> str:
     lines.append("")
     lines.append("## 3. 判断効率(固定 Recall)")
     lines.append("")
-    lines.append("| method | calib 閾値 | test recall | test 自動化率 | 自動処理の誤り率 |")
-    lines.append("|---|---|---|---|---|")
+    lines.append("| method | calib 閾値 | test recall | recall 95%CI下限 | test 自動化率 | 自動化率 95%CI下限 | 自動処理の誤り率 |")
+    lines.append("|---|---|---|---|---|---|---|")
     for method, m in aggregate["methods"].items():
         fr = m.get("fixed_recall")
         if not fr:
             continue
         t = fr["test"]
+        rci = (t.get("recall_high_ci") or {})
+        aci = (t.get("automation_rate_ci") or {})
         lines.append(
             f"| {method} | {_fmt(fr['threshold_from_calib'])} | {_fmt(t.get('recall_high'))} | "
-            f"{_fmt(t.get('automation_rate'))} | {_fmt(t.get('auto_error_rate'))} |"
+            f"{_fmt(rci.get('lo'))} | {_fmt(t.get('automation_rate'))} | {_fmt(aci.get('lo'))} | "
+            f"{_fmt(t.get('auto_error_rate'))} |"
         )
+    lines.append("")
+    lines.append("CI はブートストラップ 1000 回(パーセンタイル法)。閾値は calib の生応答から決め、test では探索しない。")
     lines.append("")
     hybrid = aggregate.get("hybrid") or {}
     if hybrid:
@@ -285,6 +292,21 @@ def render_markdown(aggregate: dict) -> str:
             f"{_fmt(m.get('cost_per_1000_usd'), 4)} |"
         )
     lines.append("")
+    throughput = aggregate.get("throughput")
+    if throughput:
+        lines.append(f"### スループット(実測、並列 {throughput.get('concurrency')}、生応答から計算せず実時間で測定)")
+        lines.append("")
+        lines.append("| method | 成功 | エラー | 壁時計秒 | 件/秒 |")
+        lines.append("|---|---|---|---|---|")
+        for method, t in (throughput.get("methods") or {}).items():
+            lines.append(
+                f"| {method} | {t.get('ok')} | {t.get('errors')} | {_fmt(t.get('wall_seconds'), 2)} | "
+                f"{_fmt(t.get('items_per_second'), 2)} |"
+            )
+        lines.append("")
+        lines.append("p50/p95 は 1 件あたりのレイテンシ、スループットは同じ並列数で実際に流した件/秒。"
+                     "レイテンシが同じでもスループットは並列数とレート制限に依存する。")
+        lines.append("")
     lines.append("## 5. 信頼性(エラー率・パース失敗率)")
     lines.append("")
     lines.append("| method | 記録数 | 成功 | パース失敗 | エラー内訳 |")
@@ -310,6 +332,15 @@ def _load_hybrid(paths: list[Path]) -> dict:
     return out
 
 
+def _load_json_file(path: Path | None) -> dict | None:
+    if not path:
+        return None
+    p = Path(path)
+    if not p.exists():
+        return None
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
 def _fmt(value, nd: int = 3) -> str:
     if value is None:
         return "-"
@@ -329,6 +360,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--methods", default="rule,mercury,llm_prompt,llm_json_schema,pplx_decider,embedding_lr")
     parser.add_argument("--hybrid", default=None,
                         help="hybrid_eval の出力 JSON(カンマ区切り)。第3章に Hybrid 表を足す")
+    parser.add_argument("--throughput", default=None,
+                        help="throughput の出力 JSON。第4章にスループット表を足す")
     parser.add_argument("--out", default="results/report.md")
     args = parser.parse_args(argv)
 
@@ -343,6 +376,7 @@ def main(argv: list[str] | None = None) -> int:
         calib_raw_dir=Path(args.calib_raw_dir) if args.calib_raw_dir else None,
         calib_dataset_path=Path(REPO_ROOT / args.calib_dataset) if args.calib_dataset else None,
         hybrid_paths=[Path(REPO_ROOT / p.strip()) for p in args.hybrid.split(",") if p.strip()] if args.hybrid else None,
+        throughput_path=Path(REPO_ROOT / args.throughput) if args.throughput else None,
         out_path=REPO_ROOT / "results" / "aggregate" / f"{dataset_path.stem}.json",
     )
     markdown = render_markdown(aggregate)
