@@ -1,0 +1,109 @@
+# decision-flow 既定設定。
+# ローカル上書きは config/local.toml(git-ignored)に置くと deep-merge される。
+
+[run]
+concurrency = 4             # 全方式で共通の並列数(実行条件を統一する)
+timeout_seconds = 30        # 全方式共通のクライアント timeout(公式推奨: Perplexity 30s)
+max_retries = 3             # 指数バックオフの最大リトライ回数(Retry-After を尊重)
+backoff_base_seconds = 1.0
+backoff_max_seconds = 20.0
+seed = 20261004             # データ順・シャッフルの決定的 seed
+record_timestamp = true     # 全リクエストに実行日時(UTC ISO)を記録
+
+[data]
+root = "data"
+# real データを外部 API に送るには --confirm-external が必要
+external_data_class = "real"
+
+[evaluation]
+risk_label = "urgent_claim"     # 高リスク判定に使うラベル
+risk_severity = "high"          # 高リスクの severity 値
+recall_target = 0.95            # 高リスク recall の安全制約(calib で閾値決定)
+bootstrap_samples = 1000
+bootstrap_alpha = 0.05
+calibration_bins = 10
+stability_subset = 50           # 安定性テストのサブセット件数
+stability_n = 20                # 同一入力の繰り返し回数(1日で完結するよう調整する)
+
+[free_tier]
+# 外部ルーティング の :free は全モデル共有。実測 2026-10-04: 1000 req/day, 20 req/min。
+daily_limit = 1000
+per_minute_limit = 20
+# 尽きたら停止せず、無料枠非依存の作業(ローカル/有料/指標/テスト)を先に進める
+stop_on_exhaustion = false
+
+[budget]
+# 推定コスト(usage のトークン数 × 単価)。実請求額ではない。
+perplexity_usd = 0.5
+jev_usd = 1.0
+confirm_external_required = true
+
+[models.llm]
+# 比較用 LLM(外部ルーティング chat completions)。
+# supported_parameters に structured_outputs を含む :free から選定(実測 2026-10-04)。
+primary = "llm-free-a"
+modes = ["prompt", "json_schema"]
+alternatives = [
+  "llm-free-c",
+  "llm-free-d",
+]
+
+[models.mercury]
+model = "decision-model-v1"
+endpoint = "https://外部ルーティング.ai/api/alpha/decisions"
+tier = "free"
+
+[models.span]
+# 分類タスクでは未使用。chat_guard 用の雛形。
+model = "decision-model-span"
+endpoint = "https://外部ルーティング.ai/api/alpha/decisions"
+tier = "free"
+enabled = false
+
+[models.pplx_decider]
+model = "pplx-decider-v1-27b"
+endpoint = "https://api.perplexity.ai/v1/decisions"
+tier = "paid"
+price_input_usd_per_mtok = 0.04   # 公式: 入力 $0.04 / 100万トークン、出力無料
+
+[models.jev]
+provider = "typesafe"             # "typesafe"(公式) | "外部ルーティング"
+model = "jev-1.13.0"              # バージョン固定(jev-latest は使わない)
+外部ルーティング_model = "typesafe/jev-1.13"
+endpoint = "https://api.typesafe.ai/v1/systemone"
+tier = "paid"
+price_input_usd_per_mtok = 0.042  # 公式: 入力 $42/Btok = $0.042/100万トークン
+require_allow_paid_models = true
+
+[data_generation]
+# 評価データ(日本語問い合わせ)の生成に使うモデル。
+# 評価対象(mercury / pplx-decider / jev / 比較用LLM)とは別系統を選ぶこと。
+# 既定は OpenAI 互換エンドポイント 経由(GLM 系)。外部ルーティング の無料枠を評価本体のために温存する。
+provider = "nim"
+endpoint = "https://<external-endpoint>/v1/chat/completions"
+key_env = "LLM_API_KEY"
+model = "generator-a"
+fallback_models = ["reviewer-b"]   # 予備(遅いが安定)
+# 実測 2026-10-04: generator-a=8秒/15件・全件有効・rtok=0。deepseek-v4.1-flash=112秒/15件。
+# llm-free-glm は 429、google/llm-free-b は 外部エンドポイント で read timeout。
+urgent_ratio = 0.32          # urgent_claim(severity=high)の目標比率
+# 実測: 要求 0.27→21.7〜23.2%、0.30→23.6〜24.3%、0.34→calib34%/test30.4%(生成側のぶれが大きい)。
+max_tokens = 8000
+temperature = 1.0
+timeout_seconds = 300
+# 外部エンドポイントの deepseek 系は reasoning トークンを消費する。生成には不要なので無効化する
+# (実測 2026-10-04: 未指定だと rtok=114、thinking=false で rtok=0)。
+extra_body = { thinking = false }
+# 代替(外部ルーティング の無料枠を使う場合): provider="外部ルーティング",
+#   endpoint="https://外部ルーティング.ai/api/v1/chat/completions",
+#   key_env="OPENROUTER_API_KEY", model="llm-free-b"
+# 生成は calib と test を別実行で行う(同じデータで較正と評価をしない)。
+
+[embedding]
+# ローカル実行(外部送信なし)。既定はプレフィックス規約が不要な多言語モデル。
+# 代替: intfloat/multilingual-e5-large(高精度だが大きい。採用時は query:/passage: の
+#       プレフィックス規約を先に確認すること)。intfloat/multilingual-e5-small は fastembed 非対応。
+backend = "fastembed"
+model = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+query_prefix = ""
+passage_prefix = ""

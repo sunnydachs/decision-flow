@@ -1,0 +1,300 @@
+{"id": "cal-0001", "text": "本日午前中より、システムにログインできず、重要な顧客データへのアクセスが完全に遮断されています。緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0002", "text": "管理者権限が突然剥奪され、チーム全員が作業不能となっています。誰か inmediatamente 対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0003", "text": "不審なログイン試行が複数検知され、アカウントがロックされました。不正アクセスの可能性がありますので、すぐ調査をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0004", "text": "データバックアップが取れず、昨日の更新分がすべて消失しました。復旧不可能かと不安でいっぱいです。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0005", "text": "決済システムが停止しており、顧客からの入金が確認できません。売上に深刻な影響が出ています。緊急対応を願います。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0006", "text": "先月の請求書の金額が契約内容と異なっています。詳しい内訳を教えていただけますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0007", "text": "マニュアルを見ても設定方法がわかりません。API連携の手順を丁寧に説明してください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0008", "text": "見積もりを再度お願いしたいのですが、担当者が変更になったと聞きました。新しい担当者をご紹介いただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0009", "text": "契約更新の案内メールが届いていません。再送をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0010", "text": "機能の使い方が分からず、時間を浪費しています。マニュアル以外に動画などはありますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0011", "text": "短いですが、ログインURLを教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0012", "text": "請求関連なのか設定関連なのか、どちらに問い合わせればいいかわからなくて困っています。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "cal-0013", "text": "請求書の宛名を変更したいのですが、手続きがどこにあるかさっぱりわかりません。教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0014", "text": "パートナー制度について詳しく知りたいです。資料を送っていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0015", "text": "システムが遅くてイライラしています。改善してくれないと別のサービスを検討します。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0016", "text": "ログインできず業務が止まっています。至急対応をお願いします。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "cal-0017", "text": "データベースへの不正アクセスの可能性があり、機密情報が漏洩した恐れがあります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "cal-0018", "text": "本日分の決済が失敗しており、サービスが停止しています。今すぐ復旧を依頼します。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "cal-0019", "text": "システムに障害が発生し、重要なファイルが全て消失しました。緊急で復旧対応を求めます。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "cal-0020", "text": "個人情報が外部に漏れている兆候があります。調査と対応を至急行ってください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "cal-0021", "text": "請求書の金額が前月と異なります。内訳を教えていただけますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0022", "text": "契約更新の案内が届いていないようです。確認のお願いを申し上げます。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0023", "text": "また請求ミスか！この対応の遅さにはうんざりだ。すぐに是正しろ。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0024", "text": "サポートの対応が全く悪くて怒りを通り越して呆れている。もういい加減にしろ。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0025", "text": "APIのエラーと請求書の件、両方について対応をお願いします。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0026", "text": "助けて", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0027", "text": "なんか動きが変だけど、たぶん設定の問題でしょうか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true}
+{"id": "cal-0028", "text": "プラン変更を検討中です。詳細な見積もりを送っていただけますか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0029", "text": "導入相談したいのですが、来週のいつかお時間いただけますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0030", "text": "マニュアルを見ても操作方法がわかりません。初心者向けの説明をお願いできますか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0031", "text": "昨晩からデータベースへのアクセスが全員できなくなり、業務が止まっています。至急復旧の対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0032", "text": "契約更新の請求書が届いていません。メールアドレスが変わったので再送をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0033", "text": "管理画面で「500 Internal Server Error」が表示され、ログインできません。原因と対処法を教えてください。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0034", "text": "見積依頼ですが、予算が限られているため最安プランの詳細を今月中に知りたいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0035", "text": "サービス利用規約について質問があります。特にデータの取り扱いに関する条項を詳しく教えてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0036", "text": "緊急です！今すぐ解約しないと違約金が発生すると聞きました。手続き方法をすぐに教えてください。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0037", "text": "APIのレスポンスが遅く、タイムアウトエラーが頻発しています。パフォーマンス改善の予定はありますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0038", "text": "プランアップグレードを検討中です。利用可能な機能の違いと追加コストを比較した資料が欲しいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0039", "text": "請求", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0040", "text": "データが消えたような気がしますが、もしかしたら操作ミスかもしれません。確認の方法を教えていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "cal-0041", "text": "先月の請求額が予想より高かったので、内訳を詳しく知りたいです。特にオプション費用について説明してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0042", "text": "シングルサインオンの設定方法がマニュアルに載っていません。手順書を共有いただけますでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0043", "text": "解約を考えていますが、データのエクスポートはどのように行えばよいですか？手順と期限を教えてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0044", "text": "サービスが突然停止し、お客様からの問い合わせが殺到しています。至急原因の調査と復旧をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0045", "text": "今朝からログインできず、重要な顧客データへのアクセスが全て遮断されています。原因不明のシステム障害かと懸念しています。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0046", "text": "昨夜のアップデート後、APIエラーが頻発し、連携サービスが止まっています。対応が遅れると納期に影響するため、至急調査をお願いします。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0047", "text": "決済が止まっていて、サブスクリプションが自動解約される恐れがあります。利用停止になれば業務に支障が出るので、本日中に復旧対応を求めます。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0048", "text": "不正ログインのアラートが複数届いており、アカウントが乗っ取られた可能性があります。すぐにお知らせください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0049", "text": "バックアップからの復元が失敗し、昨日の営業データが全て消えています。緊急でデータ復旧の対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0050", "text": "請求書の宛名が間違っており、経理から差し戻されています。御社名義での再発行をお願いできますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0051", "text": "マニュアルを見ても設定方法が分からず、二要素認証の有効化ができません。手順を詳しく教えていただけますか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0052", "text": "見積もりの依頼をしたのにまだ返信がありません。今月中に導入を検討しているため、早めの対応をお願いしたいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0053", "text": "契約更新の案内が届いていないのですが、自動更新になりますでしょうか。確認させていただきたくメールしました。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0054", "text": "操作マニュアルが古くて、現在の画面と合わなくて困っています。最新版を共有していただけますでしょうか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0055", "text": "今月の利用料が急に上がっていて、理由がわかりません。プラン変更した覚えはなく、見直しをお願いしたいです。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0056", "text": "サポートの対応が遅くてイライラしています。問い合わせから丸一日経っても未だに返信がなく、対応姿勢を疑っています。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0057", "text": "契約の更新と、追加オプションの見積もりを同時にお願いできますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0058", "text": "急いでます", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0059", "text": "なんか動きがおかしい気がするんだけど、これってバグでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true}
+{"id": "cal-0060", "text": "本日朝からダッシュボードが全く表示されず、データが参照できない状態が続いています。至急復旧をお願いしたいです。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0061", "text": "ログインできない上にサポート窓口も繋がらない。これで業務が止まっているので sofort 対応してください。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0062", "text": "不審なアクセスログが多数残っており、アカウントが乗っ取られた可能性があります。今すぐ調査をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0063", "text": "データベースから顧客情報が消えていた。バックアップからの復旧手順を至急教えてほしい。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0064", "text": "不正アクセスによる決済停止が発生しており、売上がゼロになっている。即時対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0065", "text": "請求書の金額が先月と異なるので内訳を教えてほしい。特にオプション料金の計算根拠が不明です。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0066", "text": "プランをプロからエンタープライズに変更したいのですが、移行手順と費用の見積もりをお願いします。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0067", "text": "API の認証エラー 403 が頻発しています。トークンの更新方法を教えていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0068", "text": "マニュアルを見ても設定がうまくいかず、困っています。初歩的な質問で申し訳ありませんが手順を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0069", "text": "来月の契約更改について、担当者変更の手続きを教えてほしいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0070", "text": "請求書の宛名を変更したいのですが、どこから手続きすればよいでしょうか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0071", "text": "導入を検討しているのですが、トライアル期間の延長は可能でしょうか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0072", "text": "請求と設定の両方について質問があります。まず請求書の内訳、そして二段階認証の設定方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0073", "text": "pomoc", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0074", "text": "今日問い合わせたことと同じような内容ですが、もしかすると別の問題かもしれません。詳しくはわからないのですが…", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true}
+{"id": "cal-0075", "text": "システムログイン時にエラー500が表示され、業務が完全に停止しています。至急復旧対応をお願い申し上げます。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0076", "text": "今月の請求書に不審な金額が発生しており、明細の説明が必要です。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0077", "text": "サービスが突然停止し、顧客データにアクセスできません。緊急対応を要求します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0078", "text": "見積もり依頼の締切が明日ですが、まだ返答がありません。至急対応してください。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0079", "text": "二段階認証が解除され、不審なログイン履歴があります。アカウントが乗っ取られた可能性があります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0080", "text": "契約更新の手続きがわかりません。案内メールが届いていないようです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0081", "text": "API連携時にタイムアウトエラーが発生し、データ同期ができません。設定方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0082", "text": "このままでいいのか、ずいぶんと放置されているなと感じます。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0083", "text": "請求と設定の両方について質問があります。未払いの可能性と、ログインできない問題があります。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0084", "text": "困ってます", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0085", "text": "請求書が届きません。これでいいのかどうかわかりません。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": true}
+{"id": "cal-0086", "text": "緊急の障害が発生しています。サービスが使えなくなり、業務に影響が出ています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0087", "text": "来月からプランを変更したいのですが、手続き方法がわかりません。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0088", "text": "決済が止まっており、サービスが利用できなくなっています。この状況をどうにかしてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0089", "text": "設定画面がフリーズしてしまい、先に進めません。再起動しても改善しません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0090", "text": "突然ログインできなくなり、顧客データへのアクセスが完全に遮断されています。本日中の復旧をお願いできますでしょうか？", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0091", "text": "システム障害により決済が全停止しており、売上に深刻な影響が出ています。至急対応を要求します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0092", "text": "不正アクセスの痕跡を検知しました。管理者権限が変更されており、情報漏洩の恐れがあります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "cal-0093", "text": "バックアップからのデータ復元が失敗し、重要な顧客リストが消失しています。緊急的に対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "cal-0094", "text": "APIキーが悪用されて不正なリクエストが大量に発生しています。サービス停止の恐れがあります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0095", "text": "請求書の宛名が誤っており、経理処理が滞っています。修正版を送っていただけますでしょうか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0096", "text": "契約更新の案内が届かず、自動解約になるのではと不安です。確認をお願いできますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0097", "text": "管理画面で特定の機能が動作せず、エラーコード500が表示されます。お調べいただけますでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0098", "text": "二段階認証の設定方法がわからず、ログインできません。マニュアルを共有してください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0099", "text": "プラン変更を検討しており、機能比較と見積もりをお願いできますか？来週中に決断したいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0100", "text": "パートナー制度について詳しく知りたいです。資料送付またはオンライン説明会の案内をお願いします。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0101", "text": "取材の申し込みです。製品の導入事例についてインタビューさせていただけませんか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0102", "text": "アカウントが突然ロックされログインできません。緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0103", "text": "データが完全に消失しました。復旧方法を今すぐ教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0104", "text": "不正アクセスの疑いがあります。調査と対応を急いでください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0105", "text": "決済が停止してサービスが利用不可です。至急復旧を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0106", "text": "個人情報が漏洩した可能性があります。詳細と対応を今すぐ教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0107", "text": "請求書の金額が前月と異なります。内訳を確認させてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0108", "text": "API連携でエラーが発生しています。対処法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0109", "text": "プランアップグレードの見積もりを依頼します。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0110", "text": "サポート対応が遅くて困っています。もう少し早く対応してほしいです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0111", "text": "契約更新の手続きがわかりません。案内をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0112", "text": "機能の使い方が分からず困っています。マニュアルを共有してください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "cal-0113", "text": "見積もりと導入サポートについて同時に相談したいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0114", "text": "_help", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0115", "text": "何かしらの不具合があるような気もしますが、よくわかりません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true}
+{"id": "cal-0116", "text": "請求関係で急ぎの確認が必要です。今対応してもらえますか？", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "cal-0117", "text": "ログインできず、業務が完全に停止しています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0118", "text": "管理者アカウントが不正に使用され、機密データが外部に送信されている形跡があります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0119", "text": "サーバーがダウンしてデータが消失しました。バックアップからの復旧を即時実施してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0120", "text": "決済がブロックされ、サービスが利用不可となっています。原因調査と解除を至急願います。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0121", "text": "個人情報が漏洩した可能性があります。影響範囲の調査と対応を今すぐ行ってください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0122", "text": "請求書の金額が契約と異なります。修正版を再発行していただけますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0123", "text": "API のエラーコード 500 が頻繁に出ます。ログを確認したいのですが、どこを見ればよいでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0124", "text": "プランアップグレードの見積もりをお願いします。来週中に導入を検討しています。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0125", "text": "契約更新の手続き方法がわかりません。マニュアルを送っていただけますか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0126", "text": "サポートの対応が遅すぎて困っています。もう少し早く返答してほしいです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0127", "text": "請求と設定の両方について質問があります。請求書の項目と、二段階認証の設定方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0128", "text": "先月の利用料金について、内訳が不明瞭です。詳細を教えていただけますでしょうか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0129", "text": "マニュアルを見てもわからないのですが、Webhook のテスト送信はどこから行えばよいですか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0130", "text": "本日午前9時からシステムにログインできず、重要な顧客データにアクセスできません。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0131", "text": "管理者権限が突然剥奪され、チーム全員が作業停止状態です。原因調査と即時復旧を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0132", "text": "不正ログインのアラートが複数発生しており、アクセスログを確認したところ外部からの侵入の可能性があります。緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0133", "text": "データベースのバックアップが取れていない状態で、昨夜のアップデート後からデータが欠損しています。復旧作業の指示をください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0134", "text": "APIキーが漏洩した形跡があり、不審なアクセスが続いています。至急無効化と再発行の対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0135", "text": "今月の請求書の金額が契約と異なります。内訳を明細でご提示いただけますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0136", "text": "契約更新の案内が届かず、自動更新の設定を確認したいのですが、どこを見ればよろしいでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0137", "text": "マニュアルを見てもSSOの設定方法がわかりません。ステップバイステップでご教示いただけますでしょうか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0138", "text": "レポートの出力フォーマットをカスタマイズしたいのですが、どのファイルを編集すればよいか教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0139", "text": "エンタープライズプランへのアップグレードを検討しています。見積もりと機能比較表を送っていただけますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0140", "text": "パートナー制度の詳細について知りたいです。紹介報酬の条件と申請手順を教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0141", "text": "採用ページから応募したのですが、確認メールが届きません。再送信をお願いできますでしょうか。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0142", "text": "ユーザーインターフェースが昨日のアップデートで変わってしまい、操作方法が分からなくなりました。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0143", "text": "請求の件とログインの件、両方について同時に対応をお願いしたいのですが、どこに連絡すればよいでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0144", "text": "なんか変な感じがするんだけど、これってシステムの問題なのか私の使い方が悪いのかわかりません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "cal-0145", "text": "緊急です。先ほどからログインできず、管理者アカウントがロックされているようです。データへのアクセスが完全に遮断されており、業務が止まっています。即時対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0146", "text": "契約書の自動更新を止めたいのですが、マイページから解約ボタンが見つかりません。サポートへの問い合わせ方法も分からず困っています。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0147", "text": "API のレスポンスが突然 500 エラーになります。開発環境では問題なく動くのですが、本番だけこれが起きます。原因調査をお願いできますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0148", "text": "見積もりを再送してほしいです。先月のものが社内決裁に必要なのですが、メールが届いていないようです。PDF で構いませんので、本日までにお願いします。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0149", "text": "請求書の宛名が間違っています。株式会社○○とあるべきが株式会社△△になっており、経理から差し戻されています。至急訂正版を発行してください。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0150", "text": "ウザイ。またログインできないとか言うんじゃないよ。毎回これじゃ仕事にならないだろ。ちゃんと対応しろや。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0151", "text": "データが消えました。昨日のバックアップから復元したはずなのに、今朝見たらファイルがゼロバイトになっています。復旧方法を教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0152", "text": "プラン変更を検討中です。現在のスタンダードからエンタープライズに上げたいのですが、移行時のデータ量制限やダウンタイムについて詳しく知りたいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0153", "text": "シングルサインオンの設定方法が分かりません。SAML のメタデータはどこから取得すればいいですか？ドキュメントを見てもよくわかりません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0154", "text": "先月の利用料金が請求されていません。請求書が来ないので不安です。支払い忘れではないかと心配しています。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0155", "text": "ログインできない", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0156", "text": "困っています。何かがおかしいような気がするのですが、具体的に何が悪いのか自分でもよくわかっていません。もしかしたら設定ミスかもしれませんし、あるいはシステム側の問題かも…。どうすればいいでしょうか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "other"}}
+{"id": "cal-0157", "text": "緊急対応を要求します。不正アクセスの兆候があり、監査ログに不明なIPからのアクセスが複数記録されています。パスワードリセットとアカウントロックを即座に実施してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0158", "text": "見積もりの有効期限が明日で切れます。今日中に正式な見積もり書が必要です。社内決裁の締切が迫っているため、何卒急ぎの対応をお願いします。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0159", "text": "データベースのバックアップが取れなくなり、重要な顧客情報が消失しました。至急対応をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0160", "text": "ログインできなくなり、業務が完全に停止しています。原因不明のエラーで復旧が必要です。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0161", "text": "不正アクセスの痕跡が見つかり、管理者権限が変更されている可能性があります。緊急で調査してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0162", "text": "決済システムが停止しており、本日の売上が全て止まっています。至急復旧をお願い致します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0163", "text": "個人情報が外部に漏洩した形跡があり、関係機関への報告が必要です。すぐに対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0164", "text": "請求書の金額が先月の利用料と一致しません。内訳を詳しく教えていただけますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0165", "text": "契約更新の手続きをしたいのですが、プラン変更のオプションが見つかりません。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0166", "text": "APIのエンドポイントが返すステータスコードが500になっています。設定を見直しても解決しません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0167", "text": "マニュアルを見てもSSOの設定方法がわかりません。手順をもう一度教えていただけますか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0168", "text": "見積もりを依頼したいのですが、エンタープライズプランの詳細を教えていただけますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0169", "text": "パートナー制度への参加を検討しています。要件と報酬構造を説明してください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0170", "text": "採用ページから応募したのですが、連絡がありません。選考状況を教えてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0171", "text": "今月の利用料が急に高くなっていて、心配です。何か問題があるのでしょうか。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0172", "text": "システムがまた遅いです。本当に使い物になりません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0173", "text": "契約更新と請求書の宛名変更、それとAPIのエラーについてすべて対応してほしいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0174", "text": "昨晩からログインできず、顧客データに全くアクセスできません。緊急で対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0175", "text": "管理者権限が突然削除され、システム設定が一切変更できない状態です。至急確認してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0176", "text": "決済エラーでサービスが停止しており、業務に支障が出ています。即時対応をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0177", "text": "不正アクセスの疑いがあり、アクセスログが異常です。今すぐ調査と対応をお願いできますか？", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0178", "text": "バックアップから復元してもデータが欠損しており、重要な取引記録が失われています。緊急で対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0179", "text": "請求書の宛名が間違っており、修正版を再発行していただけますでしょうか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0180", "text": "契約更新の手続き方法が分からないので、案内をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0181", "text": "API のエンドポイントが返すステータスコードが 500 になります。設定を見直しても解決しません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0182", "text": "二段階認証の設定方法がマニュアルに載っておらず、困っています。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0183", "text": "プラン変更を検討しているので、機能比較の見積もりをお願いできますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0184", "text": "導入を考えているのですが、デモ環境を一週間ほどお借りできますでしょうか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0185", "text": "取材の申し込みです。貴社のサービスについてインタビューさせていただけますか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0186", "text": "非常に対応が遅くて困っています。もう少し早く返信してほしいです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0187", "text": "請求とログインエラーが同時に起きており、どちらから対応すればよいか分かりません。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0188", "text": "すみません、何か不具合があるような気がするのですが、よく分かりません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "cal-0189", "text": "昨夜からログインできず、重要データへのアクセスが完全に遮断されています。至急対応をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0190", "text": "管理者アカウントが突然ロックされ、チーム全員が作業不能です。今すぐ解除してください！", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0191", "text": "サーバーに不正アクセスの痕跡があり、顧客情報が漏洩した可能性があります。緊急調査を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0192", "text": "決済が停止され、サービスが利用できません。契約違反ではないはずなので、今すぐ復旧を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0193", "text": "バックアップから復元したデータが全て壊れており、業務が完全に停止しています。緊急サポートが必要です。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0194", "text": "請求書の宛名を旧会社名から新会社名に変更したいのですが、手続き方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0195", "text": "APIのエラーコード 500 が頻繁に出て、データ同期ができません。設定方法をご案内ください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0196", "text": "現在のプランからエンタープライズプランへのアップグレードを検討しています。見積もりと機能比較をお願いします。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0197", "text": "来月のウェビナーに関して、登録方法と録画配信の有無を教えてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0198", "text": "請求額が前月と比べて突然2倍になっています。何か変更があったのか説明してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0199", "text": "設定画面で権限を変更しようとしても保存できません。ブラウザのキャッシュを削除しても直らないです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0200", "text": "契約更新の案内が届いていないのですが、自動更新になるのか確認したいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0201", "text": "機能Aと機能Bの連携について、マニュアルに記載がないのですが使えますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "cal-0202", "text": "サポートの対応が遅くて困っています。もう少し早く対応してほしいです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0203", "text": "昨晩からログインできず、重要なプロジェクトデータにアクセスできません。緊急対応をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0204", "text": "管理者権限が突然消えてしまい、チーム全員が作業停止状態です。今すぐ原因を調査してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0205", "text": "不正アクセスの痕跡があり、機密情報が漏洩した可能性があります。セキュリティチームと連携して対応してほしいです。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0206", "text": "データベースの自動バックアップが停止しており、昨日分のデータが失われています。復旧作業を急いでください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0207", "text": "システム全体がダウンしており、業務が完全に停止しています。今すぐ復旧作業を開始してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0208", "text": "先月の請求額が予定と2倍に跳ね上がっています。内訳を明確にして再請求書を発行してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0209", "text": "API連携時に認証エラーが頻発し、データ同期ができません。設定手順を教えていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0210", "text": "エンタープライズプランへのアップグレードを検討しています。見積もりと機能比較表を送っていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0211", "text": "契約更新の手続きがわかりません。自動更新になるのか、それとも手動で手続きが必要なのか教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0212", "text": "マニュアルを見てもわからないのですが、レポートのエクスポート方法を教えていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0213", "text": "請求書の宛名が旧会社名のままになっています。新しい会社名に修正して再送してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0214", "text": "導入後のトレーニングセッションの日程を調整したいです。可能な日時をいくつか提示していただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0215", "text": "具体的に何をすればいいのか全くわかりません。システムが使えなくて困っています。助けてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "cal-0216", "text": "解約したい", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0217", "text": "請求書と契約内容が一致しておらず、さらにデータエクスポートもできなくなっています。両方とも対応してほしいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0218", "text": "システムログイン時に『エラー 503』が表示され、業務が完全に停止しています。至急対応をお願いいたします。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0219", "text": "請求書の金額が契約内容と一致せず、二重請求されているようです。確認と修正を急いでください。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0220", "text": "データベースへのアクセスが全ユーザーで不可となり、重要な顧客情報が参照できません。緊急対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0221", "text": "不正ログインのアラートが連続で届いており、アカウントが乗っ取られる恐れがあります。今すぐ調査してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0222", "text": "サービスが突然停止し、業務データへのアクセスが全て失われました。原因の特定と復旧を至急お願い致します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0223", "text": "今月の請求書がまだ届いていません。発行状況と送付先をご確認いただけますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0224", "text": "マニュアルを見ても設定方法が分からず、API連携がうまくいきません。設定手順を教えていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0225", "text": "プランアップグレードを検討しています。見積もりと機能比較表を送っていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0226", "text": "契約更新の案内メールが届きましたが、内容を確認したくて問い合わせました。手続きの流れを教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0227", "text": "機能の使い方について質問があります。レポート出力のフィルタ設定が反映されないようです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0228", "text": "見積もり依頼ですが、締め切りが今日なので早めに送ってほしいです。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0229", "text": "すみません、ちょっと確認したいことがあります。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "cal-0230", "text": "請求書のPDFが開けません。エラーが出て印刷もできない状態です。対応方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0231", "text": "サービスの動作が遅く、画面の切り替えに時間がかかります。改善策があれば知りたいです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0232", "text": "導入を検討中の企業から紹介されました。パートナー制度の詳細について説明をお願いできますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0233", "text": "本日午前にシステム障害が発生し、全ユーザーのデータアクセスが遮断されています。復旧の見通しを至急ご連絡ください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0234", "text": "データベースへの不正アクセスの痕跡がログに記録されていました。機密情報漏洩の可能性があるため、緊急対応を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0235", "text": "サービスが突然停止し、業務が完全にストップしています。原因調査と即時復旧を強く求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0236", "text": "決済が止まって売上が入ってこない状態が続いています。至急対応しないと経営に影響が出ます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0237", "text": "個人情報が外部に漏れている可能性があり、顧客から指摘を受けています。調査と対応を急いでください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0238", "text": "先月の請求書の金額が契約と異なり、過剰請求されているように見えます。内訳をご説明いただけますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0239", "text": "契約更新の手続き方法がわからず、このまま放置すると自動解約になってしまうのではないかと不安です。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0240", "text": "管理画面で特定の操作を行うとエラー E502 が出て先に進めません。再現手順と解決策を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0241", "text": "API のドキュメントが古く、サンプルコードが実行しても動作しません。最新版に更新していただけますか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0242", "text": "来月からプランをアップグレードしたいと考えています。見積もりと機能比較表を送っていただけますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0243", "text": "現在利用中のプランでは機能が足りず、カスタマイズ開発の可能性について相談したいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0244", "text": "採用ページから応募しようとしたところ、フォームが送信できませんでした。求人情報の掲載を続けるべきか判断に迷っています。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0245", "text": "取材依頼ですが、担当者が誰か分からず連絡が取れません。広報窓口を教えていただけますでしょうか。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "cal-0246", "text": "ヘルプ", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0247", "text": "請求書の宛名を変更したいのですが、どこから手続きすればいいのか分かりません。それと、利用料金の内訳も合わせて知りたいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0248", "text": "2026-10-04 09:15 にログイン試行が複数回失敗し、アカウントがロックされました。緊急にロック解除を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0249", "text": "サーバーからのデータ同期が突然停止し、昨日の営業データが全件消失しているようです。即時復旧を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0250", "text": "不正アクセスの警告が表示され、管理者権限が変更されました。被害拡大防止のため今すぐ対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0251", "text": "決済ゲートウェイがエラーを返し続けており、本日の売上がすべてブロックされています。緊急に対応願います。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0252", "text": "個人情報を含む顧客リストが外部に漏洩した可能性があります。調査と対応を急いでください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0253", "text": "請求書の宛名が旧会社名のままで更新されていません。翌月までに修正をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0254", "text": "年間プランへの変更を検討中です。見積もりと導入スケジュールを教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0255", "text": "API の認証トークンの有効期限が不明で、実装に詰まっています。ドキュメントを共有いただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0256", "text": "マニュアルを見てもダッシュボードのフィルタ設定がうまくいかず、困っています。手順を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0257", "text": "すみません、ちょっとだけ質問です。この機能って無料プランでも使えますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0258", "text": "先月の利用料金が予想より高く、内訳を詳しく知りたいです。請求書のPDFを再送してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0259", "text": "サブスクリプションの自動更新を停止したいのですが、解約手続きが見つかりません。案内をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0260", "text": "取材申し込みです。貴社のサービスについてインタビューさせていただけませんか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0261", "text": "何か変ですが、よくわかりません。画面が真っ黒になることがあります。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "cal-0262", "text": "よろしくお願いします。導入を前向きに検討しています。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0263", "text": "本日深夜0時からシステムが完全に停止し、顧客データへのアクセスが不可になっています。緊急対応をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0264", "text": "弊社サーバーに不正アクセスの痕跡が見つかりました。機密ファイルがダウンロードされた可能性があり、至急調査と対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0265", "text": "契約更新の請求書が未着で、支払い期限が明日です。請求書の再発行と延長の可否を教えてください。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0266", "text": "今朝からログインできず、エラーコード500が表示されます。業務に支障が出ているため、至急復旧対応をお願いします。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0267", "text": "決済が繰り返し失敗し、サービスが停止しています。支払い方法を変更したいので、今すぐ対応をお願いします。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0268", "text": "請求書の金額が前回と異なります。詳細な内訳を教えていただけますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0269", "text": "APIのドキュメントが見つかりません。認証方法とエンドポイントの一覧を送っていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0270", "text": "見積もりを依頼したいのですが、エンタープライズプランのオプション価格を教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0271", "text": "契約解除を考えているのですが、違約金とデータ移行の手順を教えていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0272", "text": "マニュアルがわかりにくいです。初期設定の手順をもう少し丁寧に説明してほしいです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0273", "text": "請求書の宛名を変更したいのですが、手続き方法がわかりません。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0274", "text": "この無能なサポートはいつまでたっても返事がない！もううんざりだ！！", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0275", "text": "またログインできないなんて、ほんとに最悪。今度こそちゃんと対応してくれよ。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0276", "text": "請求書の件と、それと同時にAPIの不具合も起きているようですが、両方とも対応可能でしょうか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0277", "text": "システム", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "cal-0278", "text": "今朝からログインできなくなり、重要なデータにアクセスできません。緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0279", "text": "管理者権限が突然奪われ、チーム全員が作業停止状態です。至急復旧を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0280", "text": "バックアップから復元できない状態が続いています。データ損失のリスクがあります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0281", "text": "不正アクセスの痕跡を検知しました。セキュリティインシデントとして対応を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0282", "text": "決済が停止し、サービスが利用不能となっています。至急解決をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0283", "text": "先月の請求書の金額が契約と合わなくて困っています。確認をお願いできますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0284", "text": "契約更新の手続き方法がわかりません。マニュアルを共有していただけますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0285", "text": "APIのエラーコード 500 が頻繁に出て、連携が止まっています。原因を調査してください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0286", "text": "設定画面でSSOの保存ができません。ブラウザを変えても同様です。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0287", "text": "プラン変更を検討しており、機能比較の資料を送っていただけますか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0288", "text": "見積もりの依頼ですが、今週中に答えが必要です。対応可能でしょうか。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "cal-0289", "text": "まったく役に立たないサポートだ。いつまで待たせる気だ。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0290", "text": "請求関係か技術的な問題か、よくわからなくて困っています。どちらに問い合わせればいいですか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "cal-0291", "text": "導入前に複数の機能について相談したいです。見積もりと設定方法を教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0292", "text": "請求書の宛名が間違っており、経理部門で対応に困っています。修正をお願いできますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0293", "text": "請求金額が契約と異なり、業務に支障が出ています。至急確認と修正をお願いします。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0294", "text": "データベースへの不正アクセスの可能性があり、ログインできません。緊急に対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0295", "text": "システムエラーが頻繁に発生し、業務が完全に止まっています。今すぐ復旧させてください。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "cal-0296", "text": "こんな対応ならもう使いたくない！サポートの遅さに苛立ちを通り越しています。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0297", "text": "請求書が届かず支払いが遅れ、信用に傷がつきました。この杜撰な対応に怒りを感じます。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "cal-0298", "text": "プランのアップグレードと請求書のPDF送付、それとAPIの利用制限についても教えてほしいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "cal-0299", "text": "見積もり", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "cal-0300", "text": "契約に関する何かが気になるのですが、よくわかりません。どちらにお問い合わせすればいいでしょうか。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true}

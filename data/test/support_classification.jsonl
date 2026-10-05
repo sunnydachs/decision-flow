@@ -1,0 +1,500 @@
+{"id": "tst-0001", "text": "本日午前、管理者アカウントから不正ログインがあり、機密データへのアクセスが確認できました。至急アカウントのロックと調査をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0002", "text": "システム管理者です。夜間バッチでDB接続エラーが発生し、顧客データの更新が止まっています。原因の特定と復旧作業を緊急で依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0003", "text": "不正アクセスにより顧客リストが外部に流出した可能性があります。被害範囲の調査と再発防止策を至急教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0004", "text": "サーバーにランサムウェアが検出され、業務システムが完全に停止しています。復旧手順とサポートを緊急でお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0005", "text": "決済ゲートウェイが突然利用不可になり、売上が全て止まっています。至急復旧と代替案の提示を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0006", "text": "先月の請求書の金額が契約と一致しておらず、過剰請求されているように見えます。詳細な内訳書を送っていただけますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0007", "text": "APIのレスポンスが時々500エラーを返します。特に夜間帯に頻発するようです。ログの確認方法と対処法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0008", "text": "御社のエンタープライズプランについて、導入を検討中です。見積もりと機能詳細の資料を送っていただけますでしょうか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0009", "text": "マニュアルを見てもSSOの設定手順が分からず、つまずいています。ステップバイステップのガイドを共有していただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0010", "text": "契約更新の時期が近づいてきました。プラン変更と見積もりについて、担当者とお話ししたいのですが、可能でしょうか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0011", "text": "すみません、使い方がよくわからなくて困っています。ダッシュボードでのレポート出力方法を、初心者にもわかるように教えていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0012", "text": "何度も同じ質問をしているのに、全然解決しない！サポートの対応が遅すぎて本当に困っているんです！", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0013", "text": "請求書の宛名がずっと間違ってるんだけど、毎回言ってるのに直らないんだよね。これで経理が怒ってるんだよ。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0014", "text": "help", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0015", "text": "なんか調子が悪いような気もするし、もしかしたら設定ミスかも？様子見したほうがいいですかね？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true}
+{"id": "tst-0016", "text": "データベースへの不正アクセスが検出されました。顧客情報の漏洩が懸念されます。至急対応をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0017", "text": "システムが突然ダウンし、業務が全て停止しています。復旧までの見通しを教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0018", "text": "不正ログインにより管理者権限が変更されました。緊急でアカウントをロックしてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0019", "text": "バックアップからの復元に失敗し、重要な顧客データが消失しました。即時の対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0020", "text": "決済ゲートウェイが停止しており、売上が入金されません。至急復旧させてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0021", "text": "先月の請求書の金額が契約と異なります。内訳をご説明いただけますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0022", "text": "解約手続きをしたはずなのに、今月も請求が来ています。なぜでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0023", "text": "API の認証エラーが頻発します。トークンの有効期限が短すぎるのでしょうか。設定方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0024", "text": "管理画面のレイアウトが崩れており、ボタンが押せません。ブラウザは Chrome 最新版です。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0025", "text": "エンタープライズプランへのアップグレードを検討しています。見積もりと機能比較表を送っていただけますか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0026", "text": "来月の利用者数が予想を超えて増えそうです。プラン変更の手続きを早めたいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0027", "text": "採用情報について質問があります。エンジニア職の募集はまだ行っていますか。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0028", "text": "メールマガジンの配信停止をお願いします。もう届かないように設定してください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0029", "text": "請求と設定の両方について相談があります。まずは請求書の再発行と、二段階認証の設定方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0030", "text": "ちょっと様子がおかしいような…もしかしたら設定か請求関係かもしれません。確認してもらえますか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "other"}}
+{"id": "tst-0031", "text": "緊急です。今朝からシステムにログインできず、重要な顧客データが参照できなくなっています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0032", "text": "先月の請求書に見覚えのない費用が含まれています。明細を確認したいので、至急メールで送付してください。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0033", "text": "本日午前中に発生した不正アクセスの可能性があります。管理者アカウントが勝手にパスワード変更されています。至急調査と対応を願います。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0034", "text": "契約更新の案内メールが届かず、自動解約されるのではないかと不安です。今日中に確認できる方法を教えてください。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0035", "text": "データベースから顧客リストが消失しているようです。バックアップからの復旧を緊急で対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0036", "text": "請求先の会社名を変更したいのですが、手続き方法がわかりません。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0037", "text": "マニュアルを見てもAPI認証でエラーが出ます。トークンの有効期限はどのように確認すればよいですか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0038", "text": "見積もりを依頼したいのですが、エンタープライズプランの詳細資料をPDFで送っていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0039", "text": "ユーザー招待メールが届かず、チームメンバーを追加できません。設定方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0040", "text": "サブスクリプションの解約を検討しています。違約金はいつから発生しますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0041", "text": "導入前にデモ環境で実際の操作感を確認したいです。営業担当と調整可能な日時を教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0042", "text": "請求書のPDFが文字化けして読めません。別形式で再送付をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0043", "text": "最近のアップデート後、レポート機能がうまく動作しません。もしかして仕様が変わったのでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0044", "text": "こんにちは、お世話になっております。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0045", "text": "昨日からログインできず、重要データにアクセスできない状態が続いています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0046", "text": "システムに不正アクセスされた形跡があり、ログを確認したところ機密ファイルがダウンロードされていました。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0047", "text": "決済が止まって以来、サービスが完全に停止しています。業務に支障が出ているため即時復旧を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0048", "text": "顧客データベースから個人情報が流出した可能性があり、調査と対応を至急お願いしたいです。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0049", "text": "サーバー障害によりバックアップからの復旧が不可能な状態です。緊急で技術支援をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0050", "text": "請求書の宛名が間違っており、経理が修正対応に追われています。至急差し替えをお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0051", "text": "契約更新の案内が届かず、自動解約されるのではないかと不安です。手続き方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0052", "text": "API の認証エラーが頻発しており、開発が止まっています。設定方法のマニュアルを共有していただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0053", "text": "見積もり依頼の返答が遅れており、導入スケジュールに影響が出ています。今週中にお願いします。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0054", "text": "使い方が分からず、マニュアルを読んでも解決しません。初心者向けの説明をお願いします。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0055", "text": "請求金額が予想と大きくずれており、納得いきません。説明がないまま勝手に変更されたのは許せません。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0056", "text": "サポートの対応が遅く、こちらの指示を無視しているように感じます。これが普通の対応なんですか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0057", "text": "プラン変更と請求書の宛名修正、両方を同時に対応してほしいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0058", "text": "困っています", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0059", "text": "導入を検討しているのですが、セキュリティ対策とサポート体制について詳しく知りたいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0060", "text": "サービスが完全に停止しており、業務が全て止まっています。今すぐ復旧対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0061", "text": "不正ログインのアラートが届いています。アカウントが乗っ取られた可能性があり、緊急で対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0062", "text": "データベースから重要なファイルが突然消えています。バックアップからの復旧を今すぐ依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0063", "text": "決済が停止されており、サブスクリプションが解約状態になっています。すぐに復旧しないと契約違反になります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0064", "text": "管理者権限が不正に書き換えられており、システムへのアクセスが全てブロックされています。緊急で調査と復旧をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0065", "text": "先月の請求書に見覚えのない費用が含まれています。内訳を教えていただけますでしょうか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0066", "text": "契約更新の手続きがわかりません。来月末までに更新したいのですが、方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0067", "text": "ログイン後の画面が真っ白になって操作できません。ブラウザを変えても同じ状態です。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0068", "text": "APIの認証エラーが頻繁に発生しています。トークンの有効期限設定について教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0069", "text": "プラン変更を検討しています。現在の利用状況に合ったおすすめのプランを教えていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0070", "text": "導入を考えているのですが、他社との連携が可能かどうか確認したいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0071", "text": "請求書のPDFが届きません。メールアドレスは間違えていないと思うのですが、再送をお願いできますでしょうか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0072", "text": "サポートの返信が遅すぎます。昨日質問したのに未だに回答がなく、業務に支障をきたしそうです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0073", "text": "請求と設定の両方について質問があります。まず請求書の内訳を確認したいのと、同時に二段階認証の設定方法も教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0074", "text": "助けて", "label": "other", "severity": "high", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "tst-0075", "text": "本日10時からシステムにログインできず、重要データへのアクセスが完全に遮断されています。緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0076", "text": "決済がエラーになってサービスが停止しています。顧客からの入金が確認できず、業務に重大な支障が出ています。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0077", "text": "不正アクセスの兆候があり、管理者アカウントから機密データがダウンロードされた形跡があります。調査と遮断を急ぎます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0078", "text": "個人情報が外部に漏れた可能性があり、関係官庁への報告期限が迫っています。原因究明と対策を至急お願いできますか。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0079", "text": "バックアップからの復旧が失敗し、過去30日の営業データが全失しました。復旧作業の指示をすぐにください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0080", "text": "今月の請求書がまだ届いておらず、経理の締め日が明日です。PDFでの再送をお願いできますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0081", "text": "契約更新の案内が見当たらず、自動更新されるかどうか確認したく、手続きの案内をいただけますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0082", "text": "APIの認証エラーが頻発し、連携しているサービスからアラートが飛んでいます。トークンの有効期間設定を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0083", "text": "マニュアルを見ても設定項目が見つからず、SSOのSAMLメタデータのアップロード方法がわかりません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0084", "text": "来月からエンタープライズプランへの移行を検討しており、移行作業のスケジュールとサポート範囲を知りたいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0085", "text": "導入を決めかねているので、似た業種の利用事例と、トライアル期間の延長可能性について教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0086", "text": "PDFが開かない", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0087", "text": "なんか変なんだけど、これってバグ？それとも使い方が悪いだけ？よくわからなくて困ってます。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "tst-0088", "text": "本当に最低だね。毎回同じことの繰り返しで、時間を返してほしいほどだ。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0089", "text": "システムにログインできなくなり、業務が完全に停止しています。至急復旧をお願いします。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "tst-0090", "text": "重要な顧客データが昨日午後3時頃から消失しており、バックアップからの復旧が必要です。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "tst-0091", "text": "不正アクセスの痕跡を確認し、アカウントが乗っ取られた可能性があります。即時対応をお願い申し上げます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0092", "text": "決済が止まってサービスが利用できず、本日の納期に影響が出ています。至急対応をお願いいたします。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "tst-0093", "text": "個人情報が漏洩している可能性があり、調査と報告を至急お願いしたく存じます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "tst-0094", "text": "請求書の宛名が間違っており、修正をお願いしたいのですが、対応可能でしょうか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0095", "text": "APIのドキュメントが見つからず、開発が進められません。ご案内いただけますでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0096", "text": "見積もりの依頼をしたいのですが、エンタープライズプランの詳細を教えていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0097", "text": "契約更新の手続きについて、必要な書類と期限を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0098", "text": "設定方法がわからず、初期設定からつまずいています。サポートをお願いできますでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0099", "text": "まったく使い物にならない！また落ちやがって、本当に最悪だ！", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0100", "text": "請求金額がおかしい！二重請求されているし、対応が遅すぎる！", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0101", "text": "見積もりと請求書の件で、プラン変更も考えているのですが、総合的に相談したいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0102", "text": "ヘルプ", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "tst-0103", "text": "本日午前3時頃からログインできず、業務が全面的に停止しています。原因と復旧見込みを至急教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0104", "text": "管理者権限が突然奪われ、機密データへのアクセスログが異常です。不正アクセスの可能性があります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0105", "text": "昨晩のバックアップ復元で顧客データが一部欠損しており、緊急対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0106", "text": "クレジットカード決済が全件失敗し、サブスクリプションが停止中です。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "billing"}}
+{"id": "tst-0107", "text": "二段階認証が突破され、管理者アカウントが乗っ取られた形跡があります。緊急に対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "tst-0108", "text": "請求書の宛名が間違っており、経理部から差し戻されました。至急修正版を発行してください。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0109", "text": "APIのレスポンスが500エラーを返し続けており、連携サービスが動きません。原因を調査してください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0110", "text": "プランアップグレードの見積もりと導入スケジュールを知りたいです。担当者から連絡をお願いします。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0111", "text": "契約更新の手続きがわかりません。ポータルでどこをクリックすればいいか教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "tst-0112", "text": "マニュアルを見ても設定方法が分からず困っています。初歩的な質問で申し訳ありません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0113", "text": "セミナーの案内メールが届きました。参加可能か確認したいです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0114", "text": "請求額が予想より高い気がします。内訳を確認したいのですが、どこを見ればいいですか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0115", "text": "データエクスポートの形式が変わったように見えます。仕様変更がありましたか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0116", "text": "パートナー制度について詳しく知りたいです。資料を送っていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0117", "text": "システムログイン時にエラー500が発生し、業務が完全に停止しています。緊急対応をお願いします。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0118", "text": "今月の請求額が通常の3倍になっており、理由が全く説明されていません。至急修正と返金対応を要求します。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0119", "text": "データベースへの不正アクセスの痕跡が見つかりました。お客様情報の漏洩が懸念されますので、即時調査をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0120", "text": "サブスクリプションの自動更新が止まっており、サービスが利用できなくなっています。契約状況を確認し、復旧対応をお願いします。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0121", "text": "管理者パスワードが突然変更され、ログインできなくなりました。不正アクセスの可能性がありますので、緊急で対応をお願い致します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0122", "text": "請求書の宛名が間違っており、経理部門で処理が進められません。正しい情報に訂正したうえで再発行をお願いできますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0123", "text": "APIの認証トークンが有効期限切れとなり、連携サービスが動作していません。トークンの再発行方法について教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0124", "text": "現在のプランからエンタープライズプランへのアップグレードを検討しています。見積もりと機能比較表を送っていただけますか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0125", "text": "契約更新の手続き方法が分からず、自動更新になるか不安です。解約のタイミングと手順について詳しく説明してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0126", "text": "マニュアルを見ても設定がうまくいかず、具体的な手順が知りたいです。サポート担当者と直接話せる時間帯はいつですか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0127", "text": "請求と設定の両方について質問があります。まず請求書の内訳を確認したいのと、同時にAPIの接続設定についてもアドバイスが欲しいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0128", "text": "何か変ですが、大丈夫でしょうか。特に問題はないと思いますが、念のため状況を確認したくて連絡しました。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0129", "text": "導入を検討中の企業から紹介されました。パートナー制度の詳細と、紹介特典について教えていただけますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0130", "text": "本日午前からログインができず、重要なデータにアクセスできません。緊急対応をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0131", "text": "管理者権限が突然剥奪され、チーム全員が作業停止状態です。今すぐ復旧してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0132", "text": "不正ログインの可能性があり、アカウントがロックされました。被害拡大を防ぐため即時対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0133", "text": "データベースが破損しており、バックアップからの復旧が必要です。業務に影響が出ています。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0134", "text": "APIキーが漏洩したようです。不正アクセスの恐れがあるため、すぐに無効化と再発行をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0135", "text": "請求書の金額が契約と合っていません。今月末までに修正版を送付してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0136", "text": "契約更新の手続きがわかりません。マニュアルを教えていただけますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0137", "text": "画面が真っ白になって操作できません。ブラウザを変えても同じです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0138", "text": "エクスポート機能がエラーを吐いて失敗します。再現手順は添付のスクリーンショットを参照してください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0139", "text": "プラン変更を検討しています。見積もりと機能比較表を送っていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0140", "text": "導入を考えているのですが、トライアル期間の延長は可能でしょうか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0141", "text": "こんなに使いにくいシステムは初めてです。本当にこれでいいんですか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0142", "text": "採用についてお聞きしたいのですが、担当者をつなげていただけますか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0143", "text": "請求とログインエラーが同時に起きています。どちらから対応すればいいですか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0144", "text": "調子悪い", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "tst-0145", "text": "ログイン時に「アカウントがロックされました」と表示され、重要なデータへアクセスできなくなりました。至急対応をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0146", "text": "何度もパスワードリセットを試みてもメールが届かず、担当者からの連絡もありません。対応の遅れに業務が停止しています。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0147", "text": "契約更新の請求書が届いていないのですが、支払い期限が明日となっています。至急発行をお願いしたいです。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0148", "text": "データエクスポート時に『エラー 500: Internal Server Error』が発生し、レポートが取得できません。復旧作業をお願いします。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0149", "text": "不審なログイン試行が複数検出され、アクセスログを見ると不明なIPからのアクセスがありました。不正アクセスの可能性があります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0150", "text": "請求金額が契約と異なり、オプション費用が二重で計上されているようです。修正請求書の発行をお願いいたします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0151", "text": "APIのレスポンスが遅く、タイムアウトエラーが頻繁に出ます。設定見直しのガイドをお願いします。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0152", "text": "プラン変更を検討しており、エンタープライズプランの機能比較と見積もりを希望します。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0153", "text": "サポート窓口の対応が遅く、前回の問い合わせから返答がないままです。こちらの都合は考えないのかと不快です。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0154", "text": "マニュアルを見ても分からないのですが、SSO設定時にエラーが発生します。どこを見ればいいですか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0155", "text": "請求書の宛名を変更したいのですが、手続き方法がわかりません。また、利用料金の内訳も合わせて知りたいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0156", "text": "hjälp", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "tst-0157", "text": "契約の自動更新を停止したいのですが、手続きページが見つかりません。どこから行えばいいですか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0158", "text": "導入を検討しているのですが、トライアル期間の延長は可能でしょうか？また、導入支援オプションについても教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0159", "text": "サービス利用中に画面が真っ白になり、操作が一切できなくなりました。ブラウザを変えても同じ状態です。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0160", "text": "システムに突然ログインできなくなり、重要な顧客データにアクセス不可となっています。即時対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0161", "text": "管理者アカウントが不正に作成されており、社内ファイルが外部に流出した可能性があります。今すぐ調査してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0162", "text": "サービスが完全に停止しており、業務が全く進まない状態です。復旧までの見通しを教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0163", "text": "決済が突然エラーになり、給与振込ができなくなりました。このままだと従業員への支払いが遅れます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0164", "text": "バックアップからの復元が失敗し、過去1週間のデータがすべて消失しています。緊急で対応をお願いできますか？", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0165", "text": "先月の請求書の金額が契約と合わず、オプション料金が二重で計上されているように見えます。確認をお願いできますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0166", "text": "請求書の宛名を旧部署名から新部署名に変更したいのですが、手続き方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0167", "text": "API連携で特定のエンドポイントから500エラーが返され、データ取得ができません。ログも確認しましたが原因がわかりません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0168", "text": "設定画面でSSOの保存ボタンを押しても変更が反映されません。キャッシュをクリアしても同じ状態です。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0169", "text": "現在のプランからエンタープライズプランへのアップグレードを検討しており、機能比較と見積もりをいただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0170", "text": "来月からユーザー数を増やしたいのですが、追加ライセンスの割引適用について相談したいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0171", "text": "導入後のトレーニング資料がほしいです。特に管理者向けの詳細マニュアルをPDFで送っていただけますか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0172", "text": "うわっ、またログインできないって…マジで意味わかんないんだけど。毎回これで時間奪われてイライラするわ。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0173", "text": "請求金額に納得いかない。これで3回目だけど、さっさと直してくれないと本当に解約も考える。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0174", "text": "設定がうまくいかなくて、それと請求書の件も気になっているんですけど、どちらから対応すればいいですか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0175", "text": "すみません、お急ぎのところ恐縮ですが、本日中にデータエクスポートの設定を完了させなければならず、手順がわからず困っております。ご教示いただけますと幸いです。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0176", "text": "なんだか様子がおかしいような…気のせいかもしれませんが、念のため確認していただけますでしょうか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "tst-0177", "text": "ログインできなくなり業務が止まっています。至急対応をお願いします。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "tst-0178", "text": "重要な顧客データが削除されて復元できません。緊急で対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "tst-0179", "text": "不正アクセスの痕跡があり、アカウントがロックされてしまいました。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "tst-0180", "text": "決済が停止されサービスが利用できません。至急復旧をお願い申し上げます。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "tst-0181", "text": "個人情報が外部に漏れた可能性があります。調査と対応を至急お願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "tst-0182", "text": "請求書の宛名を株式会社○○から△△に変更したいのですが、手続きを教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0183", "text": "また請求額が間違っている！前回も同じミスで時間を無駄にしている。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0184", "text": "設定方法が分からず、API連携がうまくいきません。初歩的な質問で申し訳ありません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "tst-0185", "text": "プラン変更と追加オプションの見積もりを同時にお願いできますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0186", "text": "ちょっと様子を見たいんですが、今月の利用状況と来月の見込みってどのように確認すればいいですかね？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0187", "text": "マニュアルを見てもロール設定の項目が見当たらないです。どこを確認すればいいでしょうか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "tst-0188", "text": "契約更新の時期が近づいてきました。自動更新の設定を確認したいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "billing"}}
+{"id": "tst-0189", "text": "導入を検討しているのですが、セキュリティ認証はどのような規格に対応していますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "sales"}}
+{"id": "tst-0190", "text": "本日午前10時よりシステムにログインできず、重要な顧客データへのアクセスが完全に遮断されています。緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0191", "text": "管理者権限が突然剥奪され、チーム全員が作業停止状態です。復旧までの見込みと原因を至急教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0192", "text": "不正ログインのアラートが複数発生しており、機密情報の流出が懸念されます。即時の調査とアカウント凍結を要求します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0193", "text": "バックアップからの復元作業中にエラーが発生し、過去30日間の取引データが消失しました。データ復旧の可否を至急確認したいです。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0194", "text": "決済ゲートウェイが応答を停止し、新規受注が全件エラーになっています。売上が止まっているため緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0195", "text": "先月の請求書に二重計上があり、過剰請求されているようです。返金手続きの方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0196", "text": "契約更新の案内が届いていないのですが、自動更新になるのか確認したくて連絡しました。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0197", "text": "API連携時にタイムアウトエラーが頻発し、データ同期が失敗します。設定方法を見直したいのですが、サポート可能でしょうか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0198", "text": "ダッシュボードのカスタムレポートが正しく集計されず、数値がずれています。フィルタ設定を見直す必要があるのか教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0199", "text": "エンタープライズプランへのアップグレードを検討しており、見積もりと機能比較表を送っていただけますか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0200", "text": "導入から3ヶ月が経ち、利用者数が増えたためプラン変更を考えているのですが、手続きの流れを教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0201", "text": "採用ページから応募したのですが、いつ頃結果がわかりますか？選考状況を知りたくて連絡しました。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0202", "text": "あんたたちのシステムは最悪だ！またログインできなくて仕事が止まってるんだけど、どう責任取るつもりなの？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0203", "text": "請求書の宛名が何度修正しても間違ってる。ほんとにいい加減にしてほしい。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0204", "text": "請求書の宛名が間違っているため、至急修正をお願いします。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0205", "text": "システムにログインできず、業務が停止しています。至急対応してください。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0206", "text": "不正アクセスの可能性があり、アカウントがロックされました。緊急で対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0207", "text": "データが消失しており、バックアップからの復旧を至急依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0208", "text": "決済が停止しており、サービスが利用できません。至急対応をお願いいたします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0209", "text": "毎月の請求額が契約内容と合わず、納得いかないです。確認をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0210", "text": "サポートの対応が遅く、全然解決しない。これが普通の対応なんですか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0211", "text": "プラン変更と請求書の再発行、そしてAPIの利用方法についても合わせて教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0212", "text": "？？？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "tst-0213", "text": "請求書のPDFがダウンロードできません。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0214", "text": "新しいプランの見積もりをお願いしたいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0215", "text": "ログイン後の画面が真っ白になって操作できません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0216", "text": "契約更新の案内メールが届きません。再送をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0217", "text": "営業時間外でもチャットで問い合わせできますか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0218", "text": "マニュアルの該当ページが見つからず、設定方法がわかりません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0219", "text": "本日 14:00 からシステムにログインできず、重要なデータにアクセスできません。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0220", "text": "ログイン画面で『アカウントがロックされました』と表示され、サポート窓口にも繋がらない状態です。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0221", "text": "管理者権限が突然消え、チーム全員が操作不能になっています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0222", "text": "サーバーから大量の不審なアクセスログが出ており、情報漏洩の可能性があります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0223", "text": "決済が停止され、サービスが完全に利用不可となっています。今すぐ復旧してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0224", "text": "請求書のPDFが文字化けしており、経理部門で処理ができません。再発行をお願いいたします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0225", "text": "来月のプラン変更を検討しています。見積もりと機能比較表を送っていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0226", "text": "API連携設定中に403エラーが出続けます。認証トークンの有効期限は確認済みです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0227", "text": "契約更新の案内メールが届いていません。自動更新の設定を確認したいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0228", "text": "導入から1か月ですが、操作マニュアルが見つからず困っています。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0229", "text": "うっかりクリックしてしまいましたが、これはフィッシングメールでしょうか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0230", "text": "これは一体何を意味する通知なのでしょうか？全く理解できません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0231", "text": "何度同じことを言わせるんですか！まったく対応が遅いですね。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0232", "text": "またエラーかよ。ほっといても直らないならここで解約します。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0233", "text": "OK", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0234", "text": "システムにログインできず、重要な顧客データへのアクセスが完全に遮断されています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0235", "text": "今朝から管理者アカウントがロックされており、復旧方法がわからず業務が止まっています。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0236", "text": "APIキーが不正に流出した可能性があり、外部からのアクセス痕跡があります。緊急で調査を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0237", "text": "決済が止まっており、サブスクリプションが自動解約されそうです。至急請求処理を再開してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "billing"}}
+{"id": "tst-0238", "text": "データベースへの書き込みが完全に失敗しており、バックアップからの復旧が必要な状況です。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "tst-0239", "text": "請求書の金額が先月と比べて倍になっていて、納得できません。説明と修正を求めます。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0240", "text": "契約更新の手続きがわかりにくく、オンラインでの手続き方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0241", "text": "管理画面で特定のレポートがエラーになってダウンロードできません。原因と対処法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0242", "text": "現在のプランからエンタープライズプランへのアップグレードを検討しています。詳細な見積もりをお願いします。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0243", "text": "先月の利用状況について、何か変わった点がありましたか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0244", "text": "サポートの対応が遅くて困っています。もう少し早く対応してほしいです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0245", "text": "新しい機能のトレーニングセッションはありますか？可能であれば日程を教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0246", "text": "契約書の更新日について確認したいのですが、どこを見ればわかりますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0247", "text": "APIのドキュメントに記載されている認証方法がうまく機能しません。サンプルコードを提供していただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0248", "text": "今朝からログインできず、重要なデータにアクセスできません。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0249", "text": "システムが突然落ちて操作不能です。緊急で復旧させてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0250", "text": "データが勝手に削除されていました。バックアップからの復元を今すぐ行ってください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0251", "text": "不正アクセスの痕跡があります。アカウントを即時ロックして調査してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0252", "text": "決済が止まってサービスが利用できません。至急対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0253", "text": "請求書の金額が先月と違います。内訳を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0254", "text": "マニュアルを見ても設定がうまくいかず、エラーが出続けます。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0255", "text": "プラン変更を検討しています。機能比較の資料を送っていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0256", "text": "採用ページから応募したいのですが、リンクが切れています。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0257", "text": "すみません、今月の請求額がよく分からなくて困っています。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0258", "text": "導入を考えてるんだけど、実は他社と比較中で決めかねてるんだよね…。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0259", "text": "請求書の件と、それと関係なくログイン時にエラーが出る件、両方確認したいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0260", "text": "あのさあ、サポートの対応が遅すぎて本当うんざりだわ。さっさと対応しろよ。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0261", "text": "契約更新の手続きがどこからできるのかさっぱりわかりません。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0262", "text": "サービスが突如停止し、顧客データへのアクセスが完全に失われました。緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0263", "text": "データベースから機密情報が漏洩している可能性があります。調査と封じ込めを至急依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0264", "text": "不正ログインが複数検出され、管理者権限が変更されています。アカウントの凍結と調査をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0265", "text": "決済システムが止まっており、売上が全て止まっています。至急復旧しないと会社が危機です。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0266", "text": "バックアップから復旧できず、重要なプロジェクトデータが全て消失しています。緊急サポートを要請します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0267", "text": "先月の請求書に二重計上があり、過剰請求されているようです。確認と修正をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0268", "text": "契約更新の手続きが分からず、自動更新されるか確認したいです。案内をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0269", "text": "管理画面で設定を変更したらエラーが出てログインできなくなりました。対処法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0270", "text": "APIのドキュメントが古く、認証フローがうまくいきません。最新のサンプルコードを提供していただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0271", "text": "プランアップグレードの見積もりを希望します。現在の利用状況ベースで概算を出していただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0272", "text": "導入を検討しているのですが、セキュリティ要件について詳しく知りたいです。資料を送ってください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0273", "text": "採用ページから応募したのですが、返信がありません。選考状況を教えてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0274", "text": "プレスリリースの取材依頼です 。貴社の新機能についてインタビューさせていただけませんか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0275", "text": "短いですが、復旧見通しを教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0276", "text": "システムの挙動がどうもおかしいというか、もしかしたら設定の問題かもしれませんが、よくわかりません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0277", "text": "本日午前中からログインできず、重要な顧客データにアクセスできません。緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0278", "text": "システム障害により決済がすべて失敗しています。今すぐ原因を調査し、復旧させてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0279", "text": "不正アクセスの痕跡があり、機密情報が漏洩している可能性があります。緊急で対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0280", "text": "データが突然消失し、バックアップから復元する方法がわかりません。緊急でサポートをお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0281", "text": "サービスが完全に停止しており、業務がストップしています。至急対応をお願い致します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0282", "text": "請求書の金額が前回と異なります。内訳を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0283", "text": "契約更新の手続き方法がわかりません。マニュアルを送っていただけますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0284", "text": "エラー画面が表示されて操作できません。再起動しても改善しません。対応方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0285", "text": "見積もりを希望します。現在のプランから機能を追加した場合の費用を知りたいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0286", "text": "導入を検討しています。デモをお願いできますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0287", "text": "請求が止まってしまい、業務が止まっています。今すぐ対応してください！！", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0288", "text": "ふざけんな！またログインできなくなった！すぐに直せや！", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0289", "text": "困っています。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0290", "text": "ちょっと様子がおかしいような気もするけど、まあ様子見でいいですかね？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "tst-0291", "text": "緊急です：本日02:15から管理者アカウントがロックされ、全ユーザーがログインできません。原因と復旧方法をすぐ教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0292", "text": "10月4日09:30ごろ、API エンドポイント /v2/data が 500 エラーを返し続けています。稼働中のバッチジョブが止まっています。対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0293", "text": "管理画面から二段階認証が解除できず、しかもバックアップコードも使えません。アカウントが完全に凍結されています。今すぐ対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0294", "text": "昨晩のシステムアップデート後、DB 接続プールが枯渇し、全サービスがタイムアウトしています。緊急障害とみなし、原因調査と復旧を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0295", "text": "不正ログインのアラートが連続で飛んでおり、管理者権限の変更が行われている可能性があります。今すぐアカウントをロックして調査してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0296", "text": "10月分の請求書がまだ届いておらず、経理の締め日に間に合わないかもしれません。請求書の再発行をお願いできますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0297", "text": "解約手続きを行ったつもりですが、10月5日分の利用料が自動引き落としされていました。返金対応をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0298", "text": "API のレートリミットが 100 リクエスト/分に設定されているようですが、これを 500 に上げたいです。プラン変更の手順を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0299", "text": "管理画面のユーザー一覧で、特定の部署のみ表示がおかしくなります（名前が文字化け）。ブラウザを変えても直りません。調査をお願いします。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0300", "text": "御社のエンタープライズプランについて、導入コストとサポート体制の詳細を知りたいです。見積もりをお願いできますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0301", "text": "現在のプランからアドオン機能『高度なレポート』のみを追加したいのですが、可能でしょうか。費用と契約変更の手続きを教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0302", "text": "サポートの返信が遅すぎる！ここに書いても結局機械的な回答しか返ってこない。まともに対応してくれよ。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0303", "text": "請求か何かの設定か、よくわかりませんが、何かおかしいような気がします。確認してもらえませんか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "tst-0304", "text": "請求書のPDFが文字化けしているのと、同時にAPIの認証トークンが期限切れになっています。両方とも対応をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0305", "text": "お世話になっております。本日午前中よりログインができず、業務に支障が出ております。至急対応をお願い申し上げます。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0306", "text": "契約書の自動更新を停止してほしいのですが、どこから手続きすればいいですか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0307", "text": "見積もり依頼です。エンタープライズプランの年額料金とオプションの詳細を教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0308", "text": "データが勝手に削除されていました。バックアップから復元できるか確認したいです。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0309", "text": "請求書の宛名が間違っています。至急修正をお願いします。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0310", "text": "API のエラーコード 500 が頻発しています。原因と対処法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0311", "text": "クレームです！またシステムが落ちていて使い物になりません！！", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0312", "text": "採用情報についてお問い合わせします。中途採用の募集はありますか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0313", "text": "ちょっと様子がおかしい気がするんですが、これは仕様でしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "tst-0314", "text": "システム障害によりデータが消失しました。緊急で対応をお願い致します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0315", "text": "決済がエラーで完了しません。カード情報は間違っていないはずです。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0316", "text": "導入を検討中です。セキュリティ認証はどのような規格に対応していますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0317", "text": "不正アクセスの可能性があります。アカウントが勝手に操作されています。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0318", "text": "ログインが一切できず、重要な顧客データへのアクセスが完全に遮断されています。至急復旧の対応をお願いできますでしょうか。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0319", "text": "契約更新の案内メールが届きません。請求書の再発行と、今月の利用料金の内訳を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0320", "text": "ダッシュボードのグラフが正しく表示されず、数値がずれているように見えます。キャッシュをクリアしても改善しません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0321", "text": "チームプランからエンタープライズプランへのアップグレードを検討しています。詳細な機能比較と見積もりを送っていただけますか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0322", "text": "サービスの利用規約について質問があります。データの保存期間と削除請求の手続きについて教えてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0323", "text": "不正アクセスの痕跡を見つけました。誰かが管理者権限で設定を変更しており、緊急に調査とアカウントのロックを依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0324", "text": "昨日の請求書の金額が前月より大幅に増えており、心当たりがありません。請求項目の詳細をすぐ確認させてください。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0325", "text": "APIのレスポンスが遅く、タイムアウトエラーが頻繁に発生しています。業務に影響が出始めており、早めの対応を希望します。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0326", "text": "新機能のベータテストに参加したいのですが、申込方法と参加条件を教えていただけますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0327", "text": "導入後の初期設定について、マニュアルに載っていない項目があります。担当者をつないで詳細を説明してほしいです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0328", "text": "サービス停止中", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0329", "text": "請求書のPDFが添付されていないメールが届きました。請求額はわかるのですが、正式な書類が必要なので再送をお願いできますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "tst-0330", "text": "設定を変更したら動作がおかしくなりました。たぶんバグなんだけど、使い方が間違ってる可能性もあるので見てほしいです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0331", "text": "料金が高すぎる！このままだと解約も考えている。すぐに何か対応してくれないと困る。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0332", "text": "本日9時からシステムにログインできず、業務が完全停止しています。緊急に対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0333", "text": "データベースのバックアップが取れておらず、重要な顧客情報が消失しました。今すぐ復旧作業を開始してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0334", "text": "不正アクセスのアラートが連続で出ています。アカウントが乗っ取られた可能性があります。緊急対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0335", "text": "決済が止まっており、サブスクリプションが強制解約されました。売上に直接影響しています。至急対応願います。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0336", "text": "個人情報が外部に漏れた形跡があります。調査と通知を緊急で行ってください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0337", "text": "先月の請求書に二重請求が発生しています。返金手続きの方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0338", "text": "契約更新の案内が届かず、自動更新されるか不安です。更新手続きの詳細を知りたいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0339", "text": "設定画面でSSOの認証が失敗します。エラーコードはAUTH-002です。解決方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0340", "text": "APIのレスポンスが遅く、タイムアウトエラーが頻発しています。パフォーマンス改善の見通しを知りたいです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0341", "text": "プランをプロからエンタープライズに変更したいです。見積もりと導入スケジュールを教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0342", "text": "来月までに導入を完了させたいのですが、支援オプションと費用を教えていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0343", "text": "採用ページから応募したのですが、連絡がありません。選考状況を教えてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0344", "text": "まったく使い物にならない！サポートもまともに対応しないなんて最悪だ！", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0345", "text": "請求が間違っている！！ inmediatamente対応しろ！！", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0346", "text": "プラン変更と請求書の宛名修正を同時にお願いしたいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0347", "text": "ログインできません", "label": "technical", "severity": "high", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "tst-0348", "text": "本日朝から管理画面へログインできず、緊急対応を要請します。アカウントがロックされているようです。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0349", "text": "システム障害によりデータが消失している可能性があります。すぐに復旧作業をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "tst-0350", "text": "不審なログイン試行が複数検出されました。アカウントの不正アクセスを疑います。即時調査を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "tst-0351", "text": "決済が停止されサービスが利用不能です。業務に支障が出ているため至急対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "tst-0352", "text": "個人情報が外部に漏れた可能性があります。事実確認と被害拡大防止のため緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "tst-0353", "text": "請求書の宛名が間違っており、修正を依頼します。該当期間は2026年9月分です。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0354", "text": "契約更新の手続き方法がわからず困っています。マニュアルやサポート窓口を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0355", "text": "API連携時に認証エラーが発生し、データ同期ができません。設定方法をご案内ください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0356", "text": "特定の機能ボタンが反応せず、操作ができません。ブラウザを変えても同様です。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0357", "text": "プラン変更を検討しており、見積もりと機能比較表を送付してほしいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0358", "text": "導入相談のためオンラインミーティングの日程調整をお願いします。候補日をいくつか提示してください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0359", "text": "採用情報について知りたいのですが、募集中のポジションを教えていただけますか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "tst-0360", "text": "すごく遅い！全然使えないんだが？早くなんとかしろよマジで。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0361", "text": "ご多忙のところ恐縮ですが、復旧見通しを丁寧にご説明いただけますでしょうか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0362", "text": "緊急：データベースが完全に停止しており、バックアップからの復旧手順を教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0363", "text": "不正ログインの通知があり、アカウントが乗っ取られた可能性があります。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0364", "text": "機密ファイルが意図せずに外部共有されました。情報漏洩の調査と対応を至急依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0365", "text": "システム管理者権限が突然なくなり、設定変更ができません。業務停止につながるため緊急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0366", "text": "決済処理が全て失敗しており、売上が停止しています。至急原因調査と復旧をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0367", "text": "先月の請求書に誤りがあり、二重請求されているようです。修正をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0368", "text": "契約の自動更新を停止したいのですが、解約手続きの方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0369", "text": "API のエンドポイントが 500 エラーを返します。再現手順と修正方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0370", "text": "新機能のベータテストへの参加方法と、フィードバックの送り先を教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0371", "text": "営業担当から見積もりを依頼してから一週間経ちますが、まだ連絡がありません。進捗を教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0372", "text": "お願いです。今日中にデータのエクスポートが必要なのですが、方法がわかりません。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0373", "text": "どうしよう…このエラーメッセージが出て何もできません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0374", "text": "システムの挙動が最近おかしいです。たぶんアップデートの影響？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true}
+{"id": "tst-0375", "text": "サービスの使い方が全然分からなくて困っています。誰か教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0376", "text": "過去の請求書のコピーが必要です。PDF で送っていただけますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0377", "text": "本日午前中からログインできず、業務が完全に停止しています。原因と復旧見込みを至急教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0378", "text": "管理者アカウントが不正に作成され、機密データが外部に送信されている形跡があります。即時調査を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0379", "text": "昨晩のシステムアップデート後、全ユーザーのデータが消失しています。バックアップからの復旧を緊急に対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0380", "text": "決済ゲートウェイがエラーを返し続けており、本日の売上が全て止まっています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0381", "text": "不正アクセスにより顧客リストが流出した可能性があります。事実確認と被害拡大防止のため、即時対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0382", "text": "先月の請求書に不要なオプション料金が含まれていました。該当分を返金し、今後の請求から除外してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0383", "text": "契約更新の案内が届いていません。自動更新の設定を確認したいので、契約期間と更新手続きを教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0384", "text": "API連携で認証エラーが頻発します。トークンの有効期限設定とリトライロジックのベストプラクティスを教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0385", "text": "マニュアルを見ても設定方法が分からず、SSOログインができません。図解付きの手順書を送っていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0386", "text": "エンタープライズプランへのアップグレードを検討しています。見積もりと機能比較表をお願いできますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0387", "text": "現在の利用者数が増えそうで、ライセンス追加の手続きと費用を知りたいです。営業担当者から連絡をいただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0388", "text": "採用ページから応募したのですが、選考状況の連絡がありません。進捗を教えていただけますか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0389", "text": "プレスリリースについて取材したいのですが、広報担当者を紹介していただけますか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0390", "text": "請求と設定の両方について質問があります。まずは請求書の内訳を確認したいのと、同時にSSO設定がうまくいかないので助けてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0391", "text": "なんか調子が悪い気がするんだけど、これって仕様なのかバグなのか分からなくて…", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "tst-0392", "text": "システムにログインできなくなり、業務が完全に停止しています。原因がわからず、データへのアクセスも失いました。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0393", "text": "昨日分の売上データがすべて消えており、バックアップから復元できません。緊急に対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0394", "text": "アカウントが不正アクセスされ、機密情報が外部に漏洩した可能性があります。至急調査と対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0395", "text": "決済が繰り返し失敗し、サービスが停止しています。クレジットカード情報を更新しても改善せず、業務に支障が出ています。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0396", "text": "データベースへの接続が突然切断され、すべてのユーザーが操作不能になっています。復旧までの見通しを教えてください。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0397", "text": "請求書の宛名が間違っており、経理部門で処理ができません。修正した請求書を再発行していただけますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0398", "text": "マニュアルを見ても、APIの認証方法がわかりません。サンプルコードを教えていただけますでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0399", "text": "プランをプロからエンタープライズに変更したいのですが、移行手順と費用について見積もりをお願いします。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0400", "text": "サポートの対応が遅くて困っています。もう少し早く返信してほしいです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0401", "text": "契約更新の案内が届いていないのですが、まだ継続できますか？手続き方法も合わせて教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0402", "text": "機能の使い方が直感的でなく、操作に迷っています。チュートリアル動画はありますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0403", "text": "導入を検討しているのですが、セキュリティ認証はどのような基準を満たしていますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0404", "text": "何か不具合があるかもしれませんが、よくわかりません。様子を見てからまた連絡します。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "other"}}
+{"id": "tst-0405", "text": "ありがとう", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0406", "text": "今朝からログインできず、業務データにアクセスできない状況です。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0407", "text": "サーバーがダウンしており、顧客情報が閲覧不能です。今すぐ復旧作業を指示してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0408", "text": "不正アクセスの兆候があり、ログに異常なアクセス履歴が残っています。緊急で調査をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0409", "text": "データベースのバックアップが取れず、復元もできません。業務停止につながるため至急対応願います。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0410", "text": "決済処理が全停止しており、売上に影響が出ています。今すぐ原因調査と復旧を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0411", "text": "請求書の金額が契約と合わず、二重請求されているように見えます。確認と修正をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0412", "text": "APIのレスポンスが500エラーを返し、連携サービスが動作しません。調査願います。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0413", "text": "見積もりを再度送ってほしいです。来週の予算会議に間に合わせたいので、明日中にお願いします。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0414", "text": "契約更新の手続き方法がわかりません。マニュアルやサポートページを教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0415", "text": "管理画面のUIが急に変わり、使い方が分からなくなりました。以前のバージョンに戻せますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0416", "text": "うわーっ、またログイン失敗って何回言えばわかるんだ！ふざけるな！", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0417", "text": "本当に最悪だ。サポートに連絡しても全然返信こないし、イライラが止まらない。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0418", "text": "請求とログイン両方に問題あり。請求書が届かない上に、パスワードリセットもできません。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0419", "text": "今日、10月4日に何かシステムのアップデートでもありましたか？様子がちょっとおかしい気がします。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0420", "text": "昨晩からログインできず、重要なデータへのアクセスが完全に遮断されています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0421", "text": "アカウントが突然ロックされ、サポートからの説明もなく不安です。原因と復旧方法をすぐ教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0422", "text": "管理者権限が不正に付与された形跡があり、内部文書が外部に漏れた可能性があります。緊急調査を依頼します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0423", "text": "決済エラーでサービスが停止し、業務に深刻な支障が出ています。すぐ解決しないと損害賠償を考えます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0424", "text": "バックアップから復元してもデータが一部欠損しており、顧客情報が失われています。原因を明らかにしてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0425", "text": "先月の請求書に見覚えのないオプション料金が含まれていました。内訳を教えていただけますか？", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "billing"}}
+{"id": "tst-0426", "text": "API の認証トークンが期限切れになっているのか、401 エラーが頻発しています。更新手順を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "tst-0427", "text": "チームプランからエンタープライズへのアップグレードを検討しています。見積もりと機能比較表を送っていただけますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "sales"}}
+{"id": "tst-0428", "text": "マニュアルを見ても分からないのですが、Webhook のペイロード形式について詳しく教えていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "tst-0429", "text": "解約手続きをしたはずなのに、今月も請求が来ています。二重請求になっていないか確認してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "billing"}}
+{"id": "tst-0430", "text": "導入を検討中の製品について、カスタマイズ範囲とサポート体制を教えてほしいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "sales"}}
+{"id": "tst-0431", "text": "ダッシュボードの表示が崩れており、グラフが正しく描画されません。ブラウザは最新です。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "technical"}}
+{"id": "tst-0432", "text": "すみません、緊急です。", "label": "other", "severity": "high", "language": "ja", "ambiguous": true, "meta": {"bucket": "very_short"}}
+{"id": "tst-0433", "text": "契約更新の案内メールが届きましたが、内容がよくわかりません。詳しい説明をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0434", "text": "昨日のシステム障害で顧客データが一部消失している可能性があり、即時調査と復旧対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0435", "text": "請求書の金額が契約と異なり、二重請求されているように見えます。至急確認と修正をお願いします。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0436", "text": "管理者権限が不正に取得された形跡があり、アカウントが乗っ取られている疑いがあります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0437", "text": "決済が停止されサービスが利用できなくなり、業務に深刻な影響が出ています。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0438", "text": "個人情報漏えいの通知を受け、該当データの範囲と対応策を至急開示してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0439", "text": "今月の請求書の内訳がわかりません。項目ごとの単価と数量を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0440", "text": "契約更新の手続き方法と必要書類について案内をお願いします。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0441", "text": "API の認証エラーが頻繁に発生し、連携が切れます。設定方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0442", "text": "管理画面のレイアウトが崩れており、ボタンがクリックできません。ブラウザは Chrome 最新版です。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0443", "text": "プランアップグレードの見積もりと、移行時のデータ互換性について相談したいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0444", "text": "営業担当からの案内メールが届きません。アドレスの登録を確認してほしいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0445", "text": "採用ページのリンクが切れています。求人情報を確認したいので修正をお願いします。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0446", "text": "取材申し込みのフォームから送信してもエラーになります。別の方法で連絡先を教えてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0447", "text": "契約内容を教えて", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0448", "text": "なんか変なメッセージが出て困っています。これって仕様ですか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "normal"}}
+{"id": "tst-0449", "text": "ログインできなくなり、業務が全て止まっています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0450", "text": "管理者アカウントが乗っ取られたようです。データ漏洩の可能性があります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0451", "text": "本日分のバックアップが取得できず、復元が必要です。緊急対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0452", "text": "不正アクセスの通知が届きました。すぐに調査と対応をしてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0453", "text": "データベースが破損しており、業務データが参照できません。至急対応願います。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0454", "text": "請求書の金額が契約と異なります。確認と修正をお願いできますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0455", "text": "APIのエラーコード500が頻繁に出ます。原因と対処法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0456", "text": "プランアップグレードの見積もりを希望します。本日までに回答いただけますか。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0457", "text": "サービスの使い方が分からず、設定方法を丁寧に説明してほしいです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0458", "text": "解約手続きの方法を教えてください。違約金は発生しますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0459", "text": "請求書の宛名を変更したいのですが、手続き方法がわかりません。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0460", "text": "契約更新の案内が来ていません。再送をお願いできますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0461", "text": "導入を検討しています。詳細な機能説明と見積もりを希望します。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0462", "text": "サービスが遅いです。なんとかしてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0463", "text": "月次の請求額が予想より高くて困っています。内訳を教えてほしいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0464", "text": "サーバーにアクセスできず、業務が完全に停止しています。原因調査と復旧を至急お願い致します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0465", "text": "重要データが突然消失しました。バックアップからの復元方法を今すぐ教えてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0466", "text": "不正ログインのアラートが連続で届いています。アカウントが乗っ取られた可能性があります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0467", "text": "決済が停止され、サービスが利用できません。至急対応していただけますでしょうか。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0468", "text": "個人情報が外部に漏れた形跡があります。事実確認と対応を今すぐお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "tst-0469", "text": "請求書の宛名が間違っており、修正版を再送していただけますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0470", "text": "来月のプラン変更を検討しています。見積もりを添付で送っていただけますでしょうか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0471", "text": "管理画面でエラーE502が出てログインできません。解決方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0472", "text": "CSVインポート時に特定の列だけ読み込まれません。フォーマットの仕様を確認させてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0473", "text": "請求関係の問い合わせかと思って連絡しましたが、実際は機能の使い方について知りたいです。どちらの窓口が適切でしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0474", "text": "契約更新の案内が届いていますが、内容がよくわかりません。丁寧に説明していただけますでしょうか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0475", "text": "APIドキュメントに記載の認証フローがうまくいかず、401エラーが続きます。サンプルコードを共有してください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0476", "text": "導入を検討中の他社事例があれば教えていただけますでしょうか。参考にさせてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0477", "text": "本日朝からログインできず、重要データへのアクセスが完全に遮断されています。至急対応をお願い致します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0478", "text": "管理者権限が不正に取得され、顧客リストが外部に流出した可能性があります。いますぐ調査してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0479", "text": "決済システムが停止し、本日の売上が全てゼロになっています。緊急で復旧対応を求めます。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0480", "text": "サーバーに不正アクセスがあり、機密ファイルが暗号化されました。身代金要求のメッセージが表示されています。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0481", "text": "個人情報を含むバックアップデータが第三者に漏洩した形跡があります。至急調査と報告をお願い致します。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0482", "text": "請求書の宛名が間違っており、経理部門から差し戻しになってしまいました。すぐに正しいものを発行してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0483", "text": "契約更新の案内が来ていないのですが、自動更新になるのでしょうか？来月までに確定したいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0484", "text": "API連携で認証エラーが頻発し、データ同期が止まっています。設定方法を教えていただけますか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0485", "text": "マニュアルを見てもカスタムレポートのエクスポート方法がわかりません。手順を丁寧に説明してほしいです。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0486", "text": "見積もり依頼です。エンタープライズプランの年額と、オプションのSSO連携費用を合わせてお願いします。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0487", "text": "現在のプランから上位へのアップグレードを検討しています。移行時のデータ移行サポートは含まれますか？", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0488", "text": "採用ページから応募したのですが、その後の連絡が全くありません。状況を知らせてほしいです。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0489", "text": "プレスリリースについて取材したいのですが、担当者をご紹介いただけますでしょうか？", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "normal"}}
+{"id": "tst-0490", "text": "請求と技術的な不具合が同時に発生しており、請求書が間違っている上にログインもできません。両方対応してください。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0491", "text": "こっち", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0492", "text": "なんか変なんだけど、これって仕様ですか？それともバグでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true}
+{"id": "tst-0493", "text": "ログインできなくなり業務が停止しています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0494", "text": "システムに不正アクセスの形跡があり、データ漏洩の可能性があります。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0495", "text": "データベースが破損し復元が必要です。緊急で対応してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}
+{"id": "tst-0496", "text": "請求書の金額が間違っているので至急修正を求めます。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "angry_normal"}}
+{"id": "tst-0497", "text": "見積もりを急いでほしいです。今月末までに契約したいです。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "multi_topic"}}
+{"id": "tst-0498", "text": "APIがエラーを返します。設定方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "very_short"}}
+{"id": "tst-0499", "text": "動作が重いです。何か設定ミスでしょうか？", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "ambiguous"}}
+{"id": "tst-0500", "text": "サービスへのアクセスが完全に遮断され、業務が停止しています。至急復旧対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "polite_urgent"}}

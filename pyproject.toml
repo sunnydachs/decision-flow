@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "decision-flow"
+version = "0.1.0"
+description = "Decision-layer PoC: Rule / LLM / Decision Model / Hybrid evaluated on identical data and metrics"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+# dev: CI と評価スクリプトの既定依存(軽量)
+dev = [
+  "pytest>=8.0",
+  "numpy>=1.26",
+  "scikit-learn>=1.4",
+]
+# embed: ローカル埋め込み(fastembed は onnxruntime を伴うため任意)
+embed = [
+  "fastembed>=0.4",
+]
+# jev: TypeSafe 公式 SDK(Jev 実行時のみ)
+jev = [
+  "typesafe-sdk>=0.7",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+  "network: requires external network / API keys (deselected by default)",
+  "embed: requires the optional fastembed backend",
+]

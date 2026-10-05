@@ -1,0 +1,85 @@
+{
+  "source": "data/calib/support_classification.jsonl",
+  "risk_severity": "high",
+  "recall_target": 0.95,
+  "methods": {
+    "rule": {
+      "review_above": 0.0,
+      "block_above": 1.0,
+      "calib_metrics": {
+        "threshold": 0.0,
+        "recall_high": 1.0,
+        "automation_rate": 0.0,
+        "review_rate": 1.0,
+        "selective_risk": NaN,
+        "n": 300
+      },
+      "n": 300
+    },
+    "embedding_lr": {
+      "review_above": 0.015788075722113375,
+      "block_above": 0.5434067783118673,
+      "calib_metrics": {
+        "threshold": 0.015788075722113375,
+        "recall_high": 0.956140350877193,
+        "automation_rate": 0.4666666666666667,
+        "review_rate": 0.5333333333333333,
+        "selective_risk": 0.03571428571428571,
+        "n": 300
+      },
+      "n": 300
+    },
+    "mercury": {
+      "review_above": 0.0002453406242517088,
+      "block_above": 0.983594855464654,
+      "calib_metrics": {
+        "threshold": 0.0002453406242517088,
+        "recall_high": 0.956140350877193,
+        "automation_rate": 0.38666666666666666,
+        "review_rate": 0.6133333333333333,
+        "selective_risk": 0.04310344827586207,
+        "n": 300
+      },
+      "n": 300
+    },
+    "llm_prompt": {
+      "review_above": 0.02,
+      "block_above": 0.82,
+      "calib_metrics": {
+        "threshold": 0.02,
+        "recall_high": 0.9611650485436893,
+        "automation_rate": 0.35815602836879434,
+        "review_rate": 0.6418439716312057,
+        "selective_risk": 0.039603960396039604,
+        "n": 282
+      },
+      "n": 282
+    },
+    "llm_json_schema": {
+      "review_above": 0.05,
+      "block_above": 0.72,
+      "calib_metrics": {
+        "threshold": 0.05,
+        "recall_high": 0.9523809523809523,
+        "automation_rate": 0.46808510638297873,
+        "review_rate": 0.5319148936170213,
+        "selective_risk": 0.03787878787878788,
+        "n": 282
+      },
+      "n": 282
+    },
+    "pplx_decider": {
+      "review_above": 0.0018564013669209514,
+      "block_above": 0.7800232484824334,
+      "calib_metrics": {
+        "threshold": 0.0018564013669209514,
+        "recall_high": 0.956140350877193,
+        "automation_rate": 0.29333333333333333,
+        "review_rate": 0.7066666666666667,
+        "selective_risk": 0.056818181818181816,
+        "n": 300
+      },
+      "n": 300
+    }
+  }
+}
