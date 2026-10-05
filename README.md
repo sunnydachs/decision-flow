@@ -68,7 +68,25 @@ cp .env.example .env   # OPENROUTER_API_KEY / TYPESAFE_API_KEY / PERPLEXITY_API_
 
 # 6) shadow モード(既存の判定結果と並べて差分を出す)
 .venv/bin/python -m runners.shadow --existing existing_decisions.jsonl \
-  --model-raw results/raw/support_classification__mercury.jsonl
+  --model-raw results/raw/support_classification__jev.jsonl
+
+# 7) 安定性(同一入力の反復 + 言い換え・選択肢順序の変異版)
+.venv/bin/python -m runners.stability --subset 50 --runs 20 --mode runs
+.venv/bin/python -m runners.stability --subset 50 --mode variants
+
+# 8) スループット実測(同一並列数。キャッシュを避ける一意な run_index で実行)
+.venv/bin/python -m runners.throughput --n 60 --concurrency 12 \
+  --methods llm_prompt,llm_json_schema,pplx_decider
+
+# 9) 再較正の前後(calib で学習 → test で評価)
+.venv/bin/python -m runners.recalibrate
+
+# 10) 最終レポート(results/report.md、8章立て)を組み立てる
+.venv/bin/python -m runners.report --dataset data/test/support_classification.jsonl \
+  --raw-dir results/raw --calib-raw-dir results/raw_calib \
+  --hybrid results/hybrid_pplx_decider_A_rulecommit.json,results/hybrid_pplx_decider_B_nocommit.json \
+  --throughput results/throughput.json --out results/report_test_partial.md
+.venv/bin/python -m runners.final_report
 
 # テスト
 .venv/bin/python -m pytest -q
@@ -154,7 +172,8 @@ src/
   adapters/   base, rule, embedding_lr, llm, mercury, pplx_decider, span, jev, registry
   hybrid/     ルール→判断モデル→閾値→auto/review/block
   evaluation/ classification, calibration, risk_coverage, bootstrap
-  runners/    benchmark, calibrate, report, hybrid_eval, recover_raw, jev_dry_run, shadow
+  runners/    benchmark, calibrate, report, final_report, hybrid_eval, stability, throughput,
+              recalibrate, recover_raw, jev_dry_run, shadow
   common/     env, config, dataset, http, ratelimit, budget, cache
 results/    raw/(test), raw_calib/(calib), aggregate/, audit/, cache/, pending/, report.md
 tests/
