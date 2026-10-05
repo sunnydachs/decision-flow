@@ -1,0 +1,22 @@
+{
+  "fig1_calibration": [
+    "<repo-root>/results/figures/fig1_calibration.png",
+    "<repo-root>/results/figures/fig1_calibration.svg"
+  ],
+  "fig2_risk_coverage": [
+    "<repo-root>/results/figures/fig2_risk_coverage.png",
+    "<repo-root>/results/figures/fig2_risk_coverage.svg"
+  ],
+  "fig3_probability_shape": [
+    "<repo-root>/results/figures/fig3_probability_shape.png",
+    "<repo-root>/results/figures/fig3_probability_shape.svg"
+  ],
+  "fig4_tradeoff": [
+    "<repo-root>/results/figures/fig4_tradeoff.png",
+    "<repo-root>/results/figures/fig4_tradeoff.svg"
+  ],
+  "fig5_stability": [
+    "<repo-root>/results/figures/fig5_stability.png",
+    "<repo-root>/results/figures/fig5_stability.svg"
+  ]
+}
