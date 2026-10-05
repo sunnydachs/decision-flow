@@ -1,0 +1,26 @@
+{
+  "model_method": "jev",
+  "thresholds": {
+    "review_above": 0.0,
+    "block_above": 0.88
+  },
+  "fail_open": false,
+  "n": 500,
+  "high_n": 192,
+  "actions": {
+    "block": 187,
+    "review": 313
+  },
+  "automation_rate": 0.0,
+  "review_rate": 0.626,
+  "block_rate": 0.374,
+  "recall_high_at_auto": 1.0,
+  "auto_high_missed": 0,
+  "auto_error_rate": null,
+  "outcomes": {
+    "block|high": 178,
+    "review|normal": 299,
+    "block|normal": 9,
+    "review|high": 14
+  }
+}

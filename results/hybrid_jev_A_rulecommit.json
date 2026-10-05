@@ -1,0 +1,29 @@
+{
+  "model_method": "jev",
+  "thresholds": {
+    "review_above": 0.0,
+    "block_above": 0.88
+  },
+  "fail_open": false,
+  "n": 500,
+  "high_n": 192,
+  "actions": {
+    "block": 181,
+    "auto": 238,
+    "review": 81
+  },
+  "automation_rate": 0.476,
+  "review_rate": 0.162,
+  "block_rate": 0.362,
+  "recall_high_at_auto": 0.9114583333333334,
+  "auto_high_missed": 17,
+  "auto_error_rate": 0.07983193277310924,
+  "outcomes": {
+    "block|high": 172,
+    "auto|normal": 221,
+    "review|normal": 78,
+    "block|normal": 9,
+    "auto|high": 17,
+    "review|high": 3
+  }
+}
