@@ -1,0 +1,29 @@
+{
+  "model_method": "pplx_decider",
+  "thresholds": {
+    "review_above": 0.0018564013669209514,
+    "block_above": 0.7800232484824334
+  },
+  "fail_open": false,
+  "n": 500,
+  "high_n": 192,
+  "actions": {
+    "block": 181,
+    "auto": 267,
+    "review": 52
+  },
+  "automation_rate": 0.534,
+  "review_rate": 0.104,
+  "block_rate": 0.362,
+  "recall_high_at_auto": 0.90625,
+  "auto_high_missed": 18,
+  "auto_error_rate": 0.06741573033707865,
+  "outcomes": {
+    "block|high": 172,
+    "auto|normal": 249,
+    "review|normal": 50,
+    "block|normal": 9,
+    "auto|high": 18,
+    "review|high": 2
+  }
+}
