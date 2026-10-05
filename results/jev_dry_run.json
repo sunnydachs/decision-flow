@@ -1,0 +1,29 @@
+{
+  "model": "jev-1.13.0",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "n_requests": 30,
+  "request_example": {
+    "state": "本番環境のデータベースが応答せず、全ての顧客がサービスにアクセスできません。今すぐ復旧してください。",
+    "model": "jev-1.13.0",
+    "questions": {
+      "category": {
+        "type": "choice",
+        "instructions": "Which single category best describes this customer inquiry? The inquiry is written in Japanese. Categories: urgent_claim = 即時対応が必要な緊急のクレーム(サービス障害、データ消失、不正アクセス、決済停止、個人情報漏えいなど); billing = 請求・支払い・返金・請求書(発行/宛名)・契約更新や解約に関する問い合わせ; technical = 不具合・エラー・設定・使い方など、製品やシステムの技術的な問い合わせ; sales = 見積もり・プラン変更・導入相談・パートナー制度など、営業に関する問い合わせ; other = 上記のいずれにも当てはまらないもの(採用・取材・スパム・その他)",
+        "criteria": {
+          "urgent_claim": "即時対応が必要な緊急のクレーム(サービス障害、データ消失、不正アクセス、決済停止、個人情報漏えいなど)",
+          "billing": "請求・支払い・返金・請求書(発行/宛名)・契約更新や解約に関する問い合わせ",
+          "technical": "不具合・エラー・設定・使い方など、製品やシステムの技術的な問い合わせ",
+          "sales": "見積もり・プラン変更・導入相談・パートナー制度など、営業に関する問い合わせ",
+          "other": "上記のいずれにも当てはまらないもの(採用・取材・スパム・その他)"
+        }
+      }
+    }
+  },
+  "estimated_input_tokens_per_request": 300,
+  "estimated_total_input_tokens": 9000,
+  "token_estimate_basis": "mercury-decide 実測の入力トークン数(同スキーマの概算)",
+  "estimated_cost_usd": 0.00037799999999999997,
+  "note": "推定コストはトークン数×公式単価からの概算であり、実際の請求額ではない。",
+  "dataset": "data/synthetic/support_classification.jsonl",
+  "task": "support_classification"
+}

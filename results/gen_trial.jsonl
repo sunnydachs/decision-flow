@@ -1,0 +1,15 @@
+{"id": "gen-0001", "text": "先ほどから管理画面にまったくログインできず、全社員が業務を止めています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "gen-0002", "text": "弊社アカウントのデータが昨日から消えており、復旧できない状態です。個人情報も含まれており、すぐに調査してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "gen-0003", "text": "見覚えのないIPから管理者権限でログインされた形跡があります。不正アクセスの可能性が高く、即時対応が必要です。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "gen-0004", "text": "決済処理がすべて失敗し続けており、本日の売上が計上できません。至急止めてください、というより直ちに復旧してほしい。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "urgent_claim"}}
+{"id": "gen-0005", "text": "毎月の請求書の宛名を経理部宛から株式会社〇〇 御中に変更していただけますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "gen-0006", "text": "来月で契約を解約したいのですが、更新日の関係でいつまでに申請すればよいか教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "gen-0007", "text": "CSVアップロード時に『形式が不正です』とエラーが出て先に進めません。テンプレートはどこにありますか。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "gen-0008", "text": "APIのレート制限について、現在のプランでの上限値と回避策があれば教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "gen-0009", "text": "新規導入を検討しています。50名規模での見積もりと、初期設定サポートの範囲を教えてください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "gen-0010", "text": "パートナー制度への参加条件と、紹介時の手数料体系について資料を送っていただけますか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "gen-0011", "text": "明日の午前中までに提出する見積書が必要です。大変恐縮ですが、本日中にご対応いただけますでしょうか。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "gen-0012", "text": "何度問い合わせても返事が来ないのはどういうことですか。さっさと担当者を出してください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "gen-0013", "text": "請求金額が先月と違う気がするのと、ログイン通知が来なくなったのと、あと担当者を変えてほしいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": true, "meta": {"bucket": "other"}}
+{"id": "gen-0014", "text": "ログインできません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}
+{"id": "gen-0015", "text": "解約したいのですが、日割りでの返金は可能でしょうか。あわせて請求書の再発行もお願いしたいです。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false, "meta": {"bucket": "other"}}

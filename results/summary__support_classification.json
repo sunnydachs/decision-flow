@@ -1,0 +1,35 @@
+{
+  "dataset": "data/test/support_classification.jsonl",
+  "n_items": 500,
+  "prompt_fingerprint": "d499c1498750-c6a751eda813",
+  "data_fingerprint": "c6a751eda813",
+  "train_on": {
+    "path": "data/calib/support_classification.jsonl",
+    "oof": false
+  },
+  "free_tier_remaining_at_start": 0,
+  "methods": {
+    "llm_prompt": {
+      "tier": "external_free",
+      "model": "openai/gpt-oss-20b",
+      "n": 500,
+      "ok": 499,
+      "errors": 1,
+      "pending": 0,
+      "quota_exhausted": false,
+      "out": "/home/arari/projects/decision-flow/results/raw/support_classification__llm_prompt.jsonl"
+    },
+    "llm_json_schema": {
+      "tier": "external_free",
+      "model": "openai/gpt-oss-20b",
+      "n": 500,
+      "ok": 499,
+      "errors": 1,
+      "pending": 0,
+      "quota_exhausted": false,
+      "out": "/home/arari/projects/decision-flow/results/raw/support_classification__llm_json_schema.jsonl"
+    }
+  },
+  "free_tier_used_today": 0,
+  "free_tier_remaining": 0
+}

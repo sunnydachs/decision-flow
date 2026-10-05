@@ -1,0 +1,29 @@
+{
+  "model_method": "embedding_lr",
+  "thresholds": {
+    "review_above": 0.015788075722113375,
+    "block_above": 0.5434067783118673
+  },
+  "fail_open": false,
+  "n": 500,
+  "high_n": 192,
+  "actions": {
+    "block": 188,
+    "auto": 225,
+    "review": 87
+  },
+  "automation_rate": 0.45,
+  "review_rate": 0.174,
+  "block_rate": 0.376,
+  "recall_high_at_auto": 0.9635416666666666,
+  "auto_high_missed": 7,
+  "auto_error_rate": 0.08888888888888889,
+  "outcomes": {
+    "block|high": 177,
+    "auto|normal": 218,
+    "review|normal": 79,
+    "block|normal": 11,
+    "auto|high": 7,
+    "review|high": 8
+  }
+}
