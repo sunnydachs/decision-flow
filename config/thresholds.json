@@ -80,6 +80,19 @@
         "n": 300
       },
       "n": 300
+    },
+    "jev": {
+      "review_above": 0.0,
+      "block_above": 0.88,
+      "calib_metrics": {
+        "threshold": 0.0,
+        "recall_high": 1.0,
+        "automation_rate": 0.0,
+        "review_rate": 1.0,
+        "selective_risk": NaN,
+        "n": 300
+      },
+      "n": 300
     }
   }
 }
