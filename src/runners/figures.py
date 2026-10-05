@@ -180,13 +180,16 @@ def fig_probability_shape(results: Path, repo_root: Path, out_dir: Path):
 # --- 4. トレードオフ散布図 ---------------------------------------------------
 def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 0.95):
     thresholds = _thresholds(repo_root)
-    fig, ax = plt.subplots(figsize=(7.6, 5.2))
+    fig, ax = plt.subplots(figsize=(8.6, 5.4))
+    # 注記の最終位置を確定してから描く(重なり・はみ出しを防ぐ)。
+    # x が大きいもの(右側)は左向きに置き、y が大きいものは下向きに置く。
+    placed = {}
     for method in METHODS:
         probs, ys = _risk_arrays(results, repo_root, method)
         raw = _load_raw(results, method)
         if not probs or not raw:
             continue
-        lat = [r["latency_ms"] for r in raw if r.get("latency_ms") and not r.get("error_type")]
+        lat = [r["latency_ms"] for r in raw if r.get("latency_ms") is not None and not r.get("error_type")]
         cost = sum(r.get("estimated_cost_usd") or 0.0 for r in raw)
         th = (thresholds.get(method) or {}).get("review_above")
         if th is None:
@@ -194,11 +197,29 @@ def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 
         auto = automation_rate(probs, float(th))
         p50 = float(np.percentile(lat, 50)) if lat else 0.0
         per_1000 = cost / max(1, len(raw)) * 1000.0
-        xs = max(p50, 1.0)
+        placed[method] = (max(p50, 1.0), auto, p50, per_1000)
+    for method, (xs, auto, p50, per_1000) in placed.items():
         ax.scatter([xs], [auto], s=60 + 2600 * per_1000, color=COLORS[method], alpha=0.75,
                    edgecolor="white", linewidth=1.2, zorder=4)
-        ax.annotate(f"{method}\n{p50:.0f} ms · ${per_1000:.3f}/1k", (xs, auto),
-                    textcoords="offset points", xytext=(10, 8), fontsize=9, color=COLORS[method])
+    # ラベル位置は adjustText に任せる(手動オフセットの繰り返し調整より確実。
+    # https://github.com/Phlya/adjustText : ラベル同士・データ点・軸との重なりを反復で最小化する)
+    from adjustText import adjust_text
+
+    texts = []
+    for method, (xs, auto, p50, per_1000) in placed.items():
+        texts.append(ax.text(xs, auto, f"{method}\n{p50:.0f} ms · ${per_1000:.3f}/1k",
+                             fontsize=9, color=COLORS[method], zorder=6,
+                             bbox={"boxstyle": "round,pad=0.28", "fc": "white", "ec": COLORS[method],
+                                   "lw": 0.9, "alpha": 0.92}))
+    # 右側の2点(llm_prompt / llm_json_schema)は「ラベルが長い+右端に寄る」ため、
+    # adjustText に任せても右端をはみ出す。x 軸の上限を伸ばして空きスペースを作ってから調整する。
+    ax.set_xlim(0.6, 3.2e4)
+    adjust_text(texts, ax=ax,
+                expand=(1.35, 1.8),
+                # 軸の外とデータ点から避ける(ensure_inside_axes で枠内に留める)
+                ensure_inside_axes=True,
+                force_text=(0.6, 0.9),
+                arrowprops={"arrowstyle": "-", "color": "#9ca3af", "lw": 0.7})
     ax.set_xscale("log")
     ax.set_xlabel("p50 latency per item (ms, log scale)")
     ax.set_ylabel("automation rate at calib threshold")
@@ -236,8 +257,9 @@ def fig_stability(repo_root: Path, out_dir: Path):
                         textcoords="offset points", xytext=(0, 3), ha="center", fontsize=9,
                         color="#374151")
     ax.set_xticks(x)
-    # 長い名前はアンダースコアで改行する(縦書きにしない)
-    ax.set_xticklabels([m.replace("_", "_\n") for m in methods], fontsize=9.5)
+    # 長い名前も1行で(アンダースコア改行は「分割ラベル」に見えるため。代わりに図を広げる)
+    ax.set_xticklabels(methods, fontsize=9.5)
+    fig.set_size_inches(10.5, 4.8)
     ax.set_ylabel("share of items whose label changed")
     ax.set_title("Stability (50-item subset)\n"
                  "the local baseline and pplx_decider never flip; the LLM flips on every axis")
