@@ -39,14 +39,21 @@ jev_usd = 1.0
 confirm_external_required = true
 
 [models.llm]
-# 比較用 LLM(OpenRouter chat completions)。
-# supported_parameters に structured_outputs を含む :free から選定(実測 2026-10-04)。
-primary = "qwen/qwen3.8-27b:free"
-modes = ["prompt", "json_schema"]
-alternatives = [
-  "apodex/apodex-1.1-mini:free",
-  "dots-studio/dots-3-note-preview:free",
-]
+# 比較用 LLM。2モード(prompt / json_schema 強制)を必ず用意する。
+# NIM 経由(OpenAI 互換)。OpenRouter の無料枠を mercury のために温存する。
+# 構造化出力は実測 2026-10-05 で json_schema 強制が動作を確認(NIM 公式 docs も JSON schema 対応を明記)。
+# 注意: 生成モデル(nemotron-3-super)とは別系統の OpenAI 系 open-weight。レポートには「このモデルについての結論であり
+#       より大きなモデルには当てはまらない」と明記する。
+provider = "nim"
+model = "openai/gpt-oss-20b"
+endpoint = "https://integrate.api.nvidia.com/v1/chat/completions"
+key_env = "NVIDIA_API_KEY"
+tier = "external_free"   # 外部APIだが OpenRouter の無料枠を消費しない
+max_tokens = 1500        # 短い JSON 出力。切り詰めによる parse 失敗を防ぐ
+# 代替(OpenRouter の無料枠を使う場合): provider="openrouter",
+#   model="qwen/qwen3.8-27b:free", endpoint="https://openrouter.ai/api/v1/chat/completions",
+#   key_env="OPENROUTER_API_KEY", tier="free"
+alternatives = []
 
 [models.mercury]
 model = "inception/mercury-decide:free"

@@ -41,3 +41,5 @@ config/local.toml
 results/cache/
 results/pending/
 results/audit/
+.hermes/
+*.egg-info/

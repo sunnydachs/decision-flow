@@ -46,13 +46,18 @@ def build_adapters(
 ) -> dict[str, BaseAdapter]:
     http = http or build_http(config)
     budgets = budgets if budgets is not None else {}
-    free_limiter = RateLimiter(per_minute_limit=int(config.get("free_tier.per_minute_limit", 20)))
+    # per-minute 制限は OpenRouter の :free のみに適用(他の経路は制限が異なる)
+    free_names_used = [n for n in names if n == "mercury" or
+                       (n.startswith("llm_") and str(config.get("models.llm.tier", "free")) == "free")]
+    free_limiter = RateLimiter(per_minute_limit=int(config.get("free_tier.per_minute_limit", 20))) if free_names_used else RateLimiter(per_minute_limit=0)
     adapters: dict[str, BaseAdapter] = {}
 
     def need_key(name: str) -> str:
         if keys and keys.get(name):
             return keys[name]
         return require_key(name, repo_root=repo_root)
+
+    llm_key_env = str(config.get("models.llm.key_env", "OPENROUTER_API_KEY"))
 
     for name in names:
         if name == "rule":
@@ -65,9 +70,12 @@ def build_adapters(
             )
         elif name in ("llm_prompt", "llm_json_schema"):
             mode = "prompt" if name == "llm_prompt" else "json_schema"
+            llm_tier = str(config.get("models.llm.tier", "free"))
+            # OpenRouter の無料枠(:free)を使う場合だけ共有カウンタを消費する
+            llm_quota = quota if llm_tier == "free" else None
             adapter = LlmAdapter(
-                task, config, mode=mode, key=need_key("OPENROUTER_API_KEY"), http=http, quota=quota,
-                cache=cache, audit=audit, rate_limiter=free_limiter,
+                task, config, mode=mode, key=need_key(llm_key_env),
+                http=http, quota=llm_quota, cache=cache, audit=audit, rate_limiter=free_limiter if llm_tier == "free" else None,
             )
             adapters[name] = adapter
         elif name == "pplx_decider":

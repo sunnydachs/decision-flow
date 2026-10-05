@@ -40,6 +40,7 @@ def run_benchmark(
     config,
     repo_root: Path,
     out_dir: str | Path | None = None,
+    raw_dir: str | Path | None = None,
     run_index: int = 0,
     limit: int | None = None,
     concurrency: int | None = None,
@@ -50,7 +51,9 @@ def run_benchmark(
 ) -> dict:
     dataset_path = Path(dataset_path)
     out_root = Path(out_dir) if out_dir else repo_root / "results"
-    raw_dir = out_root / "raw"
+    # 生応答の出力先。calib と test はファイル名が衝突し得るため、
+    # --raw-dir で分離できるようにする(results/raw と results/raw_calib)。
+    raw_dir = Path(raw_dir) if raw_dir else out_root / "raw"
     cache_dir = out_root / "cache"
     audit_dir = out_root / "audit"
     pending_dir = out_root / "pending"
@@ -185,6 +188,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--confirm-external", action="store_true", help="real データの外部送信を許可")
     parser.add_argument("--allow-paid-models", action="store_true", help="Jev 実行を許可")
     parser.add_argument("--train-on", default=None, help="embedding_lr の学習データ(実運用では calib)")
+    parser.add_argument("--raw-dir", default=None,
+                        help="生応答の出力先(既定 results/raw)。calib は results/raw_calib を指定して分離する")
     parser.add_argument("--config", default=None, help="設定ファイルの上書き")
     args = parser.parse_args(argv)
 
@@ -200,6 +205,7 @@ def main(argv: list[str] | None = None) -> int:
         confirm_external=args.confirm_external,
         allow_paid_models=args.allow_paid_models,
         train_on=args.train_on,
+        raw_dir=args.raw_dir,
     )
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0

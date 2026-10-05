@@ -26,7 +26,9 @@ def test_load_default_config():
     assert cfg.get("evaluation.risk_severity") == "high"
     assert cfg.get("models.mercury.model") == "inception/mercury-decide:free"
     assert cfg.get("models.jev.model") == "jev-1.13.0"  # バージョン固定
-    assert cfg.get("models.llm.modes") == ["prompt", "json_schema"]
+    assert cfg.get("models.llm.model") == "openai/gpt-oss-20b"
+    assert cfg.get("models.llm.modes") is None  # モードは adapter 名(llm_prompt / llm_json_schema)で区別
+    assert cfg.get("models.llm.tier") == "external_free"
     assert cfg.get("budget.perplexity_usd") == 0.5
     assert cfg.get("budget.jev_usd") == 1.0
 

@@ -80,8 +80,7 @@ def parse_llm_content(content: str, labels: list[str]) -> tuple[str | None, dict
 
 class LlmAdapter(BaseAdapter):
     name = "llm"
-    tier = "free"
-    endpoint = "https://openrouter.ai/api/v1/chat/completions"
+    tier = "external_free"  # 外部 API だが OpenRouter の無料枠を消費しない(NIM 経由の場合)
 
     def __init__(
         self,
@@ -95,15 +94,18 @@ class LlmAdapter(BaseAdapter):
         cache=None,
         audit=None,
         model: str | None = None,
+        endpoint: str | None = None,
         rate_limiter=None,
     ):
         if mode not in ("prompt", "json_schema"):
             raise ValueError("mode は 'prompt' か 'json_schema'")
-        super().__init__(task, model=model or str(config.get("models.llm.primary")), http=http,
+        super().__init__(task, model=model or str(config.get("models.llm.model")), http=http,
                          cache=cache, quota=quota, audit=audit, rate_limiter=rate_limiter)
         self.mode = mode
         self.key = key
-        self.endpoint = str(config.get("models.llm.endpoint") or self.endpoint)
+        self.endpoint = endpoint or str(config.get("models.llm.endpoint") or self.endpoint)
+        # 出力が途中で切れて parse 失敗しないよう明示する(gpt-oss-20b は短い JSON なので十分)
+        self.max_tokens = int(config.get("models.llm.max_tokens", 1500))
 
     @property
     def method_name(self) -> str:
@@ -126,6 +128,7 @@ class LlmAdapter(BaseAdapter):
                 {"role": "user", "content": user},
             ],
             "temperature": 0,
+            "max_tokens": self.max_tokens,
         }
         if self.mode == "json_schema":
             payload["response_format"] = {

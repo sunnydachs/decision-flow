@@ -48,7 +48,16 @@ cp .env.example .env   # OPENROUTER_API_KEY / TYPESAFE_API_KEY / PERPLEXITY_API_
 
 # 3) 生応答から指標を再計算してレポートを出力
 .venv/bin/python -m runners.report --dataset data/test/support_classification.jsonl \
-  --calib-raw-dir results/raw_calib
+  --calib-raw-dir results/raw_calib --calib-dataset data/calib/support_classification.jsonl \
+  --hybrid results/hybrid_pplx_decider_A_rulecommit.json,results/hybrid_pplx_decider_B_nocommit.json
+
+# 3b) Hybrid を単体で評価(層2の判断モデルを指定。--no-rule-commit で層1の即確定を止める)
+.venv/bin/python -m runners.hybrid_eval --dataset data/test/support_classification.jsonl \
+  --raw-dir results/raw --model-method pplx_decider --no-rule-commit
+
+# 3c) calib の生応答をキャッシュから復元(calib と test の出力名が衝突したときの保険)
+.venv/bin/python -m runners.recover_raw --dataset data/calib/support_classification.jsonl \
+  --out results/raw_calib
 
 # 4) Jev のドライラン(実 API を呼ばない。リクエスト形と推定コストを提示)
 .venv/bin/python -m runners.jev_dry_run --token-estimate 300 --out results/jev_dry_run.json
@@ -75,8 +84,28 @@ cp .env.example .env   # OPENROUTER_API_KEY / TYPESAFE_API_KEY / PERPLEXITY_API_
 | `evaluation` | 高リスクのラベル/severity・目標 Recall・ブートストラップ設定・安定性テストの N |
 | `free_tier` | 無料枠の日次上限(全モデル共有)・毎分上限・枯渇時の挙動 |
 | `budget` | 有料モデルの推定コスト上限(Perplexity $0.5 / Jev $1)・外部送信の確認要否 |
-| `models.*` | モデルID・エンドポイント・単価。**コードにハードコードしない** |
+| `models.*` | モデルID・エンドポイント・単価。**コードにハードコードしない**。`models.llm` は `provider`/`endpoint`/`key_env`/`tier` で経路を差し替え可能 |
 | `embedding` | ローカル埋め込みモデル(fastembed の対応モデル) |
+
+### 比較用 LLM の経路(OpenRouter の無料枠を消費しない)
+
+`models.llm` は既定で **NVIDIA NIM**(`openai/gpt-oss-20b`)を使います。OpenRouter の `:free` 無料枠は
+mercury(OpenRouter 経由のみ)のために温存するためです。`tier = "external_free"` は
+「外部 API だが OpenRouter の無料枠カウンタを消費しない」の意味で、日次枠・毎分制限は適用されません。
+
+OpenRouter の `:free` を使いたい場合は `config/local.toml` で上書きします:
+
+```toml
+[models.llm]
+provider = "openrouter"
+model = "qwen/qwen3.8-27b:free"
+endpoint = "https://openrouter.ai/api/v1/chat/completions"
+key_env = "OPENROUTER_API_KEY"
+tier = "free"
+```
+
+NIM 経由の `json_schema` 強制は実測で動作を確認済み(`openai/gpt-oss-20b`、2026-10-05)。
+第三者性のため、生成モデル(nemotron)と評価 LLM(gpt-oss)は**系統を分けています**。
 
 タスク定義は `config/tasks/*.toml`(カテゴリと説明・risk_label・タスク指示)。**コードを変えずにタスクを差し替え**できます。
 ルールのパターンは `config/rules/*.toml`。閾値は `runners.calibrate` が `config/thresholds.json` に出力します。
@@ -125,11 +154,15 @@ src/
   adapters/   base, rule, embedding_lr, llm, mercury, pplx_decider, span, jev, registry
   hybrid/     ルール→判断モデル→閾値→auto/review/block
   evaluation/ classification, calibration, risk_coverage, bootstrap
-  runners/    benchmark, calibrate, report, jev_dry_run, shadow
+  runners/    benchmark, calibrate, report, hybrid_eval, recover_raw, jev_dry_run, shadow
   common/     env, config, dataset, http, ratelimit, budget, cache
-results/    raw/, aggregate/, audit/, cache/, pending/, report.md
+results/    raw/(test), raw_calib/(calib), aggregate/, audit/, cache/, pending/, report.md
 tests/
 ```
+
+**calib と test の生応答は必ず別ディレクトリに出す**(`--raw-dir`)。出力ファイル名はデータセット名から作るため、
+同じ名前にすると後から実行した方が上書きします(実際に一度起きました)。失っても
+`runners.recover_raw` でキャッシュから復元できます。
 
 ## 出典
 

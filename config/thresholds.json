@@ -43,30 +43,30 @@
       "n": 300
     },
     "llm_prompt": {
-      "review_above": 0.02,
-      "block_above": 0.82,
+      "review_above": 0.05,
+      "block_above": 0.7,
       "calib_metrics": {
-        "threshold": 0.02,
-        "recall_high": 0.9611650485436893,
-        "automation_rate": 0.35815602836879434,
-        "review_rate": 0.6418439716312057,
-        "selective_risk": 0.039603960396039604,
-        "n": 282
+        "threshold": 0.05,
+        "recall_high": 0.9912280701754386,
+        "automation_rate": 0.17725752508361203,
+        "review_rate": 0.822742474916388,
+        "selective_risk": 0.018867924528301886,
+        "n": 299
       },
-      "n": 282
+      "n": 299
     },
     "llm_json_schema": {
       "review_above": 0.05,
-      "block_above": 0.72,
+      "block_above": 0.92,
       "calib_metrics": {
         "threshold": 0.05,
-        "recall_high": 0.9523809523809523,
-        "automation_rate": 0.46808510638297873,
-        "review_rate": 0.5319148936170213,
-        "selective_risk": 0.03787878787878788,
-        "n": 282
+        "recall_high": 0.9824561403508771,
+        "automation_rate": 0.19528619528619529,
+        "review_rate": 0.8047138047138047,
+        "selective_risk": 0.034482758620689655,
+        "n": 297
       },
-      "n": 282
+      "n": 297
     },
     "pplx_decider": {
       "review_above": 0.0018564013669209514,
