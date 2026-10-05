@@ -1,0 +1,26 @@
+{
+  "dataset": "/home/arari/projects/decision-flow/data/test/support_classification.jsonl",
+  "n_items": 60,
+  "concurrency": 12,
+  "run_index": 207427,
+  "methods": {
+    "llm_prompt": {
+      "ok": 60,
+      "errors": 0,
+      "wall_seconds": 30.81670972300344,
+      "items_per_second": 1.9469956572038707
+    },
+    "llm_json_schema": {
+      "ok": 60,
+      "errors": 0,
+      "wall_seconds": 21.849568936013384,
+      "items_per_second": 2.7460495983106314
+    },
+    "pplx_decider": {
+      "ok": 59,
+      "errors": 1,
+      "wall_seconds": 8.938139007019345,
+      "items_per_second": 6.600926653038829
+    }
+  }
+}

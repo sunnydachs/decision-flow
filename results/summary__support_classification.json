@@ -1,20 +1,23 @@
 {
-  "dataset": "data/test/support_classification.jsonl",
-  "n_items": 500,
-  "prompt_fingerprint": "d499c1498750-c6a751eda813",
-  "data_fingerprint": "c6a751eda813",
-  "train_on": null,
+  "dataset": "/home/arari/projects/decision-flow/data/test/support_classification.jsonl",
+  "n_items": 60,
+  "prompt_fingerprint": "d499c1498750-279b01603e4b",
+  "data_fingerprint": "279b01603e4b",
+  "train_on": {
+    "path": "data/calib/support_classification.jsonl",
+    "oof": false
+  },
   "free_tier_remaining_at_start": null,
   "methods": {
-    "jev": {
+    "pplx_decider": {
       "tier": "paid",
-      "model": "jev-1.13.0",
-      "n": 500,
-      "ok": 500,
-      "errors": 0,
+      "model": "pplx-decider-v1-27b",
+      "n": 60,
+      "ok": 59,
+      "errors": 1,
       "pending": 0,
       "quota_exhausted": false,
-      "out": "results/raw/support_classification__jev.jsonl"
+      "out": "/home/arari/projects/decision-flow/results/raw_throughput/support_classification__pplx_decider__run207427.jsonl"
     }
   },
   "free_tier_used_today": 0,

@@ -1,0 +1,70 @@
+{
+  "risk_severity": "high",
+  "target": "severity=high を正例とした risk 確率",
+  "note": "学習は calib のみ。isotonic は 0/1 ちょうどを出し得るため log loss 用に微小量クリップする。",
+  "methods": {
+    "embedding_lr": {
+      "n_calib": 300,
+      "n_test": 500,
+      "temperature": 1.6304292793502086,
+      "before": {
+        "ece": 0.0824484724500242,
+        "brier": 0.07320171434028755,
+        "log_loss": 0.3347952694857074
+      },
+      "after_temperature": {
+        "ece": 0.07736998453199696,
+        "brier": 0.07591013954979997,
+        "log_loss": 0.2905650404005994
+      },
+      "after_isotonic": {
+        "ece": 0.04622929373464131,
+        "brier": 0.06685925263665694,
+        "log_loss": 0.4034459307716486
+      }
+    },
+    "mercury": {
+      "skipped": "raw が無い(calib / test のどちらか未実行)"
+    },
+    "pplx_decider": {
+      "n_calib": 300,
+      "n_test": 500,
+      "temperature": 1.9431795347779888,
+      "before": {
+        "ece": 0.04604694904039291,
+        "brier": 0.055043800697498715,
+        "log_loss": 0.2807325909154058
+      },
+      "after_temperature": {
+        "ece": 0.05213917338160554,
+        "brier": 0.05726120600937098,
+        "log_loss": 0.22958570679764023
+      },
+      "after_isotonic": {
+        "ece": 0.024779350691092033,
+        "brier": 0.05220958045874362,
+        "log_loss": 0.2880410182569814
+      }
+    },
+    "jev": {
+      "n_calib": 300,
+      "n_test": 500,
+      "temperature": 6.47295193595692,
+      "before": {
+        "ece": 0.04326,
+        "brier": 0.056219,
+        "log_loss": 0.7466882543108309
+      },
+      "after_temperature": {
+        "ece": 0.06111735187473643,
+        "brier": 0.06980540507741959,
+        "log_loss": 0.25435687112759553
+      },
+      "after_isotonic": {
+        "ece": 0.022784675954578504,
+        "brier": 0.05787342813013625,
+        "log_loss": 0.3134177794981804
+      }
+    }
+  }
+}

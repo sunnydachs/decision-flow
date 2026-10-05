@@ -161,7 +161,19 @@
           "selective_risk": NaN,
           "n": 500,
           "auto_n": 0,
-          "auto_error_rate": null
+          "auto_error_rate": null,
+          "recall_high_ci": {
+            "point": 1.0,
+            "lo": 1.0,
+            "hi": 1.0,
+            "n_positives": 192
+          },
+          "automation_rate_ci": {
+            "point": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 500
+          }
         }
       }
     },
@@ -396,7 +408,19 @@
           "selective_risk": 0.0635593220338983,
           "n": 500,
           "auto_n": 236,
-          "auto_error_rate": 0.0847457627118644
+          "auto_error_rate": 0.0847457627118644,
+          "recall_high_ci": {
+            "point": 0.921875,
+            "lo": 0.8854166666666666,
+            "hi": 0.9583333333333334,
+            "n_positives": 192
+          },
+          "automation_rate_ci": {
+            "point": 0.472,
+            "lo": 0.42795,
+            "hi": 0.516,
+            "n": 500
+          }
         }
       }
     },
@@ -558,7 +582,19 @@
           "selective_risk": 0.028169014084507043,
           "n": 499,
           "auto_n": 71,
-          "auto_error_rate": 0.028169014084507043
+          "auto_error_rate": 0.028169014084507043,
+          "recall_high_ci": {
+            "point": 0.9895833333333334,
+            "lo": 0.9739583333333334,
+            "hi": 1.0,
+            "n_positives": 192
+          },
+          "automation_rate_ci": {
+            "point": 0.14228456913827656,
+            "lo": 0.11222444889779559,
+            "hi": 0.17234468937875752,
+            "n": 499
+          }
         }
       }
     },
@@ -720,7 +756,19 @@
           "selective_risk": 0.0297029702970297,
           "n": 499,
           "auto_n": 101,
-          "auto_error_rate": 0.0297029702970297
+          "auto_error_rate": 0.0297029702970297,
+          "recall_high_ci": {
+            "point": 0.9842931937172775,
+            "lo": 0.9633507853403142,
+            "hi": 1.0,
+            "n_positives": 191
+          },
+          "automation_rate_ci": {
+            "point": 0.20240480961923848,
+            "lo": 0.1683366733466934,
+            "hi": 0.23847695390781562,
+            "n": 499
+          }
         }
       }
     },
@@ -956,7 +1004,19 @@
           "selective_risk": 0.027972027972027972,
           "n": 500,
           "auto_n": 143,
-          "auto_error_rate": 0.02097902097902098
+          "auto_error_rate": 0.02097902097902098,
+          "recall_high_ci": {
+            "point": 0.9791666666666666,
+            "lo": 0.9583333333333334,
+            "hi": 0.9947916666666666,
+            "n_positives": 192
+          },
+          "automation_rate_ci": {
+            "point": 0.286,
+            "lo": 0.248,
+            "hi": 0.326,
+            "n": 500
+          }
         }
       }
     },
@@ -1192,7 +1252,19 @@
           "selective_risk": NaN,
           "n": 500,
           "auto_n": 0,
-          "auto_error_rate": null
+          "auto_error_rate": null,
+          "recall_high_ci": {
+            "point": 1.0,
+            "lo": 1.0,
+            "hi": 1.0,
+            "n_positives": 192
+          },
+          "automation_rate_ci": {
+            "point": 0.0,
+            "lo": 0.0,
+            "hi": 0.0,
+            "n": 500
+          }
         }
       }
     }
@@ -1367,6 +1439,32 @@
         "review|normal": 299,
         "block|normal": 9,
         "review|high": 14
+      }
+    }
+  },
+  "throughput": {
+    "dataset": "/home/arari/projects/decision-flow/data/test/support_classification.jsonl",
+    "n_items": 60,
+    "concurrency": 12,
+    "run_index": 207427,
+    "methods": {
+      "llm_prompt": {
+        "ok": 60,
+        "errors": 0,
+        "wall_seconds": 30.81670972300344,
+        "items_per_second": 1.9469956572038707
+      },
+      "llm_json_schema": {
+        "ok": 60,
+        "errors": 0,
+        "wall_seconds": 21.849568936013384,
+        "items_per_second": 2.7460495983106314
+      },
+      "pplx_decider": {
+        "ok": 59,
+        "errors": 1,
+        "wall_seconds": 8.938139007019345,
+        "items_per_second": 6.600926653038829
       }
     }
   }
