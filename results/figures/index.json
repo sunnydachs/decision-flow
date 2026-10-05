@@ -1,0 +1,22 @@
+{
+  "fig1_calibration": [
+    "/home/arari/projects/decision-flow/results/figures/fig1_calibration.png",
+    "/home/arari/projects/decision-flow/results/figures/fig1_calibration.svg"
+  ],
+  "fig2_risk_coverage": [
+    "/home/arari/projects/decision-flow/results/figures/fig2_risk_coverage.png",
+    "/home/arari/projects/decision-flow/results/figures/fig2_risk_coverage.svg"
+  ],
+  "fig3_probability_shape": [
+    "/home/arari/projects/decision-flow/results/figures/fig3_probability_shape.png",
+    "/home/arari/projects/decision-flow/results/figures/fig3_probability_shape.svg"
+  ],
+  "fig4_tradeoff": [
+    "/home/arari/projects/decision-flow/results/figures/fig4_tradeoff.png",
+    "/home/arari/projects/decision-flow/results/figures/fig4_tradeoff.svg"
+  ],
+  "fig5_stability": [
+    "/home/arari/projects/decision-flow/results/figures/fig5_stability.png",
+    "/home/arari/projects/decision-flow/results/figures/fig5_stability.svg"
+  ]
+}
