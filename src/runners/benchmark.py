@@ -144,12 +144,14 @@ def run_benchmark(
                             "raw_response": {"exception": str(exc)[:200]},
                         }
                     )
-        out_path = raw_dir / f"{dataset_path.stem}__{method_name}.jsonl"
+        # 安定性テストは同じ (stem, method) を反復するため、run_index>0 はファイル名で分離する
+        suffix = f"__run{run_index}" if run_index else ""
+        out_path = raw_dir / f"{dataset_path.stem}__{method_name}{suffix}.jsonl"
         with open(out_path, "w", encoding="utf-8") as fh:
             for record in records:
                 fh.write(json.dumps(record, ensure_ascii=False) + "\n")
         if pending:
-            with open(pending_dir / f"{dataset_path.stem}__{method_name}.json", "w", encoding="utf-8") as fh:
+            with open(pending_dir / f"{dataset_path.stem}__{method_name}{suffix}.json", "w", encoding="utf-8") as fh:
                 json.dump({"run_index": run_index, "pending_item_ids": pending}, fh, ensure_ascii=False)
         ok = [r for r in records if not r.get("error_type")]
         errors = [r for r in records if r.get("error_type")]

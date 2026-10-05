@@ -5,7 +5,7 @@
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 from common.config import load_task_config
@@ -83,3 +83,24 @@ def load_task(path: str | Path) -> TaskDefinition:
     if task.risk_label not in task.labels:
         raise ValueError(f"risk_label={task.risk_label} がカテゴリに存在しません")
     return task
+
+
+def load_task_variants(path: str | Path) -> dict[str, TaskDefinition]:
+    """安定性テスト用のタスク変異版(言い換え・選択肢順序の入れ替え)を作る。
+
+    - base: 定義どおり
+    - paraphrase_N: instruction_paraphrases の N 番目に言い換えた指示文
+    - order_rotated: カテゴリの並びを回転(先頭カテゴリを変える。prompt の列挙順と
+      json_schema の enum 順が変わる)
+
+    変異版は必ず同じカテゴリ集合を持つ(risk_label も同じ)。並び順だけを変える。
+    """
+    data = load_task_config(path)
+    base = load_task(path)
+    variants: dict[str, TaskDefinition] = {"base": base}
+    for index, text in enumerate(data.get("instruction_paraphrases") or [], start=1):
+        variants[f"paraphrase_{index}"] = replace(base, instruction=str(text))
+    rotated = base.categories[2:] + base.categories[:2]
+    if rotated != base.categories:
+        variants["order_rotated"] = replace(base, categories=tuple(rotated))
+    return variants
