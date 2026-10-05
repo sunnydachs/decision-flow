@@ -67,6 +67,11 @@ def read_image(model: str, key: str, image: Path, *, timeout: float = 240.0,
                 ],
             }],
         }
+        # deepseek 系は reasoning がトークン予算を使い切り、HTTP 200 + content 空になる
+        # (実測: max_tokens=3600 でも発生)。無効化フラグで回避できる(実測 2026-10-06)。
+        if "deepseek" in model.lower():
+            payload["reasoning_effort"] = "none"
+            payload["thinking"] = False
         client = HttpClient(timeout_seconds=timeout, max_retries=0)
         started = time.perf_counter()
         result = client.post_json(ENDPOINT, payload, headers={"Authorization": f"Bearer {key}"})
