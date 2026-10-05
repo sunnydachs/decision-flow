@@ -1,0 +1,102 @@
+{
+  "dataset": "<repo-root>/data/test/support_classification.jsonl",
+  "subset": 50,
+  "runs": 20,
+  "methods": {
+    "rule": {
+      "n_items": 50,
+      "n_runs": 20,
+      "items_with_any_error": 0,
+      "probability": {
+        "mean_std": 0.0,
+        "max_std": 0.0,
+        "mean_iqr": 0.0,
+        "mean_range": 0.0,
+        "mean_abs_dev": 0.0
+      },
+      "threshold_flip": {
+        "threshold": 0.0,
+        "mean_flip_fraction": 0.0,
+        "items_ever_flipping": 0,
+        "items_always_uncertain": 0
+      },
+      "label_disagreement_rate": 0.0
+    },
+    "embedding_lr": {
+      "n_items": 50,
+      "n_runs": 20,
+      "items_with_any_error": 0,
+      "probability": {
+        "mean_std": 0.0,
+        "max_std": 0.0,
+        "mean_iqr": 0.0,
+        "mean_range": 0.0,
+        "mean_abs_dev": 0.0
+      },
+      "threshold_flip": {
+        "threshold": 0.015788075722113375,
+        "mean_flip_fraction": 0.0,
+        "items_ever_flipping": 0,
+        "items_always_uncertain": 0
+      },
+      "label_disagreement_rate": 0.0
+    },
+    "llm_prompt": {
+      "n_items": 50,
+      "n_runs": 20,
+      "items_with_any_error": 1,
+      "probability": {
+        "mean_std": 0.01423623491524112,
+        "max_std": 0.16693112352104986,
+        "mean_iqr": 0.01059999999999999,
+        "mean_range": 0.05249999999999999,
+        "mean_abs_dev": 0.009834999999999997
+      },
+      "threshold_flip": {
+        "threshold": 0.05,
+        "mean_flip_fraction": 0.064,
+        "items_ever_flipping": 18,
+        "items_always_uncertain": 5
+      },
+      "label_disagreement_rate": 0.08
+    },
+    "llm_json_schema": {
+      "n_items": 50,
+      "n_runs": 20,
+      "items_with_any_error": 2,
+      "probability": {
+        "mean_std": 0.012799557156303413,
+        "max_std": 0.3772924389482708,
+        "mean_iqr": 0.020050000000000002,
+        "mean_range": 0.0336,
+        "mean_abs_dev": 0.011007905817174514
+      },
+      "threshold_flip": {
+        "threshold": 0.05,
+        "mean_flip_fraction": 0.054,
+        "items_ever_flipping": 13,
+        "items_always_uncertain": 4
+      },
+      "label_disagreement_rate": 0.04
+    },
+    "pplx_decider": {
+      "n_items": 50,
+      "n_runs": 20,
+      "items_with_any_error": 0,
+      "probability": {
+        "mean_std": 0.0,
+        "max_std": 0.0,
+        "mean_iqr": 0.0,
+        "mean_range": 0.0,
+        "mean_abs_dev": 0.0
+      },
+      "threshold_flip": {
+        "threshold": 0.0018564013669209514,
+        "mean_flip_fraction": 0.0,
+        "items_ever_flipping": 0,
+        "items_always_uncertain": 0
+      },
+      "label_disagreement_rate": 0.0
+    }
+  }
+}

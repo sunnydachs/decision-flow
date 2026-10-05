@@ -1,10 +1,9 @@
 {
   "model": "jev-1.13.0",
   "endpoint": "https://api.typesafe.ai/v1/systemone",
-  "transport": "typesafe-sdk",
-  "n_requests": 500,
+  "n_requests": 300,
   "request_example": {
-    "state": "本日午前、管理者アカウントから不正ログインがあり、機密データへのアクセスが確認できました。至急アカウントのロックと調査をお願いします。",
+    "state": "本日午前中より、システムにログインできず、重要な顧客データへのアクセスが完全に遮断されています。緊急対応をお願いします。",
     "model": "jev-1.13.0",
     "questions": {
       "category": {
@@ -21,10 +20,10 @@
     }
   },
   "estimated_input_tokens_per_request": 300,
-  "estimated_total_input_tokens": 150000,
+  "estimated_total_input_tokens": 90000,
   "token_estimate_basis": "mercury-decide 実測の入力トークン数(同スキーマの概算)",
-  "estimated_cost_usd": 0.0063,
+  "estimated_cost_usd": 0.00378,
   "note": "推定コストはトークン数×公式単価からの概算であり、実際の請求額ではない。",
-  "dataset": "data/test/support_classification.jsonl",
+  "dataset": "data/calib/support_classification.jsonl",
   "task": "support_classification"
 }
