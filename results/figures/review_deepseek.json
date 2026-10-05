@@ -1,0 +1,40 @@
+[
+  {
+    "model": "deepseek-ai/deepseek-v4.1-flash",
+    "image": "/home/arari/projects/decision-flow/results/figures/fig1_calibration.png",
+    "ok": false,
+    "seconds": null,
+    "text": "FAIL empty content (max_tokens=3600, finish=length)"
+  },
+  {
+    "model": "deepseek-ai/deepseek-v4.1-flash",
+    "image": "/home/arari/projects/decision-flow/results/figures/fig2_risk_coverage.png",
+    "ok": true,
+    "seconds": 59.3,
+    "max_tokens": 1200,
+    "text": "**(A) Title**\n\"Risk–coverage: what can be automated at a fixed recall floor?\" with the subtitle \"(markers = threshold chosen on calib, applied unchanged to test)\".\n\n**(B) Legend entries, in order**\n1. rule (gray)\n2. embedding_lr (blue)\n3. llm_prompt (green)\n4. llm_json_schema (orange)\n5. pplx_decider (pink/magenta)\n6. jev (purple"
+  },
+  {
+    "model": "deepseek-ai/deepseek-v4.1-flash",
+    "image": "/home/arari/projects/decision-flow/results/figures/fig3_probability_shape.png",
+    "ok": true,
+    "seconds": 112.9,
+    "max_tokens": 3600,
+    "text": "(A) Exact title:  \n\"Where each method puts its probability mass (test n=500)  \nrule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous\"\n\n(B) Legend entries, in order as displayed row-wise:  \nrule (gray), llm_prompt (green), pplx_decider (pink), embedding_lr (blue), llm_json_s"
+  },
+  {
+    "model": "deepseek-ai/deepseek-v4.1-flash",
+    "image": "/home/arari/projects/decision-flow/results/figures/fig4_tradeoff.png",
+    "ok": false,
+    "seconds": null,
+    "text": "FAIL empty content (max_tokens=3600, finish=length)"
+  },
+  {
+    "model": "deepseek-ai/deepseek-v4.1-flash",
+    "image": "/home/arari/projects/decision-flow/results/figures/fig5_stability.png",
+    "ok": true,
+    "seconds": 102.9,
+    "max_tokens": 3600,
+    "text": "(A) Exact title: “Stability (50-item subset)”  \nSubtitle: “the local baseline and pplx_decider never flip; the LLM flips on every axis”\n\n(B) Legend entries, in order:\n1. “same input, 20 runs” (blue)\n2. “paraphrased instruction / rotated option order” (orange)\n\n(C) Axis labels and tick labels:\n- Y-axis label: “share of items whose label changed”\n- Y tick labels: 0.00, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12\n- X tick labels: “rule”, “embedding_lr” (shown as “embedding_” / “lr”), “llm_prompt” (shown as “llm_” / “prompt”), “llm_json_schema” (shown as “llm_” / “json_” / “schema”), “pplx_decider” (shown as “pplx_” / “decider”)\n- No x-axis label visible.\n- Annotations: “0% = never changed” (top left), “not measured: jev” (top right)\n- Bar value labels: 0%, 0%, 0%, 0%, 8%, 8%, 4%, 10%, 0%, 2%\n\n(D) Legibility: clean\n\n(E) The figure claims that on a 50-item subset, the local baseline and pplx_decider never flip, while the LLM flips on every axis, with paraphrased instruction/rotated option order generally causing more label changes than same input."
+  }
+]

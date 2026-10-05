@@ -23,7 +23,12 @@ import numpy as np  # noqa: E402
 
 # 文字をパス化せず <text> として残す(記事用に編集しやすく、ラベルの機械検証もできる)
 matplotlib.rcParams["svg.fonttype"] = "none"
-matplotlib.rcParams["font.size"] = 9
+matplotlib.rcParams["font.size"] = 10.5
+matplotlib.rcParams["axes.titlesize"] = 11.5
+matplotlib.rcParams["axes.labelsize"] = 10.5
+matplotlib.rcParams["xtick.labelsize"] = 9.5
+matplotlib.rcParams["ytick.labelsize"] = 9.5
+matplotlib.rcParams["legend.fontsize"] = 9.5
 
 from common.config import REPO_ROOT, load_config  # noqa: E402
 from common.dataset import load_jsonl  # noqa: E402
@@ -33,12 +38,12 @@ from evaluation.risk_coverage import automation_rate, recall_at_threshold  # noq
 METHODS = ("rule", "embedding_lr", "llm_prompt", "llm_json_schema", "pplx_decider", "jev")
 PROB_METHODS = ("embedding_lr", "pplx_decider", "jev")  # 公式に確率と定義された値のみ
 COLORS = {
-    "rule": "#6b7280",
-    "embedding_lr": "#2563eb",
-    "llm_prompt": "#16a34a",
-    "llm_json_schema": "#65a30d",
-    "pplx_decider": "#dc2626",
-    "jev": "#9333ea",
+    "rule": "#6b7280",          # grey
+    "embedding_lr": "#2563eb",  # blue
+    "llm_prompt": "#16a34a",    # green
+    "llm_json_schema": "#ea580c",  # orange (緑と紛らかわないよう別色相)
+    "pplx_decider": "#db2777",  # pink
+    "jev": "#7c3aed",           # violet
 }
 MARKERS = {"rule": "s", "embedding_lr": "o", "llm_prompt": "^", "llm_json_schema": "v",
            "pplx_decider": "D", "jev": "P"}
@@ -175,7 +180,7 @@ def fig_probability_shape(results: Path, repo_root: Path, out_dir: Path):
 # --- 4. トレードオフ散布図 ---------------------------------------------------
 def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 0.95):
     thresholds = _thresholds(repo_root)
-    fig, ax = plt.subplots(figsize=(6.8, 4.8))
+    fig, ax = plt.subplots(figsize=(7.6, 5.2))
     for method in METHODS:
         probs, ys = _risk_arrays(results, repo_root, method)
         raw = _load_raw(results, method)
@@ -193,7 +198,7 @@ def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 
         ax.scatter([xs], [auto], s=60 + 2600 * per_1000, color=COLORS[method], alpha=0.75,
                    edgecolor="white", linewidth=1.2, zorder=4)
         ax.annotate(f"{method}\n{p50:.0f} ms · ${per_1000:.3f}/1k", (xs, auto),
-                    textcoords="offset points", xytext=(8, 7), fontsize=7.5, color=COLORS[method])
+                    textcoords="offset points", xytext=(10, 8), fontsize=9, color=COLORS[method])
     ax.set_xscale("log")
     ax.set_xlabel("p50 latency per item (ms, log scale)")
     ax.set_ylabel("automation rate at calib threshold")
@@ -219,24 +224,29 @@ def fig_stability(repo_root: Path, out_dir: Path):
     par = [variants.get(m, {}).get("label_disagreement_rate") or 0.0 for m in methods]
     x = np.arange(len(methods))
     width = 0.38
-    fig, ax = plt.subplots(figsize=(8.0, 4.2))
+    fig, ax = plt.subplots(figsize=(9.0, 4.8))
     b1 = ax.bar(x - width / 2, same, width, color="#0ea5e9", label="same input, 20 runs")
     b2 = ax.bar(x + width / 2, par, width, color="#f59e0b",
                 label="paraphrased instruction / rotated option order")
+    # 0% も明示する(棒が無いだけだと「データ欠損」に見えるため)
     for bars in (b1, b2):
         for rect in bars:
             h = rect.get_height()
-            if h > 0:
-                ax.annotate(f"{h:.0%}", (rect.get_x() + rect.get_width() / 2, h),
-                            textcoords="offset points", xytext=(0, 2), ha="center", fontsize=7.5)
+            ax.annotate(f"{h:.0%}", (rect.get_x() + rect.get_width() / 2, h),
+                        textcoords="offset points", xytext=(0, 3), ha="center", fontsize=9,
+                        color="#374151")
     ax.set_xticks(x)
-    ax.set_xticklabels(methods, fontsize=8.5)
+    # 長い名前はアンダースコアで改行する(縦書きにしない)
+    ax.set_xticklabels([m.replace("_", "_\n") for m in methods], fontsize=9.5)
     ax.set_ylabel("share of items whose label changed")
     ax.set_title("Stability (50-item subset)\n"
                  "the local baseline and pplx_decider never flip; the LLM flips on every axis")
+    ax.annotate("0% = never changed", xy=(0.01, 0.93), xycoords="axes fraction",
+                fontsize=9, color="#374151")
     if unmeasured:
         ax.annotate(f"not measured: {', '.join(unmeasured)}",
-                    xy=(0.99, 0.94), xycoords="axes fraction", ha="right", fontsize=7.5, color="#6b7280")
+                    xy=(0.99, 0.93), xycoords="axes fraction", ha="right", fontsize=9, color="#6b7280")
+    ax.set_ylim(0, max(same + par + [0.01]) * 1.35)
     ax.grid(axis="y", alpha=0.25)
     ax.legend(fontsize=8)
     return _save(fig, out_dir, "fig5_stability")
