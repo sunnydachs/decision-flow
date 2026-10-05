@@ -1,50 +1,45 @@
 
-===== fig1_calibration.png @ reviewer-b (FAIL) =====
-FAIL empty content (max_tokens=3600, finish=length)
+===== fig1_calibration.png @ reviewer-b (48.0s) =====
+(A) **Title:** "Calibration (reliability diagram, test n=500)"
+(B) **Legend entries, in order:**
+1. perfect calibration
+2. embedding_lr
+3. pplx_decider
+4. jev
+(C) **Axis labels and tick labels:**
+- Y-axis label: "observed frequency"
+- Y-axis tick labels: 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
+- X-axis label: "predicted probability of high risk"
+- X-axis tick labels: 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
+(D) **Legibility problems:** clean
+(E) **What the figure claims:** The figure claims to show the calibration (reliability) of three models—embedding_lr, pplx_decider, and jev—on a test set of 500 samples, comparing their observed frequencies against predicted probabilities of high risk relative to a perfect calibration baseline.
 
-===== fig2_risk_coverage.png @ reviewer-b (59.3s) =====
-**(A) Title**
-"Risk–coverage: what can be automated at a fixed recall floor?" with the subtitle "(markers = threshold chosen on calib, applied unchanged to test)".
+===== fig2_risk_coverage.png @ reviewer-b (51.4s) =====
+(A) Title: "Risk-coverage: what can be automated at a fixed recall floor?" with subtitle "(markers = threshold chosen on calib, applied unchanged to test)".
+(B) Legend entries in order: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev.
+(C) Axis labels and tick labels: y-axis label "high-risk recall" with ticks 0.6, 0.7, 0.8, 0.9, 1.0; x-axis label "automation rate (share auto-processed)" with ticks 0.0, 0.2, 0.4, 0.6, 0.8, 1.0. Also visible: "recall target 95%" annotation.
+(D) Legibility problems: none; clean.
+(E) The figure claims that at a fixed 95% recall target, different automation methods achieve different automation rates before high-risk recall drops below the target.
 
-**(B) Legend entries, in order**
-1. rule (gray)
-2. embedding_lr (blue)
-3. llm_prompt (green)
-4. llm_json_schema (orange)
-5. pplx_decider (pink/magenta)
-6. jev (purple
+===== fig3_probability_shape.png @ reviewer-b (47.8s) =====
+(A) Title: "Where each method puts its probability mass (test n=500)" with a second line "rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous".
+(B) Legend entries in order: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev.
+(C) Axis labels: y-axis "share of items", x-axis "risk-score band". Y tick labels: 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6. X tick labels: = 0, 0-0.02, 0.02-0.1, 0.1-0.5, 0.5-0.9, 0.9-0.98, 0.98-1, = 1.
+(D) Clean.
+(E) The figure claims that the 'rule' and 'jev' methods concentrate their probability mass at the extreme risk-score bands (= 0 and = 1), while 'pplx_decider' and 'embedding_lr' maintain a more continuous distribution across the bands.
 
-===== fig3_probability_shape.png @ reviewer-b (112.9s) =====
-(A) Exact title:  
-"Where each method puts its probability mass (test n=500)  
-rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous"
+===== fig4_tradeoff.png @ reviewer-b (48.5s) =====
+(A) Title: "Operational trade-off (bubble size = estimated cost per 1000 items)" with subtitle "top-left is cheap-and-fast; empty bottom-left means nobody automates under the recall floor".
+(B) Legend entries (in order of appearance): embedding_lr (0 ms · $0.000/1k), rule (0 ms · $0.000/1k), jev (201 ms · $0.035/1k), pplx_decider (325 ms · $0.014/1k), llm_json_schema (3372 ms · $0.000/1k), llm_prompt (4133 ms · $0.000/1k).
+(C) Axis labels and tick labels: Y-axis: "automation rate at calib threshold" with ticks 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6. X-axis: "p50 latency per item (ms, log scale)" with ticks 10^0, 10^1, 10^2, 10^3.
+(D) Legibility problems: The text label for "llm_prompt" is partially cut off at the right edge of the image.
+(E) The figure claims that there is an operational trade-off between latency and automation rate, where "embedding_lr" is the cheapest and fastest but has a moderate automation rate, while "llm_prompt" has the highest latency and lowest automation rate among the automated methods shown.
 
-(B) Legend entries, in order as displayed row-wise:  
-rule (gray), llm_prompt (green), pplx_decider (pink), embedding_lr (blue), llm_json_s
-
-===== fig4_tradeoff.png @ reviewer-b (FAIL) =====
-FAIL empty content (max_tokens=3600, finish=length)
-
-===== fig5_stability.png @ reviewer-b (102.9s) =====
-(A) Exact title: “Stability (50-item subset)”  
-Subtitle: “the local baseline and pplx_decider never flip; the LLM flips on every axis”
-
-(B) Legend entries, in order:
-1. “same input, 20 runs” (blue)
-2. “paraphrased instruction / rotated option order” (orange)
-
-(C) Axis labels and tick labels:
-- Y-axis label: “share of items whose label changed”
-- Y tick labels: 0.00, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12
-- X tick labels: “rule”, “embedding_lr” (shown as “embedding_” / “lr”), “llm_prompt” (shown as “llm_” / “prompt”), “llm_json_schema” (shown as “llm_” / “json_” / “schema”), “pplx_decider” (shown as “pplx_” / “decider”)
-- No x-axis label visible.
-- Annotations: “0% = never changed” (top left), “not measured: jev” (top right)
-- Bar value labels: 0%, 0%, 0%, 0%, 8%, 8%, 4%, 10%, 0%, 2%
-
-(D) Legibility: clean
-
-(E) The figure claims that on a 50-item subset, the local baseline and pplx_decider never flip, while the LLM flips on every axis, with paraphrased instruction/rotated option order generally causing more label changes than same input.
+===== fig5_stability.png @ reviewer-b (51.7s) =====
+(A) Title: "Stability (50-item subset)" with subtitle "the local baseline and pplx_decider never flip; the LLM flips on every axis".
+(B) Legend entries in order: "same input, 20 runs" (blue), "paraphrased instruction / rotated option order" (orange).
+(C) Y-axis label: "share of items whose label changed"; y tick labels: 0.00, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12. X-axis tick labels: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider. In-plot annotations: "0% = never changed" (top left), "not measured: jev" (top right), and bar value labels 0%, 0%, 0%, 0%, 8%, 8%, 4%, 10%, 0%, 2%.
+(D) Legibility problem: the x tick label "embedding_lr" is split across two lines as "embedding_" and "lr"; the x tick label "llm_json_schema" is split across three lines as "llm_", "json_", "schema". No overlapping text, cut-off labels, or indistinguishable colors are visible.
+(E) The figure claims that, on a 50-item subset, the local baseline and pplx_decider never change labels, while the LLM changes labels on every axis, with the largest change under paraphrased instruction / rotated option order for llm_json_schema (10%).
 
 review -> <repo-root>/results/figures/review_deepseek.json
-
-2/5 件が失敗(検証未完了)
