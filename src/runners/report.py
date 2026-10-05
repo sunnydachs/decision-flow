@@ -142,10 +142,14 @@ def build_report(
     methods: list[str],
     config,
     calib_raw_dir: Path | None = None,
+    calib_dataset_path: Path | None = None,
+    hybrid_paths: list[Path] | None = None,
     out_path: Path | None = None,
 ) -> dict:
     stem = dataset_path.stem
     items = {it.id: it for it in load_jsonl(dataset_path)}
+    # calib の生応答は calib のラベル・severity で評価する(test の辞書で引くと全件 None になる)
+    calib_items = {it.id: it for it in load_jsonl(calib_dataset_path)} if calib_dataset_path else items
     risk_severity = str(config.get("evaluation.risk_severity", "high"))
     target_recall = float(config.get("evaluation.recall_target", 0.95))
 
@@ -159,7 +163,7 @@ def build_report(
         calib_records = load_raw((calib_raw_dir or raw_dir) / f"{stem}__{method}.jsonl")
         p_c, y_c, p_t, y_t, lt, lp = [], [], [], [], [], []
         for iid, r in calib_records.items():
-            item = items.get(iid)
+            item = calib_items.get(iid)
             if item is None or r.get("risk_score") is None or r.get("error_type"):
                 continue
             p_c.append(float(r["risk_score"]))
@@ -185,6 +189,7 @@ def build_report(
         "recall_target": target_recall,
         "calib_source": "separate" if calib_raw_dir else "same_as_test (smoke only)",
         "methods": results,
+        "hybrid": _load_hybrid(hybrid_paths or []),
     }
     if out_path:
         out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -254,6 +259,21 @@ def render_markdown(aggregate: dict) -> str:
             f"{_fmt(t.get('automation_rate'))} | {_fmt(t.get('auto_error_rate'))} |"
         )
     lines.append("")
+    hybrid = aggregate.get("hybrid") or {}
+    if hybrid:
+        lines.append("### Hybrid(ルール → 判断モデル → 閾値 → auto / review / block)")
+        lines.append("")
+        lines.append("閾値は calib 由来。recall_high は auto に回した分だけで測った高リスク recall(見逃し=auto に入った severity=high)。")
+        lines.append("")
+        lines.append("| 構成 | 自動化率 | 人間レビュー率 | block 率 | 高リスク recall(auto) | 見逃し | 自動処理の誤り率 |")
+        lines.append("|---|---|---|---|---|---|---|")
+        for name, h in hybrid.items():
+            lines.append(
+                f"| {name} | {_fmt(h.get('automation_rate'))} | {_fmt(h.get('review_rate'))} | "
+                f"{_fmt(h.get('block_rate'))} | {_fmt(h.get('recall_high_at_auto'))} | "
+                f"{h.get('auto_high_missed', '-')} | {_fmt(h.get('auto_error_rate'))} |"
+            )
+        lines.append("")
     lines.append("## 4. 運用性能(レイテンシ・コスト)")
     lines.append("")
     lines.append("| method | p50 ms | p95 ms | 推定コスト / 1000件 |")
@@ -278,6 +298,18 @@ def render_markdown(aggregate: dict) -> str:
     return "\n".join(lines)
 
 
+def _load_hybrid(paths: list[Path]) -> dict:
+    """hybrid_eval が出力した JSON を読む。キーはファイル名から作る。"""
+    out: dict = {}
+    for path in paths:
+        if not Path(path).exists():
+            continue
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        name = Path(path).stem.replace("hybrid_", "").replace("support_classification", "").strip("_")
+        out[name] = data
+    return out
+
+
 def _fmt(value, nd: int = 3) -> str:
     if value is None:
         return "-"
@@ -292,7 +324,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--dataset", required=True)
     parser.add_argument("--raw-dir", default="results/raw")
     parser.add_argument("--calib-raw-dir", default=None)
+    parser.add_argument("--calib-dataset", default="data/calib/support_classification.jsonl",
+                        help="calib の正解データ(calib 生応答の評価に使う)")
     parser.add_argument("--methods", default="rule,mercury,llm_prompt,llm_json_schema,pplx_decider,embedding_lr")
+    parser.add_argument("--hybrid", default=None,
+                        help="hybrid_eval の出力 JSON(カンマ区切り)。第3章に Hybrid 表を足す")
     parser.add_argument("--out", default="results/report.md")
     args = parser.parse_args(argv)
 
@@ -305,6 +341,8 @@ def main(argv: list[str] | None = None) -> int:
         methods=methods,
         config=config,
         calib_raw_dir=Path(args.calib_raw_dir) if args.calib_raw_dir else None,
+        calib_dataset_path=Path(REPO_ROOT / args.calib_dataset) if args.calib_dataset else None,
+        hybrid_paths=[Path(REPO_ROOT / p.strip()) for p in args.hybrid.split(",") if p.strip()] if args.hybrid else None,
         out_path=REPO_ROOT / "results" / "aggregate" / f"{dataset_path.stem}.json",
     )
     markdown = render_markdown(aggregate)

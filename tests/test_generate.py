@@ -77,10 +77,12 @@ def test_data_generation_config_uses_nim_and_separate_lineage():
     config = load_config(repo_root=REPO_ROOT)
     assert config.get("data_generation.provider") == "nim"
     assert config.get("data_generation.key_env") == "LLM_API_KEY"
-    model = str(config.get("data_generation.model"))
-    # 評価対象モデルとは別系統であること
-    for evaluated in ("mercury", "pplx-decider", "jev", "llm-free-a"):
-        assert evaluated not in model
+    gen_model = str(config.get("data_generation.model"))
+    llm_model = str(config.get("models.llm.model"))
+    # 生成モデルと評価対象 LLM は別系統であること(generator 系で生成、DeepSeek 系で評価)
+    assert "generator" in gen_model and "generator" not in llm_model
+    for evaluated in ("mercury", "pplx-decider", "jev"):
+        assert evaluated not in gen_model
     assert config.get("data_generation.extra_body") == {"thinking": False}
 
 

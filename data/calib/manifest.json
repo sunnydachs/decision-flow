@@ -4,6 +4,6 @@
   "data_class": "synthetic",
   "external_ok": true,
   "task": "support_classification",
-  "provenance": "OpenAI 互換エンドポイント / reviewer-b で生成(評価対象モデルとは別系統)。calib 用。test とは別実行(別 seed)。",
+  "provenance": "OpenAI 互換エンドポイント / generator-a で生成(評価対象モデルとは別系統)。calib 用。test とは別実行(別 seed=20261031)。",
   "note": "生成モデルの自己ラベル。ユーザーによる約200件の目視確認と、生成ラベルとの一致率の記録を行う。閾値決定・再較正の専用。"
 }

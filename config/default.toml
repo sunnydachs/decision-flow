@@ -39,14 +39,21 @@ jev_usd = 1.0
 confirm_external_required = true
 
 [models.llm]
-# 比較用 LLM(外部ルーティング chat completions)。
-# supported_parameters に structured_outputs を含む :free から選定(実測 2026-10-04)。
-primary = "llm-free-a"
-modes = ["prompt", "json_schema"]
-alternatives = [
-  "llm-free-c",
-  "llm-free-d",
-]
+# 比較用 LLM。2モード(prompt / json_schema 強制)を必ず用意する。
+# 外部エンドポイント経由(OpenAI 互換)。外部ルーティング の無料枠を mercury のために温存する。
+# 構造化出力は実測 2026-10-05 で json_schema 強制が動作を確認(外部エンドポイント 公式 docs も JSON schema 対応を明記)。
+# 注意: 生成モデル(generator-a)とは別系統の OpenAI 系 open-weight。レポートには「このモデルについての結論であり
+#       より大きなモデルには当てはまらない」と明記する。
+provider = "nim"
+model = "llm-generic-20b"
+endpoint = "https://<external-endpoint>/v1/chat/completions"
+key_env = "LLM_API_KEY"
+tier = "external_free"   # 外部APIだが 外部ルーティング の無料枠を消費しない
+max_tokens = 1500        # 短い JSON 出力。切り詰めによる parse 失敗を防ぐ
+# 代替(外部ルーティング の無料枠を使う場合): provider="外部ルーティング",
+#   model="llm-free-a", endpoint="https://外部ルーティング.ai/api/v1/chat/completions",
+#   key_env="OPENROUTER_API_KEY", tier="free"
+alternatives = []
 
 [models.mercury]
 model = "decision-model-v1"

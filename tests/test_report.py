@@ -75,3 +75,45 @@ def test_build_report_and_markdown(tmp_path):
     md = render_markdown(aggregate)
     assert "## 1. 分類品質" in md
     assert "| m |" in md
+
+
+def test_fixed_recall_uses_calib_labels_not_test_labels(tmp_path):
+    """calib 生応答は calib の正解で評価する(回帰: test の辞書で引くと全件 None になった)。"""
+    test_items = [
+        Item(id="t1", text="x", label="urgent_claim", severity="high", language="ja"),
+        Item(id="t2", text="y", label="billing", severity="normal", language="ja"),
+    ]
+    calib_items = [
+        Item(id="c1", text="x", label="urgent_claim", severity="high", language="ja"),
+        Item(id="c2", text="y", label="billing", severity="normal", language="ja"),
+        Item(id="c3", text="z", label="urgent_claim", severity="high", language="ja"),
+    ]
+    test_path = tmp_path / "d.jsonl"
+    calib_path = tmp_path / "c.jsonl"
+    write_jsonl(test_items, test_path)
+    write_jsonl(calib_items, calib_path)
+    raw_dir = tmp_path / "raw"
+    raw_dir.mkdir()
+    (tmp_path / "calib_raw").mkdir()
+    for iid, risk in (("t1", 0.9), ("t2", 0.1)):
+        _append(raw_dir / "d__m.jsonl", {"item_id": iid, "label": "urgent_claim" if risk > 0.5 else "billing",
+                                         "risk_score": risk, "value_type": "probability", "latency_ms": 1})
+    for iid, risk in (("c1", 0.9), ("c2", 0.1), ("c3", 0.8)):
+        _append(tmp_path / "calib_raw" / "d__m.jsonl",
+                {"item_id": iid, "label": "urgent_claim" if risk > 0.5 else "billing",
+                 "risk_score": risk, "value_type": "probability", "latency_ms": 1})
+    config = load_config(repo_root=REPO_ROOT)
+    aggregate = build_report(
+        dataset_path=test_path, raw_dir=raw_dir, methods=["m"], config=config,
+        calib_raw_dir=tmp_path / "calib_raw", calib_dataset_path=calib_path,
+    )
+    fixed = aggregate["methods"]["m"].get("fixed_recall")
+    assert fixed is not None, "calib の正解データを渡したのに fixed_recall が None"
+    assert fixed["threshold_from_calib"] is not None
+    assert fixed["test"]["recall_high"] == 1.0
+    assert fixed["test"]["automation_rate"] == 0.5
+
+
+def _append(path: Path, record: dict) -> None:
+    with open(path, "a", encoding="utf-8") as fh:
+        fh.write(json.dumps(record, ensure_ascii=False) + "\n")

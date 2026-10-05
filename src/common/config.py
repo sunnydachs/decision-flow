@@ -67,7 +67,7 @@ def _validate(data: dict[str, Any]) -> None:
         "evaluation.risk_label",
         "evaluation.risk_severity",
         "evaluation.recall_target",
-        "models.llm.primary",
+        "models.llm.model",
         "models.mercury.model",
         "models.pplx_decider.model",
         "models.jev.model",
