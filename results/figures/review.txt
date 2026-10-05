@@ -1,0 +1,75 @@
+
+===== fig1_calibration.png @ reviewer-a (40.8s) =====
+(A) Calibration (reliability diagram, test n=500)
+(B) perfect calibration, embedding_lr, pplx_decider, jev
+(C) observed frequency, 0.0, 0.2, 0.4, 0.6, 0.8, 1.0, predicted probability of high risk, 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
+(D) clean
+(E) The figure displays a calibration (reliability) diagram comparing predicted probabilities of high risk against observed frequencies for three models and a perfect calibration baseline on a test set of n=500.
+
+===== fig2_risk_coverage.png @ reviewer-a (29.6s) =====
+(A) Risk-coverage: what can be automated at a fixed recall floor? (markers = threshold chosen on calib, applied unchanged to test)
+(B) rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev
+(C) high-risk recall (0.6, 0.7, 0.8, 0.9, 1.0); automation rate (share auto-processed) (0.0, 0.2, 0.4, 0.6, 0.8, 1.0)
+(D) clean
+(E) The figure claims that various methods maintain high-risk recall near 1.0 until an automation rate of approximately 0.6-0.7 before dropping sharply.
+
+===== fig3_probability_shape.png @ reviewer-a (28.6s) =====
+(A) Where each method puts its probability mass (test n=500) rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous
+(B) rule, llm_prompt, pplx_decider, embedding_lr, llm_json_schema, jev
+(C) share of items; risk-score band; = 0; 0-0.02; 0.02-0.1; 0.1-0.5; 0.5-0.9; 0.9-0.98; 0.98-1; = 1
+(D) clean
+(E) The figure claims that "rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous".
+
+===== fig4_tradeoff.png @ reviewer-a (65.6s) =====
+(A) Operational trade-off (bubble size = estimated cost per 1000 items) top-left is cheap-and-fast; empty bottom-left means nobody automates under the recall floor
+(B) embedding_lr 0 ms · $0.000/1k
+rule 0 ms · $0.000/1k
+jev 201 ms · $0.035/1k
+pplx_decider 325 ms · $0.014/1k
+llm_json_schema 3372 ms · $0.000/1k
+llm_prompt 4133 ms · $0.000/1k
+(C) Y-axis label: automation rate at calib threshold; Y-axis ticks: 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6
+X-axis label: p50 latency per item (ms, log scale); X-axis ticks: 10^0, 10^1, 10^2, 10^3
+(D) clean
+(E) top-left is cheap-and-fast; empty bottom-left means nobody automates under the recall floor
+
+===== fig5_stability.png @ reviewer-a (73.3s) =====
+(A) Stability (50-item subset) the local baseline and pplx_decider never flip; the LLM flips on every axis  
+(B) same input, 20 runs; paraphrased instruction / rotated option order  
+(C) Y-axis label: share of items whose label changed; Y-axis ticks: 0.00, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12; X-axis labels: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider  
+(D) clean  
+(E) the local baseline and pplx_decider never flip; the LLM flips on every axis
+
+===== fig1_calibration.png @ reviewer-b (65.2s) =====
+None
+
+===== fig2_risk_coverage.png @ reviewer-b (78.1s) =====
+(A) **Title:** "Risk-coverage: what can be automated at a fixed recall floor?" with the subtitle "(markers = threshold chosen on calib, applied unchanged to test)".
+
+(B) **Legend entries, in order:**
+1. rule (gray)
+2. embedding_lr (blue)
+3. llm_prompt (green)
+4. llm_json_schema (orange)
+5. pplx_decider (pink/magenta)
+6. jev (purple)
+
+(C) **Axis labels and tick labels:**
+- Y-axis label: "high-risk recall"; tick labels: 0.6, 0.7, 0.8, 0.9, 1.0
+- X-axis label: "automation rate (share auto-processed)"; tick labels: 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
+- Additional in-plot text: "recall target 95%" next to a horizontal dotted line at y = 0.95.
+
+(D) **Legibility problems:** clean. (The legend box sits in the lower-left over empty plot area and does not obscure any curve; all six colors are distinguishable; no text is cut off.)
+
+(E)
+
+===== fig3_probability_shape.png @ reviewer-b (60.9s) =====
+None
+
+===== fig4_tradeoff.png @ reviewer-b (114.8s) =====
+None
+
+===== fig5_stability.png @ reviewer-b (93.3s) =====
+None
+
+review -> <repo-root>/results/figures/review.json

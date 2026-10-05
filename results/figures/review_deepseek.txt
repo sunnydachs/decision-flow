@@ -1,0 +1,50 @@
+
+===== fig1_calibration.png @ reviewer-b (FAIL) =====
+FAIL empty content (max_tokens=3600, finish=length)
+
+===== fig2_risk_coverage.png @ reviewer-b (59.3s) =====
+**(A) Title**
+"Risk–coverage: what can be automated at a fixed recall floor?" with the subtitle "(markers = threshold chosen on calib, applied unchanged to test)".
+
+**(B) Legend entries, in order**
+1. rule (gray)
+2. embedding_lr (blue)
+3. llm_prompt (green)
+4. llm_json_schema (orange)
+5. pplx_decider (pink/magenta)
+6. jev (purple
+
+===== fig3_probability_shape.png @ reviewer-b (112.9s) =====
+(A) Exact title:  
+"Where each method puts its probability mass (test n=500)  
+rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous"
+
+(B) Legend entries, in order as displayed row-wise:  
+rule (gray), llm_prompt (green), pplx_decider (pink), embedding_lr (blue), llm_json_s
+
+===== fig4_tradeoff.png @ reviewer-b (FAIL) =====
+FAIL empty content (max_tokens=3600, finish=length)
+
+===== fig5_stability.png @ reviewer-b (102.9s) =====
+(A) Exact title: “Stability (50-item subset)”  
+Subtitle: “the local baseline and pplx_decider never flip; the LLM flips on every axis”
+
+(B) Legend entries, in order:
+1. “same input, 20 runs” (blue)
+2. “paraphrased instruction / rotated option order” (orange)
+
+(C) Axis labels and tick labels:
+- Y-axis label: “share of items whose label changed”
+- Y tick labels: 0.00, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12
+- X tick labels: “rule”, “embedding_lr” (shown as “embedding_” / “lr”), “llm_prompt” (shown as “llm_” / “prompt”), “llm_json_schema” (shown as “llm_” / “json_” / “schema”), “pplx_decider” (shown as “pplx_” / “decider”)
+- No x-axis label visible.
+- Annotations: “0% = never changed” (top left), “not measured: jev” (top right)
+- Bar value labels: 0%, 0%, 0%, 0%, 8%, 8%, 4%, 10%, 0%, 2%
+
+(D) Legibility: clean
+
+(E) The figure claims that on a 50-item subset, the local baseline and pplx_decider never flip, while the LLM flips on every axis, with paraphrased instruction/rotated option order generally causing more label changes than same input.
+
+review -> <repo-root>/results/figures/review_deepseek.json
+
+2/5 件が失敗(検証未完了)

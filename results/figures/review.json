@@ -1,0 +1,72 @@
+[
+  {
+    "model": "reviewer-a",
+    "image": "<repo-root>/results/figures/fig1_calibration.png",
+    "ok": true,
+    "seconds": 40.8,
+    "text": "(A) Calibration (reliability diagram, test n=500)\n(B) perfect calibration, embedding_lr, pplx_decider, jev\n(C) observed frequency, 0.0, 0.2, 0.4, 0.6, 0.8, 1.0, predicted probability of high risk, 0.0, 0.2, 0.4, 0.6, 0.8, 1.0\n(D) clean\n(E) The figure displays a calibration (reliability) diagram comparing predicted probabilities of high risk against observed frequencies for three models and a perfect calibration baseline on a test set of n=500."
+  },
+  {
+    "model": "reviewer-a",
+    "image": "<repo-root>/results/figures/fig2_risk_coverage.png",
+    "ok": true,
+    "seconds": 29.6,
+    "text": "(A) Risk-coverage: what can be automated at a fixed recall floor? (markers = threshold chosen on calib, applied unchanged to test)\n(B) rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev\n(C) high-risk recall (0.6, 0.7, 0.8, 0.9, 1.0); automation rate (share auto-processed) (0.0, 0.2, 0.4, 0.6, 0.8, 1.0)\n(D) clean\n(E) The figure claims that various methods maintain high-risk recall near 1.0 until an automation rate of approximately 0.6-0.7 before dropping sharply."
+  },
+  {
+    "model": "reviewer-a",
+    "image": "<repo-root>/results/figures/fig3_probability_shape.png",
+    "ok": true,
+    "seconds": 28.6,
+    "text": "(A) Where each method puts its probability mass (test n=500) rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous\n(B) rule, llm_prompt, pplx_decider, embedding_lr, llm_json_schema, jev\n(C) share of items; risk-score band; = 0; 0-0.02; 0.02-0.1; 0.1-0.5; 0.5-0.9; 0.9-0.98; 0.98-1; = 1\n(D) clean\n(E) The figure claims that \"rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous\"."
+  },
+  {
+    "model": "reviewer-a",
+    "image": "<repo-root>/results/figures/fig4_tradeoff.png",
+    "ok": true,
+    "seconds": 65.6,
+    "text": "(A) Operational trade-off (bubble size = estimated cost per 1000 items) top-left is cheap-and-fast; empty bottom-left means nobody automates under the recall floor\n(B) embedding_lr 0 ms · $0.000/1k\nrule 0 ms · $0.000/1k\njev 201 ms · $0.035/1k\npplx_decider 325 ms · $0.014/1k\nllm_json_schema 3372 ms · $0.000/1k\nllm_prompt 4133 ms · $0.000/1k\n(C) Y-axis label: automation rate at calib threshold; Y-axis ticks: 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6\nX-axis label: p50 latency per item (ms, log scale); X-axis ticks: 10^0, 10^1, 10^2, 10^3\n(D) clean\n(E) top-left is cheap-and-fast; empty bottom-left means nobody automates under the recall floor"
+  },
+  {
+    "model": "reviewer-a",
+    "image": "<repo-root>/results/figures/fig5_stability.png",
+    "ok": true,
+    "seconds": 73.3,
+    "text": "(A) Stability (50-item subset) the local baseline and pplx_decider never flip; the LLM flips on every axis  \n(B) same input, 20 runs; paraphrased instruction / rotated option order  \n(C) Y-axis label: share of items whose label changed; Y-axis ticks: 0.00, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12; X-axis labels: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider  \n(D) clean  \n(E) the local baseline and pplx_decider never flip; the LLM flips on every axis"
+  },
+  {
+    "model": "reviewer-b",
+    "image": "<repo-root>/results/figures/fig1_calibration.png",
+    "ok": true,
+    "seconds": 65.2,
+    "text": null
+  },
+  {
+    "model": "reviewer-b",
+    "image": "<repo-root>/results/figures/fig2_risk_coverage.png",
+    "ok": true,
+    "seconds": 78.1,
+    "text": "(A) **Title:** \"Risk-coverage: what can be automated at a fixed recall floor?\" with the subtitle \"(markers = threshold chosen on calib, applied unchanged to test)\".\n\n(B) **Legend entries, in order:**\n1. rule (gray)\n2. embedding_lr (blue)\n3. llm_prompt (green)\n4. llm_json_schema (orange)\n5. pplx_decider (pink/magenta)\n6. jev (purple)\n\n(C) **Axis labels and tick labels:**\n- Y-axis label: \"high-risk recall\"; tick labels: 0.6, 0.7, 0.8, 0.9, 1.0\n- X-axis label: \"automation rate (share auto-processed)\"; tick labels: 0.0, 0.2, 0.4, 0.6, 0.8, 1.0\n- Additional in-plot text: \"recall target 95%\" next to a horizontal dotted line at y = 0.95.\n\n(D) **Legibility problems:** clean. (The legend box sits in the lower-left over empty plot area and does not obscure any curve; all six colors are distinguishable; no text is cut off.)\n\n(E)"
+  },
+  {
+    "model": "reviewer-b",
+    "image": "<repo-root>/results/figures/fig3_probability_shape.png",
+    "ok": true,
+    "seconds": 60.9,
+    "text": null
+  },
+  {
+    "model": "reviewer-b",
+    "image": "<repo-root>/results/figures/fig4_tradeoff.png",
+    "ok": true,
+    "seconds": 114.8,
+    "text": null
+  },
+  {
+    "model": "reviewer-b",
+    "image": "<repo-root>/results/figures/fig5_stability.png",
+    "ok": true,
+    "seconds": 93.3,
+    "text": null
+  }
+]
