@@ -1,65 +1,22 @@
 {
-  "dataset": "<repo-root>/data/test/support_classification.jsonl",
-  "n_items": 50,
-  "prompt_fingerprint": "d499c1498750-6bb62d6d30fa",
-  "data_fingerprint": "6bb62d6d30fa",
-  "train_on": {
-    "path": "data/calib/support_classification.jsonl",
-    "oof": false
-  },
-  "free_tier_remaining_at_start": 0,
+  "dataset": "data/test/support_classification.jsonl",
+  "n_items": 500,
+  "prompt_fingerprint": "d499c1498750-c6a751eda813",
+  "data_fingerprint": "c6a751eda813",
+  "train_on": null,
+  "free_tier_remaining_at_start": null,
   "methods": {
-    "rule": {
-      "tier": "local",
-      "model": "keyword-rules",
-      "n": 50,
-      "ok": 50,
-      "errors": 0,
-      "pending": 0,
-      "quota_exhausted": false,
-      "out": "<repo-root>/results/raw_variants/support_classification__rule__run103.jsonl"
-    },
-    "embedding_lr": {
-      "tier": "local",
-      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-      "n": 50,
-      "ok": 50,
-      "errors": 0,
-      "pending": 0,
-      "quota_exhausted": false,
-      "out": "<repo-root>/results/raw_variants/support_classification__embedding_lr__run103.jsonl"
-    },
-    "llm_prompt": {
-      "tier": "external_free",
-      "model": "llm-generic-20b",
-      "n": 50,
-      "ok": 50,
-      "errors": 0,
-      "pending": 0,
-      "quota_exhausted": false,
-      "out": "<repo-root>/results/raw_variants/support_classification__llm_prompt__run103.jsonl"
-    },
-    "llm_json_schema": {
-      "tier": "external_free",
-      "model": "llm-generic-20b",
-      "n": 50,
-      "ok": 50,
-      "errors": 0,
-      "pending": 0,
-      "quota_exhausted": false,
-      "out": "<repo-root>/results/raw_variants/support_classification__llm_json_schema__run103.jsonl"
-    },
-    "pplx_decider": {
+    "jev": {
       "tier": "paid",
-      "model": "pplx-decider-v1-27b",
-      "n": 50,
-      "ok": 50,
+      "model": "jev-1.13.0",
+      "n": 500,
+      "ok": 500,
       "errors": 0,
       "pending": 0,
       "quota_exhausted": false,
-      "out": "<repo-root>/results/raw_variants/support_classification__pplx_decider__run103.jsonl"
+      "out": "results/raw/support_classification__jev.jsonl"
     }
   },
   "free_tier_used_today": 0,
-  "free_tier_remaining": 0
+  "free_tier_remaining": 1000
 }

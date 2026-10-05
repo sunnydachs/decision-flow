@@ -959,6 +959,242 @@
           "auto_error_rate": 0.02097902097902098
         }
       }
+    },
+    "jev": {
+      "n_records": 500,
+      "n_ok": 500,
+      "errors": {},
+      "parse_failures": 0,
+      "accuracy": 0.9,
+      "macro_f1": 0.8881339460512658,
+      "per_class": {
+        "billing": {
+          "precision": 0.9537037037037037,
+          "recall": 0.8956521739130435,
+          "f1": 0.9237668161434978,
+          "support": 115
+        },
+        "other": {
+          "precision": 0.7708333333333334,
+          "recall": 0.8409090909090909,
+          "f1": 0.8043478260869567,
+          "support": 44
+        },
+        "sales": {
+          "precision": 0.9841269841269841,
+          "recall": 0.8857142857142857,
+          "f1": 0.9323308270676691,
+          "support": 70
+        },
+        "technical": {
+          "precision": 0.8878504672897196,
+          "recall": 0.8050847457627118,
+          "f1": 0.8444444444444444,
+          "support": 118
+        },
+        "urgent_claim": {
+          "precision": 0.8793103448275862,
+          "recall": 1.0,
+          "f1": 0.9357798165137614,
+          "support": 153
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "billing",
+          "other",
+          "sales",
+          "technical",
+          "urgent_claim"
+        ],
+        "matrix": [
+          [
+            103,
+            2,
+            0,
+            6,
+            4
+          ],
+          [
+            1,
+            37,
+            0,
+            4,
+            2
+          ],
+          [
+            3,
+            3,
+            62,
+            2,
+            0
+          ],
+          [
+            1,
+            6,
+            1,
+            95,
+            15
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            153
+          ]
+        ]
+      },
+      "ambiguous_split": {
+        "all": {
+          "n": 500,
+          "accuracy": 0.9
+        },
+        "flagged": {
+          "n": 34,
+          "accuracy": 0.7352941176470589
+        },
+        "unflagged": {
+          "n": 466,
+          "accuracy": 0.9120171673819742
+        }
+      },
+      "error_severity": {
+        "n_wrong": 50,
+        "wrong_high": 15,
+        "cross_tab_gold_severity": {
+          "billing|high": 19,
+          "billing|normal": 96,
+          "other|high": 2,
+          "other|normal": 42,
+          "sales|high": 3,
+          "sales|normal": 67,
+          "technical|high": 15,
+          "technical|normal": 103,
+          "urgent_claim|high": 153
+        }
+      },
+      "risk_detection": {
+        "n": 500,
+        "positives": 192,
+        "auroc": 0.9464032061688312,
+        "auroc_ci": [
+          0.9464032061688312,
+          0.9214405686820554,
+          0.9684890704208852
+        ]
+      },
+      "calibration": {
+        "ece": 0.04326,
+        "brier": 0.056219,
+        "log_loss": 0.7466882543108309,
+        "reliability_bins": [
+          {
+            "n": 50,
+            "mean_prob": 0.0,
+            "empirical": 0.08,
+            "gap": 0.08
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.0,
+            "empirical": 0.08,
+            "gap": 0.08
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.0,
+            "empirical": 0.04,
+            "gap": 0.04
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.0,
+            "empirical": 0.04,
+            "gap": 0.04
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.0,
+            "empirical": 0.06,
+            "gap": 0.06
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.015,
+            "empirical": 0.1,
+            "gap": 0.085
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.4732,
+            "empirical": 0.44,
+            "gap": -0.03320000000000001
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.9856,
+            "empirical": 1.0,
+            "gap": 0.014399999999999968
+          },
+          {
+            "n": 50,
+            "mean_prob": 1.0,
+            "empirical": 1.0,
+            "gap": 0.0
+          },
+          {
+            "n": 50,
+            "mean_prob": 1.0,
+            "empirical": 1.0,
+            "gap": 0.0
+          }
+        ],
+        "extremity": {
+          "share_<0.02": 0.566,
+          "share_<0.05": 0.59,
+          "share_>0.95": 0.294,
+          "share_>0.98": 0.264,
+          "mean": 0.34738,
+          "std": 0.45928872792612707
+        }
+      },
+      "threshold_0_5": {
+        "threshold": 0.5,
+        "recall_high": 0.8697916666666666,
+        "automation_rate": 0.652,
+        "review_rate": 0.348,
+        "selective_risk": 0.07668711656441718,
+        "n": 500
+      },
+      "latency_ms": {
+        "p50": 201.31871200283058,
+        "p95": 367.62752179638477,
+        "mean": 222.0687372602406
+      },
+      "cost_per_1000_usd": 0.034901412,
+      "fixed_recall": {
+        "target_recall": 0.95,
+        "threshold_from_calib": 0.0,
+        "calib": {
+          "threshold": 0.0,
+          "recall_high": 1.0,
+          "automation_rate": 0.0,
+          "review_rate": 1.0,
+          "selective_risk": NaN,
+          "n": 300
+        },
+        "test": {
+          "threshold": 0.0,
+          "recall_high": 1.0,
+          "automation_rate": 0.0,
+          "review_rate": 1.0,
+          "selective_risk": NaN,
+          "n": 500,
+          "auto_n": 0,
+          "auto_error_rate": null
+        }
+      }
     }
   },
   "hybrid": {
@@ -1076,6 +1312,61 @@
         "block|normal": 11,
         "auto|high": 7,
         "review|high": 8
+      }
+    },
+    "jev_A_rulecommit": {
+      "model_method": "jev",
+      "thresholds": {
+        "review_above": 0.0,
+        "block_above": 0.88
+      },
+      "fail_open": false,
+      "n": 500,
+      "high_n": 192,
+      "actions": {
+        "block": 181,
+        "auto": 238,
+        "review": 81
+      },
+      "automation_rate": 0.476,
+      "review_rate": 0.162,
+      "block_rate": 0.362,
+      "recall_high_at_auto": 0.9114583333333334,
+      "auto_high_missed": 17,
+      "auto_error_rate": 0.07983193277310924,
+      "outcomes": {
+        "block|high": 172,
+        "auto|normal": 221,
+        "review|normal": 78,
+        "block|normal": 9,
+        "auto|high": 17,
+        "review|high": 3
+      }
+    },
+    "jev_B_nocommit": {
+      "model_method": "jev",
+      "thresholds": {
+        "review_above": 0.0,
+        "block_above": 0.88
+      },
+      "fail_open": false,
+      "n": 500,
+      "high_n": 192,
+      "actions": {
+        "block": 187,
+        "review": 313
+      },
+      "automation_rate": 0.0,
+      "review_rate": 0.626,
+      "block_rate": 0.374,
+      "recall_high_at_auto": 1.0,
+      "auto_high_missed": 0,
+      "auto_error_rate": null,
+      "outcomes": {
+        "block|high": 178,
+        "review|normal": 299,
+        "block|normal": 9,
+        "review|high": 14
       }
     }
   }
