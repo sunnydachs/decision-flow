@@ -1,0 +1,9 @@
+{
+  "source": "llm-generated-v1 (test)",
+  "license": "internal",
+  "data_class": "synthetic",
+  "external_ok": true,
+  "task": "support_classification",
+  "provenance": "NVIDIA NIM / deepseek-ai/deepseek-v4.1-flash で生成(評価対象モデルとは別系統)。test 用。calib とは別実行(別 seed)。",
+  "note": "最終評価専用。閾値探索やプロンプト調整に使わない。生成モデルの自己ラベル。"
+}

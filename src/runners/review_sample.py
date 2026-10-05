@@ -1,0 +1,119 @@
+"""目視確認用のサンプリングと、確認後の一致率算出。
+
+1) サンプル作成(層化):
+     .venv/bin/python -m runners.review_sample --dataset data/test/support_classification.jsonl \
+       --n 200 --out results/review/review_sample.csv
+   CSV に reviewed_label / reviewed_severity / note の空列を用意する(生成時のラベルは同封)。
+
+2) 記入後の一致率:
+     .venv/bin/python -m runners.review_sample --score results/review/review_sample.csv
+   生成ラベルと reviewed_label の一致率、クラス別一致率、severity の一致率を出す。
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import random
+from collections import Counter, defaultdict
+from pathlib import Path
+
+from common.config import REPO_ROOT
+from common.dataset import load_jsonl
+
+FIELDS = ["id", "text", "generated_label", "generated_severity", "ambiguous",
+          "bucket", "reviewed_label", "reviewed_severity", "note"]
+
+
+def stratified_sample(items, n: int, seed: int):
+    rng = random.Random(seed)
+    by_label: dict[str, list] = defaultdict(list)
+    for item in items:
+        by_label[item.label].append(item)
+    total = len(items)
+    picked = []
+    for label, group in by_label.items():
+        want = max(1, round(n * len(group) / total))
+        rng.shuffle(group)
+        picked.extend(group[:want])
+    # 端数は全体から補充
+    seen = {it.id for it in picked}
+    rest = [it for it in items if it.id not in seen]
+    rng.shuffle(rest)
+    picked.extend(rest[: max(0, n - len(picked))])
+    picked.sort(key=lambda it: it.id)
+    return picked
+
+
+def write_sample(items, out_path: Path) -> dict:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w", encoding="utf-8", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=FIELDS)
+        writer.writeheader()
+        for item in items:
+            writer.writerow({
+                "id": item.id,
+                "text": item.text,
+                "generated_label": item.label,
+                "generated_severity": item.severity,
+                "ambiguous": int(item.ambiguous),
+                "bucket": (item.meta or {}).get("bucket", ""),
+                "reviewed_label": "",
+                "reviewed_severity": "",
+                "note": "",
+            })
+    return {"n": len(items), "out": str(out_path), "labels": dict(Counter(it.label for it in items))}
+
+
+def score(path: Path) -> dict:
+    rows = list(csv.DictReader(open(path, encoding="utf-8")))
+    reviewed = [r for r in rows if (r.get("reviewed_label") or "").strip()]
+    label_hits = sum(1 for r in reviewed if r["reviewed_label"].strip() == r["generated_label"].strip())
+    sev_rows = [r for r in reviewed if (r.get("reviewed_severity") or "").strip()]
+    sev_hits = sum(1 for r in sev_rows if r["reviewed_severity"].strip() == r["generated_severity"].strip())
+    per_label = Counter()
+    per_label_total = Counter()
+    for r in reviewed:
+        per_label_total[r["generated_label"]] += 1
+        if r["reviewed_label"].strip() == r["generated_label"].strip():
+            per_label[r["generated_label"]] += 1
+    return {
+        "rows": len(rows),
+        "reviewed": len(reviewed),
+        "label_agreement": (label_hits / len(reviewed)) if reviewed else None,
+        "severity_agreement": (sev_hits / len(sev_rows)) if sev_rows else None,
+        "per_label_agreement": {
+            label: (per_label[label] / per_label_total[label]) for label in sorted(per_label_total)
+        },
+        "disagreements": [
+            {"id": r["id"], "generated": r["generated_label"], "reviewed": r["reviewed_label"].strip(),
+             "note": (r.get("note") or "").strip()}
+            for r in reviewed if r["reviewed_label"].strip() != r["generated_label"].strip()
+        ][:50],
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
+    import json
+
+    parser = argparse.ArgumentParser(description="目視確認のサンプリング / 一致率の算出")
+    parser.add_argument("--dataset", default=None)
+    parser.add_argument("--n", type=int, default=200)
+    parser.add_argument("--seed", type=int, default=20261006)
+    parser.add_argument("--out", default="results/review/review_sample.csv")
+    parser.add_argument("--score", default=None, help="記入済み CSV のパス(この場合は採点のみ)")
+    args = parser.parse_args(argv)
+
+    if args.score:
+        print(json.dumps(score(Path(args.score)), ensure_ascii=False, indent=2))
+        return 0
+    if not args.dataset:
+        raise SystemExit("--dataset か --score のどちらかが必要です")
+    items = load_jsonl(Path(REPO_ROOT / args.dataset))
+    sample = stratified_sample(items, args.n, args.seed)
+    summary = write_sample(sample, Path(REPO_ROOT / args.out))
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

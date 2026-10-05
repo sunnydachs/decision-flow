@@ -1,0 +1,30 @@
+{"id": "sc-001", "text": "本番環境のデータベースが応答せず、全ての顧客がサービスにアクセスできません。今すぐ復旧してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-002", "text": "弊社のAPIキーが公開リポジトリに流出している可能性があります。至急、無効化と影響範囲の確認をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-003", "text": "個人情報を含む顧客リストを、誤って外部共有リンクで公開してしまいました。今すぐ無効化してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-004", "text": "昨夜から決済処理が全て失敗しており、売上が止まっています。緊急で対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-005", "text": "不正アクセスの警告メールが届きました。アカウントを即時ロックしてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-006", "text": "サーバーがダウンし、取引先への請求書送付が止まっています。至急対応をお願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-007", "text": "誤って本番データを削除してしまいました。バックアップからの復旧を至急お願いします。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-008", "text": "二重請求が3回続いており、カード会社からも連絡が来ています。即刻止めてください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-009", "text": "今月の請求書の宛名を「株式会社サンプル」に変更していただけますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-010", "text": "領収書をPDFで再発行してください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-011", "text": "支払期限が本日ですが、振込先の口座が分からず入金できません。", "label": "billing", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-012", "text": "年額プランに変更した場合の日割り計算について教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-013", "text": "インボイス登録番号を請求書に追記していただけますか。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-014", "text": "CSVエクスポートを実行すると、空のファイルが出力されます。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-015", "text": "本番のWebhookが全て失敗しており、連携先の業務が止まっています。", "label": "technical", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-016", "text": "通知が届かなくなりました。設定は変更していません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-017", "text": "2段階認証のコードが届きません。対処方法を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-018", "text": "動きません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": true, "annotator_labels": ["technical", "other"]}
+{"id": "sc-019", "text": "ダッシュボードのグラフが昨日から更新されていません。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-020", "text": "エンタープライズプランの見積もりをお願いします。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-021", "text": "無料トライアルを1週間延長していただくことは可能ですか。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-022", "text": "明日の役員会で契約可否を決めるため、本日中に見積書が必要です。", "label": "sales", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-023", "text": "パートナー制度について資料を送ってください。", "label": "sales", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-024", "text": "採用に応募したいのですが、応募先を教えてください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-025", "text": "取材の依頼です。広報の担当の方につないでください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-026", "text": "メルマガの配信を停止してください。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-027", "text": "先日の件、どうなりましたか。", "label": "other", "severity": "normal", "language": "ja", "ambiguous": true, "annotator_labels": ["other", "billing"]}
+{"id": "sc-028", "text": "他社の請求書が誤って届き、当社の取引先情報が見えている可能性があります。すぐ確認してください。", "label": "urgent_claim", "severity": "high", "language": "ja", "ambiguous": false}
+{"id": "sc-029", "text": "解約したいのですが、手続きの方法を教えてください。", "label": "billing", "severity": "normal", "language": "ja", "ambiguous": false}
+{"id": "sc-030", "text": "急ぎではありませんが、ログイン画面の表示が変わった理由を教えてください。", "label": "technical", "severity": "normal", "language": "ja", "ambiguous": false}

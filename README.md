@@ -1,60 +1,138 @@
-# Repository Template
+# decision-flow
 
-Default template for sunnydachs' projects. Batteries-included with a CI/CD and security stack that is entirely on free tiers.
+企業システムの判断処理を「テキスト生成 LLM」から「Decision Model(構造化された判断結果を返すモデル)」へ
+切り出すときの trade-off を、**同一データ・同一タスク定義・同一実行条件・同一指標**で実測する評価基盤です。
 
-## What's included
+比較する方式:
 
-### CI (`ci.yml`)
-- Node.js matrix on the **supported LTS lines** (currently 22.x and 24.x)
-- `scripts/check_runtimes.py` fails the build when a version in the matrix has
-  reached end of life, so the list cannot silently go stale
-- Detects the project stack: runs `npm test` when `package.json` exists, `pytest`
-  when `pyproject.toml` exists, and skips cleanly when neither does (so a fresh
-  repo is not red before it has any code). Delete the detection step once the
-  repo has picked a stack.
-- Optional Codecov coverage upload (Node 20.x leg only)
-
-### Security
-- **CodeQL** at `security-extended` query pack (catches more than default), and it
-  skips cleanly while the repo has no source for the configured language
-- **gitleaks** pre-commit hook + CI action on every push/PR
-- **Secret scanning** (GitHub native, public repos)
-- **Push protection** on public repos
-
-### Automation
-- **Dependabot** weekly updates for github-actions (grouped minor/patch). Add the
-  `npm` or `pip` ecosystem in `dependabot.yml` once that manifest is committed —
-  declaring an ecosystem with no manifest makes every push produce a failing
-  Dependabot run.
-- **Dependabot auto-merge** for patch/minor/security updates only
-- **Stale workflow** to clean up old issues/PRs weekly
-
-### Templates
-- **CODEOWNERS** for personal ownership
-- **pull_request_template.md** for consistent PRs
-- **dependabot.yml** with grouped minor/patch updates
-
-## Pre-installed Apps (install per repo)
-
-| App | Purpose | Why here |
+| 方式 | 実装 | 確率の扱い |
 |---|---|---|
-| [CodeRabbit](https://github.com/apps/coderabbit) | AI code review | Free on public repos, Advanced tier features |
-| [Codecov](https://github.com/apps/codecov) | Test coverage | Free for open source |
+| Rule-based | `src/adapters/rule.py`(キーワードルール) | なし(0/1 のリスク信号のみ) |
+| General LLM | `src/adapters/llm.py`(prompt モード / json_schema 強制モード) | 自己申告値(**較正の対象外**) |
+| Decision Model | `src/adapters/mercury.py`, `pplx_decider.py`, `jev.py` | 公式に確率と定義された値(**較正の対象**) |
+| Hybrid | `src/hybrid/pipeline.py`(ルール → 判断モデル → 閾値 → auto/review/block) | 上記の確率 |
 
-## New-repo Setup (5 minutes)
+Decision Model が「速い・安い・安全」であることは前提にしていません。数字が示す範囲だけをレポートします。
 
-1. `gh repo create <name> --template sunnydachs/repo-template`
-2. Install [CodeRabbit](https://github.com/apps/coderabbit) and [Codecov](https://github.com/apps/codecov) GitHub Apps
-3. Set `CODECOV_TOKEN` in Secrets (never echo the value; use a file)
-4. Create a Repository Ruleset on `main`:
-   - Required checks: `test (18.x)`, `test (20.x)`, `test (22.x)`, `Analyze (...)`, `gitleaks`
-   - Bypass: Dependabot (Integration id=29110)
-   - `allow_auto_merge: true`, `delete_branch_on_merge: true`
+## 環境構築
 
-## What /ruleset does
+Python 3.11 以上(CI と本番は 3.12)。依存は extras で分けています。
 
-The template workflow `.github/workflows/` assumes a Repository Ruleset named "main protection" exists on the repo. Without it, `gh pr merge --auto` will not be accepted. See neuro-profile's ruleset (id=22273820) for a complete reference.
+```bash
+uv venv --python 3.12 .venv
+source .venv/bin/activate
+uv pip install -e ".[dev]"          # pytest / numpy / scikit-learn
+uv pip install -e ".[embed]"        # ローカル埋め込み(fastembed)を使う場合
+uv pip install -e ".[jev]"          # Jev の SDK を使う場合(任意)
+```
 
-## Notes for Agents (Hermes / Codex / Claude Code)
+API キーは `.env`(git-ignored)に置きます。解決順は **プロセス環境変数 → リポジトリ直下 `.env` → `~/.hermes/.env`**。
 
-See `AGENTS.md` for hard rules on secrets, commits, and workflow safety.
+```bash
+cp .env.example .env   # OPENROUTER_API_KEY / TYPESAFE_API_KEY / PERPLEXITY_API_KEY
+```
+
+キーの値はコード・ログ・結果ファイル・レポートに**出しません**(存在確認だけなら `key_status()`)。
+
+## 実行コマンド
+
+```bash
+# 1) 全方式を同一条件で実行(合成データのスモーク)
+.venv/bin/python -m runners.benchmark \
+  --dataset data/synthetic/support_classification.jsonl \
+  --adapters rule,embedding_lr,mercury,llm_prompt,llm_json_schema,pplx_decider \
+  --train-on data/synthetic/support_classification.jsonl
+
+# 2) calib から閾値を決める(test では閾値を探さない)
+.venv/bin/python -m runners.calibrate --calib data/calib/support_classification.jsonl
+
+# 3) 生応答から指標を再計算してレポートを出力
+.venv/bin/python -m runners.report --dataset data/test/support_classification.jsonl \
+  --calib-raw-dir results/raw_calib
+
+# 4) Jev のドライラン(実 API を呼ばない。リクエスト形と推定コストを提示)
+.venv/bin/python -m runners.jev_dry_run --token-estimate 300 --out results/jev_dry_run.json
+
+# 5) Jev の本番実行(事前確認のうえで。--allow-paid-models が必須)
+.venv/bin/python -m runners.benchmark --dataset data/test/support_classification.jsonl \
+  --adapters jev --allow-paid-models
+
+# 6) shadow モード(既存の判定結果と並べて差分を出す)
+.venv/bin/python -m runners.shadow --existing existing_decisions.jsonl \
+  --model-raw results/raw/support_classification__mercury.jsonl
+
+# テスト
+.venv/bin/python -m pytest -q
+```
+
+## 設定(`config/default.toml`)
+
+ローカル上書きは `config/local.toml`(git-ignored)に置くと deep-merge されます。
+
+| セクション | 内容 |
+|---|---|
+| `run` | 並列数・timeout・リトライ方針・seed(全方式で統一する実行条件) |
+| `evaluation` | 高リスクのラベル/severity・目標 Recall・ブートストラップ設定・安定性テストの N |
+| `free_tier` | 無料枠の日次上限(全モデル共有)・毎分上限・枯渇時の挙動 |
+| `budget` | 有料モデルの推定コスト上限(Perplexity $0.5 / Jev $1)・外部送信の確認要否 |
+| `models.*` | モデルID・エンドポイント・単価。**コードにハードコードしない** |
+| `embedding` | ローカル埋め込みモデル(fastembed の対応モデル) |
+
+タスク定義は `config/tasks/*.toml`(カテゴリと説明・risk_label・タスク指示)。**コードを変えずにタスクを差し替え**できます。
+ルールのパターンは `config/rules/*.toml`。閾値は `runners.calibrate` が `config/thresholds.json` に出力します。
+
+## データフォーマット
+
+JSONL(1 行 = 1 件)。`label` と `severity` は**独立した列**です。
+
+```json
+{"id": "sc-001", "text": "問い合わせ本文", "label": "urgent_claim", "severity": "high",
+ "language": "ja", "ambiguous": false, "annotator_labels": ["urgent_claim", "billing"]}
+```
+
+データセットのディレクトリには `manifest.json` を置きます(`source` / `license` / `data_class` /
+`external_ok` / `provenance`)。`external_ok=false`(実データ)を外部 API に送るには `--confirm-external` が必要です。
+詳細は `data/schema.md`。
+
+| ディレクトリ | 用途 |
+|---|---|
+| `data/synthetic/` | 動作確認専用(レポートの評価に使わない) |
+| `data/calib/` | 閾値決定・再較正専用 |
+| `data/test/` | 最終評価専用(調整に使わない) |
+| `data/auxiliary/` | 補助データ(jev-ja-eval。外部妥当性の確認) |
+| `data/validation/` | 公開データ(MASSIVE ja-JP。品質・較正のみ) |
+
+## コストガードと安全弁
+
+- **`--allow-paid-models`**: Jev の実行に必須(誤実行の防止)。Perplexity は予算上限のみで制御。
+- **予算上限**: `budget.perplexity_usd`(既定 $0.5)/ `budget.jev_usd`(既定 $1)。超える見込みで停止します。
+  コストは API が返すトークン数 × 公式単価からの**推定値**であり、実際の請求額ではありません。
+- **`--confirm-external`**: `external_ok=false` のデータを外部 API に送るときに必須。
+- **無料枠**: OpenRouter の `:free` は全モデル共有(実測 1000 req/day、20 req/min)。
+  `free_tier.daily_limit` に達した方式は pending に退避し、他の方式・ローカル計算・レポートは止まりません。
+  `GET https://openrouter.ai/api/v1/key` の `free_model_daily_requests` で残量を確認できます。
+- **キャッシュ**: `results/cache/` に (method, model, task, item, 反復回, 指示文ハッシュ) で保存。
+  日をまたいだ再開や、指示文を変えた後の取り違えを防ぎます。
+- **監査ログ**: `results/audit/` に全リクエストの入力・確率・リクエストID・実行日時(UTC)・モデルIDを保存します。
+
+## ディレクトリ
+
+```
+config/     default.toml, tasks/, rules/, local.toml(任意), thresholds.json(生成物)
+data/       synthetic/ calib/ test/ auxiliary/ validation/, schema.md
+src/
+  tasks/      タスク定義(カテゴリと説明の読み込み)
+  adapters/   base, rule, embedding_lr, llm, mercury, pplx_decider, span, jev, registry
+  hybrid/     ルール→判断モデル→閾値→auto/review/block
+  evaluation/ classification, calibration, risk_coverage, bootstrap
+  runners/    benchmark, calibrate, report, jev_dry_run, shadow
+  common/     env, config, dataset, http, ratelimit, budget, cache
+results/    raw/, aggregate/, audit/, cache/, pending/, report.md
+tests/
+```
+
+## 出典
+
+各 API の契約・制限・価格は公式ドキュメントで確認したものをコード内の docstring に出典URL付きで記録しています
+(TypeSafe: docs.typesafe.ai / Perplexity: docs.perplexity.ai / OpenRouter: openrouter.ai/docs)。
+確認できなかった仕様は推測せず、レポートの「制約と注意点」に明記します。

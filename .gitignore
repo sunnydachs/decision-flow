@@ -35,3 +35,9 @@ venv/
 *.log
 .tmp/
 .cache/
+
+# decision-flow
+config/local.toml
+results/cache/
+results/pending/
+results/audit/

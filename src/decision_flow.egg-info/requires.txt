@@ -1,0 +1,12 @@
+httpx>=0.27
+
+[dev]
+pytest>=8.0
+numpy>=1.26
+scikit-learn>=1.4
+
+[embed]
+fastembed>=0.4
+
+[jev]
+typesafe-sdk>=0.7

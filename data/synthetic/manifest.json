@@ -1,0 +1,8 @@
+{
+  "source": "synthetic-v1",
+  "license": "internal",
+  "data_class": "synthetic",
+  "external_ok": true,
+  "provenance": "動作確認専用に人手で作成した日本語の合成サンプル30件。LLM生成でも実データでもない。",
+  "note": "レポートの評価には使わない(スモークテストと指標の検証のみ)。"
+}
