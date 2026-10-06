@@ -24,7 +24,24 @@
       }
     },
     "mercury": {
-      "skipped": "raw が無い(calib / test のどちらか未実行)"
+      "n_calib": 300,
+      "n_test": 500,
+      "temperature": 2.9020802169501647,
+      "before": {
+        "ece": 0.06406826894925391,
+        "brier": 0.06501290861773487,
+        "log_loss": 0.3761437181703551
+      },
+      "after_temperature": {
+        "ece": 0.05396467505289927,
+        "brier": 0.06040617826747227,
+        "log_loss": 0.219100887936843
+      },
+      "after_isotonic": {
+        "ece": 0.0318386749555878,
+        "brier": 0.05539126957912518,
+        "log_loss": 0.29404551028197645
+      }
     },
     "pplx_decider": {
       "n_calib": 300,

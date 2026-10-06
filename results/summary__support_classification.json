@@ -1,25 +1,22 @@
 {
-  "dataset": "<repo-root>/data/test/support_classification.jsonl",
-  "n_items": 60,
-  "prompt_fingerprint": "d499c1498750-279b01603e4b",
-  "data_fingerprint": "279b01603e4b",
-  "train_on": {
-    "path": "data/calib/support_classification.jsonl",
-    "oof": false
-  },
-  "free_tier_remaining_at_start": null,
+  "dataset": "data/test/support_classification.jsonl",
+  "n_items": 500,
+  "prompt_fingerprint": "d499c1498750-c6a751eda813",
+  "data_fingerprint": "c6a751eda813",
+  "train_on": null,
+  "free_tier_remaining_at_start": 965,
   "methods": {
-    "pplx_decider": {
-      "tier": "paid",
-      "model": "pplx-decider-v1-27b",
-      "n": 60,
-      "ok": 59,
-      "errors": 1,
+    "mercury": {
+      "tier": "free",
+      "model": "decision-model-v1",
+      "n": 500,
+      "ok": 500,
+      "errors": 0,
       "pending": 0,
       "quota_exhausted": false,
-      "out": "<repo-root>/results/raw_throughput/support_classification__pplx_decider__run207427.jsonl"
+      "out": "results/raw/support_classification__mercury.jsonl"
     }
   },
-  "free_tier_used_today": 0,
-  "free_tier_remaining": 1000
+  "free_tier_used_today": 500,
+  "free_tier_remaining": 465
 }
