@@ -181,9 +181,11 @@ def fig_probability_shape(results: Path, repo_root: Path, out_dir: Path):
 
 
 # --- 4. トレードオフ(表形式プロット) ----------------------------------------
-def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 0.95):
-    """レイテンシ × 自動化率 × コスト。散布図+接続線は7方式になるとラベルが重なるため、
-    行=方式の表形式プロットにする(調整ループを排除し、数値を読み取りやすくする)。"""
+def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 0.95,
+                 show_cost: bool = True):
+    """レイテンシ × 自動化率(× コスト)。散布図+接続線は7方式になるとラベルが重なるため、
+    行=方式の表形式プロットにする(調整ループを排除し、数値を読み取りやすくする)。
+    show_cost=False で記事用のコスト列なし版(fig4_tradeoff_nocost)。"""
     thresholds = _thresholds(repo_root)
     rows = []
     for method in METHODS:
@@ -220,8 +222,9 @@ def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 
         ax.grid(axis="x", alpha=0.25, zorder=1)
         ax.text(-0.02, 0.02, method, transform=ax.get_yaxis_transform(),
                 ha="right", va="center", fontsize=10, color=COLORS[method], fontweight="bold")
-        note = (f"recall {recall:.3f}   misses {misses}   p50 {p50:.0f} ms   "
-                f"${per_1000:.4f}/1k")
+        note = (f"recall {recall:.3f}   misses {misses}   p50 {p50:.0f} ms")
+        if show_cost:
+            note += f"   ${per_1000:.4f}/1k"
         ax.text(1.005, 0.02, note, transform=ax.get_yaxis_transform(),
                 ha="left", va="center", fontsize=8.6, color="#374151")
         if auto > 0.03:
@@ -232,10 +235,12 @@ def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 
                     ha="left", va="center", fontsize=8.2, color="#6b7280", zorder=4)
     axes[0].set_title(
         "Automation rate at the calib threshold (recall floor 95% dotted)\n"
-        "methods sorted by automation; per-method recall / misses / latency / cost on the right",
+        + ("methods sorted by automation; per-method recall / misses / latency / cost on the right"
+           if show_cost else
+           "methods sorted by automation; per-method recall / misses / latency on the right"),
         fontsize=11.5, loc="left")
     fig.subplots_adjust(left=0.17, right=0.80)
-    return _save(fig, out_dir, "fig4_tradeoff")
+    return _save(fig, out_dir, "fig4_tradeoff" if show_cost else "fig4_tradeoff_nocost")
 
 
 # --- 5. 安定性 ---------------------------------------------------------------
@@ -298,6 +303,8 @@ def build_all(repo_root: Path = REPO_ROOT, out_dir: Path | None = None) -> dict[
     record("fig2_risk_coverage", fig_risk_coverage(results, repo_root, out_dir, target=target))
     record("fig3_probability_shape", fig_probability_shape(results, repo_root, out_dir))
     record("fig4_tradeoff", fig_tradeoff(results, repo_root, out_dir, target=target))
+    record("fig4_tradeoff_nocost", fig_tradeoff(results, repo_root, out_dir, target=target,
+                                                show_cost=False))
     record("fig5_stability", fig_stability(repo_root, out_dir))
     return written
 

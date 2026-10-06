@@ -15,6 +15,10 @@
     "<repo-root>/results/figures/fig4_tradeoff.png",
     "<repo-root>/results/figures/fig4_tradeoff.svg"
   ],
+  "fig4_tradeoff_nocost": [
+    "<repo-root>/results/figures/fig4_tradeoff_nocost.png",
+    "<repo-root>/results/figures/fig4_tradeoff_nocost.svg"
+  ],
   "fig5_stability": [
     "<repo-root>/results/figures/fig5_stability.png",
     "<repo-root>/results/figures/fig5_stability.svg"
