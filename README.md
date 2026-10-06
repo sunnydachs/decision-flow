@@ -26,7 +26,7 @@ uv pip install -e ".[embed]"        # ローカル埋め込み(fastembed)を使�
 uv pip install -e ".[jev]"          # Jev の SDK を使う場合(任意)
 ```
 
-API キーは `.env`(git-ignored)に置きます。解決順は **プロセス環境変数 → リポジトリ直下 `.env` → `~/env-file`**。
+API キーは `.env`(git-ignored)に置きます。解決順は **プロセス環境変数 → リポジトリ直下の `.env`** です。
 
 ```bash
 cp .env.example .env   # OPENROUTER_API_KEY / TYPESAFE_API_KEY / PERPLEXITY_API_KEY
