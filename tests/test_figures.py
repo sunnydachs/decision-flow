@@ -44,6 +44,15 @@ def test_svg_keeps_text_labels(figures):
         assert len(text) > 3000
 
 
+def test_every_method_appears_in_the_multi_method_figures(figures):
+    """fig2/fig3/fig4 は全方式を描く。1つでも欠けていたら即FAIL(margarine 事故の回帰)。"""
+    out, _written = figures
+    for stem in ("fig2_risk_coverage", "fig3_probability_shape", "fig4_tradeoff"):
+        svg = (out / f"{stem}.svg").read_text(encoding="utf-8")
+        for method in METHODS:
+            assert f">{method}<" in svg, f"{stem} に {method} が描かれていない"
+
+
 def test_png_has_visible_content(figures):
     import matplotlib.image as mpimg
 
