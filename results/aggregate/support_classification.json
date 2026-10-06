@@ -424,6 +424,254 @@
         }
       }
     },
+    "mercury": {
+      "n_records": 500,
+      "n_ok": 500,
+      "errors": {},
+      "parse_failures": 0,
+      "accuracy": 0.886,
+      "macro_f1": 0.8754083161308659,
+      "per_class": {
+        "billing": {
+          "precision": 0.9714285714285714,
+          "recall": 0.8869565217391304,
+          "f1": 0.9272727272727274,
+          "support": 115
+        },
+        "other": {
+          "precision": 0.8095238095238095,
+          "recall": 0.7727272727272727,
+          "f1": 0.7906976744186046,
+          "support": 44
+        },
+        "sales": {
+          "precision": 0.9841269841269841,
+          "recall": 0.8857142857142857,
+          "f1": 0.9323308270676691,
+          "support": 70
+        },
+        "technical": {
+          "precision": 0.8440366972477065,
+          "recall": 0.7796610169491526,
+          "f1": 0.8105726872246697,
+          "support": 118
+        },
+        "urgent_claim": {
+          "precision": 0.8453038674033149,
+          "recall": 1.0,
+          "f1": 0.9161676646706587,
+          "support": 153
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "billing",
+          "other",
+          "sales",
+          "technical",
+          "urgent_claim"
+        ],
+        "matrix": [
+          [
+            102,
+            2,
+            0,
+            5,
+            6
+          ],
+          [
+            0,
+            34,
+            0,
+            8,
+            2
+          ],
+          [
+            2,
+            2,
+            62,
+            4,
+            0
+          ],
+          [
+            1,
+            4,
+            1,
+            92,
+            20
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            153
+          ]
+        ]
+      },
+      "ambiguous_split": {
+        "all": {
+          "n": 500,
+          "accuracy": 0.886
+        },
+        "flagged": {
+          "n": 34,
+          "accuracy": 0.7058823529411765
+        },
+        "unflagged": {
+          "n": 466,
+          "accuracy": 0.8991416309012875
+        }
+      },
+      "error_severity": {
+        "n_wrong": 57,
+        "wrong_high": 16,
+        "cross_tab_gold_severity": {
+          "billing|high": 19,
+          "billing|normal": 96,
+          "other|high": 2,
+          "other|normal": 42,
+          "sales|high": 3,
+          "sales|normal": 67,
+          "technical|high": 15,
+          "technical|normal": 103,
+          "urgent_claim|high": 153
+        }
+      },
+      "risk_detection": {
+        "n": 500,
+        "positives": 192,
+        "auroc": 0.962408685064935,
+        "auroc_ci": [
+          0.962408685064935,
+          0.9450265880313367,
+          0.9785232953437678
+        ]
+      },
+      "calibration": {
+        "ece": 0.06406826894925391,
+        "brier": 0.06501290861773487,
+        "log_loss": 0.3761437181703551,
+        "reliability_bins": [
+          {
+            "n": 50,
+            "mean_prob": 1.1873474582200913e-05,
+            "empirical": 0.0,
+            "gap": -1.1873474582200913e-05
+          },
+          {
+            "n": 50,
+            "mean_prob": 2.4377558135323702e-05,
+            "empirical": 0.02,
+            "gap": 0.019975622441864675
+          },
+          {
+            "n": 50,
+            "mean_prob": 3.945558283750499e-05,
+            "empirical": 0.02,
+            "gap": 0.019960544417162496
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.00017799324310554493,
+            "empirical": 0.1,
+            "gap": 0.09982200675689445
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.0009657994278707504,
+            "empirical": 0.16,
+            "gap": 0.15903420057212925
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.0333438940463971,
+            "empirical": 0.14,
+            "gap": 0.10665610595360292
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.6356623723663085,
+            "empirical": 0.42,
+            "gap": -0.21566237236630853
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.9994378411058571,
+            "empirical": 0.98,
+            "gap": -0.019437841105857112
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.9999170524043157,
+            "empirical": 1.0,
+            "gap": 8.294759568427956e-05
+          },
+          {
+            "n": 50,
+            "mean_prob": 0.9999608251915469,
+            "empirical": 1.0,
+            "gap": 3.917480845305743e-05
+          }
+        ],
+        "extremity": {
+          "share_<0.02": 0.544,
+          "share_<0.05": 0.574,
+          "share_>0.95": 0.336,
+          "share_>0.98": 0.324,
+          "mean": 0.36695414844009566,
+          "std": 0.4683695690952471
+        }
+      },
+      "threshold_0_5": {
+        "threshold": 0.5,
+        "recall_high": 0.875,
+        "automation_rate": 0.638,
+        "review_rate": 0.362,
+        "selective_risk": 0.07523510971786834,
+        "n": 500
+      },
+      "latency_ms": {
+        "p50": 307.46682100289036,
+        "p95": 399.04202864854585,
+        "mean": 322.50332763808547
+      },
+      "cost_per_1000_usd": 0.0,
+      "fixed_recall": {
+        "target_recall": 0.95,
+        "threshold_from_calib": 0.0002453406242517088,
+        "calib": {
+          "threshold": 0.0002453406242517088,
+          "recall_high": 0.956140350877193,
+          "automation_rate": 0.38666666666666666,
+          "review_rate": 0.6133333333333333,
+          "selective_risk": 0.04310344827586207,
+          "n": 300
+        },
+        "test": {
+          "threshold": 0.0002453406242517088,
+          "recall_high": 0.96875,
+          "automation_rate": 0.378,
+          "review_rate": 0.622,
+          "selective_risk": 0.031746031746031744,
+          "n": 500,
+          "auto_n": 189,
+          "auto_error_rate": 0.021164021164021163,
+          "recall_high_ci": {
+            "point": 0.96875,
+            "lo": 0.9427083333333334,
+            "hi": 0.9895833333333334,
+            "n_positives": 192
+          },
+          "automation_rate_ci": {
+            "point": 0.378,
+            "lo": 0.33195,
+            "hi": 0.422,
+            "n": 500
+          }
+        }
+      }
+    },
     "llm_prompt": {
       "n_records": 500,
       "n_ok": 499,
@@ -1439,6 +1687,64 @@
         "review|normal": 299,
         "block|normal": 9,
         "review|high": 14
+      }
+    },
+    "mercury_A_rulecommit": {
+      "model_method": "mercury",
+      "thresholds": {
+        "review_above": 0.0002453406242517088,
+        "block_above": 0.983594855464654
+      },
+      "fail_open": false,
+      "n": 500,
+      "high_n": 192,
+      "actions": {
+        "block": 181,
+        "auto": 264,
+        "review": 55
+      },
+      "automation_rate": 0.528,
+      "review_rate": 0.11,
+      "block_rate": 0.362,
+      "recall_high_at_auto": 0.9114583333333334,
+      "auto_high_missed": 17,
+      "auto_error_rate": 0.07575757575757576,
+      "outcomes": {
+        "block|high": 172,
+        "auto|normal": 247,
+        "review|normal": 52,
+        "block|normal": 9,
+        "auto|high": 17,
+        "review|high": 3
+      }
+    },
+    "mercury_B_nocommit": {
+      "model_method": "mercury",
+      "thresholds": {
+        "review_above": 0.0002453406242517088,
+        "block_above": 0.983594855464654
+      },
+      "fail_open": false,
+      "n": 500,
+      "high_n": 192,
+      "actions": {
+        "block": 188,
+        "auto": 183,
+        "review": 129
+      },
+      "automation_rate": 0.366,
+      "review_rate": 0.258,
+      "block_rate": 0.376,
+      "recall_high_at_auto": 0.984375,
+      "auto_high_missed": 3,
+      "auto_error_rate": 0.02185792349726776,
+      "outcomes": {
+        "block|high": 178,
+        "auto|normal": 180,
+        "review|normal": 118,
+        "block|normal": 10,
+        "review|high": 11,
+        "auto|high": 3
       }
     }
   },

@@ -1,0 +1,29 @@
+{
+  "model_method": "mercury",
+  "thresholds": {
+    "review_above": 0.0002453406242517088,
+    "block_above": 0.983594855464654
+  },
+  "fail_open": false,
+  "n": 500,
+  "high_n": 192,
+  "actions": {
+    "block": 188,
+    "auto": 183,
+    "review": 129
+  },
+  "automation_rate": 0.366,
+  "review_rate": 0.258,
+  "block_rate": 0.376,
+  "recall_high_at_auto": 0.984375,
+  "auto_high_missed": 3,
+  "auto_error_rate": 0.02185792349726776,
+  "outcomes": {
+    "block|high": 178,
+    "auto|normal": 180,
+    "review|normal": 118,
+    "block|normal": 10,
+    "review|high": 11,
+    "auto|high": 3
+  }
+}
