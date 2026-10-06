@@ -1,13 +1,12 @@
-"""Mercury Decide(外部ルーティング Decisions API)。
+"""Mercury Decide(評価対象の Decision Model)。
 
-契約(公式ドキュメントと先行プロジェクトの実測で確認):
-  POST https://外部ルーティング.ai/api/alpha/decisions
+契約(評価対象モデルの公式ドキュメントと先行プロジェクトの実測で確認。エンドポイントは
+config: models.mercury.endpoint から渡す):
   body {"model", "state", "questions": {<key>: {"type":"choice","instructions","criteria"}}}
   resp {"answers": {<key>: {"type":"choice","choice","probabilities","confidence"}},
         "id", "model", "provider", "usage": {"cost","input_tokens","output_tokens"}}
 choice の probabilities は公式に「calibrated probability taken directly from the model」と記載されている。
-出典: https://外部ルーティング.ai/decision-model-v1
-      https://外部ルーティング.ai/docs/api/api-reference/alphadecisions/submit-a-decisions-request
+出典: 評価対象モデルの公式ドキュメント(config/local.toml のコメントに記録)
 """
 from __future__ import annotations
 

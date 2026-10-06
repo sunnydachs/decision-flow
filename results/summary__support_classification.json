@@ -1,22 +1,35 @@
 {
-  "dataset": "data/test/support_classification.jsonl",
-  "n_items": 500,
-  "prompt_fingerprint": "d499c1498750-c6a751eda813",
-  "data_fingerprint": "c6a751eda813",
-  "train_on": null,
-  "free_tier_remaining_at_start": 965,
+  "dataset": "data/synthetic/support_classification.jsonl",
+  "n_items": 30,
+  "prompt_fingerprint": "d499c1498750-b14bb3cd384c",
+  "data_fingerprint": "b14bb3cd384c",
+  "train_on": {
+    "path": "data/synthetic/support_classification.jsonl",
+    "oof": true
+  },
+  "free_tier_remaining_at_start": null,
   "methods": {
-    "mercury": {
-      "tier": "free",
-      "model": "decision-model-v1",
-      "n": 500,
-      "ok": 500,
+    "rule": {
+      "tier": "local",
+      "model": "keyword-rules",
+      "n": 30,
+      "ok": 30,
       "errors": 0,
       "pending": 0,
       "quota_exhausted": false,
-      "out": "results/raw/support_classification__mercury.jsonl"
+      "out": "results/raw/support_classification__rule.jsonl"
+    },
+    "embedding_lr": {
+      "tier": "local",
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "n": 30,
+      "ok": 30,
+      "errors": 0,
+      "pending": 0,
+      "quota_exhausted": false,
+      "out": "results/raw/support_classification__embedding_lr.jsonl"
     }
   },
-  "free_tier_used_today": 500,
-  "free_tier_remaining": 465
+  "free_tier_used_today": 0,
+  "free_tier_remaining": 1000
 }

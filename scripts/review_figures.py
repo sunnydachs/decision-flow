@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
-"""図を 外部エンドポイントの vision モデルに読ませて検証する(画像を目視できない環境向け)。
+"""図を vision モデルに読ませて検証する(画像を目視できない環境向け)。
 
-本モデルが vision 非対応でも、外部エンドポイントの vision モデルに data URL で画像を送れば読める。
-実測(2026-10-06):
-  reviewer-a … 速く(1-8s)正確。既定の第一選択
-  reviewer-b             … 最も正確だが遅い(50-90s)。第2の独立検証に使う
-  meta/llama-3.2-11b-vision-instruct          … 速いが細部を落とす(凡例を数え落とした)
-  meta/llama-3.2-90b-vision-instruct          … 軸ラベルを「不明」と誤答(不採用)
+vision 対応の OpenAI 互換エンドポイントに data URL で画像を送り、凡例・軸ラベル・
+可読性の問題を機械的に報告させる。モデルID・エンドポイント・キー名は
+環境ごとに --endpoint/--models/--key-env または config/local.toml で設定する。
 
 使い方:
   python3 scripts/review_figures.py --glob "results/figures/fig*.png" \
-      --models reviewer-a,reviewer-b \
+      --models <visionモデルID> --endpoint <OpenAI 互換エンドポイント> \
       --out results/figures/review.json
 
 終了コード: 1 件でも失敗があれば 1(検証を飛ばしたまま成功扱いにしない)。
@@ -30,11 +27,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from common.env import lookup_key  # noqa: E402
 from common.http import HttpClient  # noqa: E402
 
-ENDPOINT = "https://<external-endpoint>/v1/chat/completions"
-DEFAULT_MODELS = [
-    "reviewer-a",
-    "reviewer-b",
-]
 QUESTION = (
     "Read this figure carefully and report factually:\n"
     "(A) the exact title,\n"
@@ -48,7 +40,7 @@ QUESTION = (
 )
 
 
-def read_image(model: str, key: str, image: Path, *, timeout: float = 240.0,
+def read_image(model: str, key: str, image: Path, *, endpoint: str, timeout: float = 240.0,
                retries: int = 3, max_tokens: int = 1200) -> dict:
     data = base64.b64encode(image.read_bytes()).decode()
     last = ""
@@ -67,14 +59,13 @@ def read_image(model: str, key: str, image: Path, *, timeout: float = 240.0,
                 ],
             }],
         }
-        # deepseek 系は reasoning がトークン予算を使い切り、HTTP 200 + content 空になる
-        # (実測: max_tokens=3600 でも発生)。無効化フラグで回避できる(実測 2026-10-06)。
-        if "deepseek" in model.lower():
-            payload["reasoning_effort"] = "none"
-            payload["thinking"] = False
+        # reasoning 系モデルは reasoning がトークン予算を使い切り、HTTP 200 + content 空になる。
+        # 無効化フラグで回避できる(対応しないサーバは未知キーを無視する)。
+        payload["reasoning_effort"] = "none"
+        payload["thinking"] = False
         client = HttpClient(timeout_seconds=timeout, max_retries=0)
         started = time.perf_counter()
-        result = client.post_json(ENDPOINT, payload, headers={"Authorization": f"Bearer {key}"})
+        result = client.post_json(endpoint, payload, headers={"Authorization": f"Bearer {key}"})
         elapsed = time.perf_counter() - started
         if result.ok:
             choice = result.body["choices"][0]
@@ -95,9 +86,11 @@ def read_image(model: str, key: str, image: Path, *, timeout: float = 240.0,
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="外部エンドポイントの vision モデルで図を読んで検証する")
+    parser = argparse.ArgumentParser(description="vision モデルで図を読んで検証する")
     parser.add_argument("--glob", default="results/figures/fig*.png")
-    parser.add_argument("--models", default=",".join(DEFAULT_MODELS))
+    parser.add_argument("--models", required=True, help="vision モデルID(カンマ区切り)")
+    parser.add_argument("--endpoint", required=True, help="OpenAI 互換 chat/completions エンドポイント")
+    parser.add_argument("--key-env", default="VISION_API_KEY", help="キーの環境変数名")
     parser.add_argument("--out", default=None, help="結果 JSON の保存先")
     parser.add_argument("--workers", type=int, default=4)
     args = parser.parse_args(argv)
@@ -107,15 +100,15 @@ def main(argv: list[str] | None = None) -> int:
     if not images:
         print(f"画像が見つかりません: {args.glob}", file=sys.stderr)
         return 1
-    key = lookup_key("LLM_API_KEY", [repo_root / ".env", Path<env-file>])
+    key = lookup_key(args.key_env, [repo_root / ".env"])
     if not key:
-        print("LLM_API_KEY が見つかりません", file=sys.stderr)
+        print(f"{args.key_env} が見つかりません", file=sys.stderr)
         return 1
 
     models = [m.strip() for m in args.models.split(",") if m.strip()]
     jobs = [(model, image) for model in models for image in images]
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        results = list(pool.map(lambda j: read_image(j[0], key, j[1]), jobs))
+        results = list(pool.map(lambda j: read_image(j[0], key, j[1], endpoint=args.endpoint), jobs))
 
     for res in results:
         status = f"{res['seconds']}s" if res["ok"] else "FAIL"

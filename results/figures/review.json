@@ -1,6 +1,6 @@
 [
   {
-    "model": "reviewer-b",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig1_calibration.png",
     "ok": true,
     "seconds": 54.9,
@@ -8,7 +8,7 @@
     "text": "(A) Exact title: \"Calibration (reliability diagram, test n=500)\"\n(B) Legend entries, in order: \"perfect calibration\", \"embedding_lr\", \"pplx_decider\", \"jev\", \"mercury\"\n(C) Axis labels and tick labels: x-axis label \"predicted probability of high risk\" with tick labels 0.0, 0.2, 0.4, 0.6, 0.8, 1.0; y-axis label \"observed frequency\" with tick labels 0.0, 0.2, 0.4, 0.6, 0.8, 1.0\n(D) Legibility problems: none visible; clean\n(E) The figure claims to show calibration (reliability) curves for four models on a test set of 500 samples, comparing predicted probabilities of high risk to observed frequencies against a perfect-calibration reference."
   },
   {
-    "model": "reviewer-b",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig2_risk_coverage.png",
     "ok": true,
     "seconds": 55.2,
@@ -16,7 +16,7 @@
     "text": "(A) Title: \"Risk-coverage: what can be automated at a fixed recall floor?\" with subtitle \"(markers = threshold chosen on calib, applied unchanged to test)\"\n(B) Legend entries in order: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev, mercury\n(C) Axis labels and tick labels: y-axis label \"high-risk recall\" with ticks 0.6, 0.7, 0.8, 0.9, 1.0; x-axis label \"automation rate (share auto-processed)\" with ticks 0.0, 0.2, 0.4, 0.6, 0.8, 1.0; annotation \"recall target 95%\"\n(D) Legibility problems: none visible; clean\n(E) The figure claims that at a fixed 95% recall target, different automation methods achieve varying automation rates before high-risk recall drops sharply."
   },
   {
-    "model": "reviewer-b",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig3_probability_shape.png",
     "ok": true,
     "seconds": 55.5,
@@ -24,7 +24,7 @@
     "text": "(A) Title: \"Where each method puts its probability mass (test n=500)\" with subtitle \"rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous\".\n(B) Legend entries in order: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev, mercury.\n(C) Axis labels: y-axis \"share of items\", x-axis \"risk-score band\". Y-axis tick labels: 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6. X-axis tick labels: = 0, 0-0.02, 0.02-0.1, 0.1-0.5, 0.5-0.9, 0.9-0.98, 0.98-1, = 1.\n(D) Clean.\n(E) The figure claims that the 'rule' and 'jev' methods place nearly all their probability mass at the extreme risk-score bands (= 0 and = 1), while 'pplx_decider' and 'embedding_lr' distribute their mass more continuously across intermediate bands."
   },
   {
-    "model": "reviewer-b",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig4_tradeoff.png",
     "ok": true,
     "seconds": 61.0,
@@ -32,7 +32,7 @@
     "text": "(A) Title: \"Automation rate at the calib threshold (recall floor 95% dotted)\" with subtitle \"methods sorted by automation; per-method recall / misses / latency / cost on the right\".\n(B) Legend entries (method labels, in order): embedding_lr, mercury, pplx_decider, llm_json_schema, llm_prompt, rule, jev.\n(C) Axis labels and tick labels: x-axis tick labels are 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (repeated for each row); no axis title is present. Right-side per-method text values: embedding_lr: 47.2%, recall 0.922, misses 15, p50 0 ms, $0.0000/1k; mercury: 37.8%, recall 0.969, misses 6, p50 307 ms, $0.0000/1k; pplx_decider: 28.6%, recall 0.979, misses 4, p50 325 ms, $0.0144/1k; llm_json_schema: 20.2%, recall 0.984, misses 3, p50 3372 ms, $0.0000/1k; llm_prompt: 14.2%, recall 0.990, misses 2, p50 4133 ms, $0.0000/1k; rule: 0% (recall floor cannot be met otherwise), recall 1.000, misses 0, p50 0 ms, $0.0000/1k; jev: 0% (recall floor cannot be met otherwise), recall 1.000, misses 0, p50 201 ms, $0.0349/1k.\n(D) Legibility problems: none visible; clean.\n(E) The figure claims that among the listed methods, embedding_lr achieves the highest automation rate (47.2%) at the calibration threshold with a 95% recall floor, while rule and jev achieve 0% automation because the recall floor cannot otherwise be met."
   },
   {
-    "model": "reviewer-b",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig5_stability.png",
     "ok": true,
     "seconds": 67.6,
@@ -40,7 +40,7 @@
     "text": "(A) Title: \"Stability (50-item subset)\" with subtitle \"the local baseline and pplx_decider never flip; the LLM flips on every axis\".\n(B) Legend entries in order: \"same input, 20 runs\" (blue), \"paraphrased instruction / rotated option order\" (orange).\n(C) Axis labels and tick labels: Y-axis label \"share of items whose label changed\"; Y tick labels 0.00, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12. X-axis categories: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider. In-plot text: \"0% = never changed\" (top left), \"not measured: jev, mercury\" (top right), and bar value labels 0%, 0%, 0%, 0%, 8%, 8%, 4%, 10%, 0%, 2%.\n(D) Clean.\n(E) The figure claims that across a 50-item subset, the local baseline (rule, embedding_lr) and pplx_decider are stable (0% or 2% change), while LLM-based methods (llm_prompt, llm_json_schema) change labels more often, especially under paraphrased instructions or rotated option order."
   },
   {
-    "model": "reviewer-a",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig1_calibration.png",
     "ok": true,
     "seconds": 73.6,
@@ -48,7 +48,7 @@
     "text": "(A) Calibration (reliability diagram, test n=500)\n(B) perfect calibration, embedding_lr, pplx_decider, jev, mercury\n(C) observed frequency; 0.0, 0.2, 0.4, 0.6, 0.8, 1.0; predicted probability of high risk; 0.0, 0.2, 0.4, 0.6, 0.8, 1.0\n(D) clean\n(E) The figure claims to show a calibration (reliability) diagram for a test set of n=500."
   },
   {
-    "model": "reviewer-a",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig2_risk_coverage.png",
     "ok": true,
     "seconds": 57.0,
@@ -56,7 +56,7 @@
     "text": "(A) Risk-coverage: what can be automated at a fixed recall floor? (markers = threshold chosen on calib, applied unchanged to test)\n(B) rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev, mercury\n(C) high-risk recall; 0.6, 0.7, 0.8, 0.9, 1.0; automation rate (share auto-processed); 0.0, 0.2, 0.4, 0.6, 0.8, 1.0\n(D) clean\n(E) The figure claims that automation rate and high-risk recall are inversely related, showing the trade-off at a fixed recall floor."
   },
   {
-    "model": "reviewer-a",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig3_probability_shape.png",
     "ok": true,
     "seconds": 42.5,
@@ -64,7 +64,7 @@
     "text": "(A) Where each method puts its probability mass (test n=500) rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous\n(B) rule, llm_json_schema, jev, embedding_lr, pplx_decider, mercury, llm_prompt\n(C) share of items; 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6; risk-score band; = 0, 0-0.02, 0.02-0.1, 0.1-0.5, 0.5-0.9, 0.9-0.98, 0.98-1, = 1\n(D) clean\n(E) The figure claims that 'rule' and 'jev' methods concentrate probability mass at the extremes (0 and 1), while 'pplx_decider' and 'embedding_lr' maintain a continuous distribution across risk-score bands."
   },
   {
-    "model": "reviewer-a",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig4_tradeoff.png",
     "ok": true,
     "seconds": 75.1,
@@ -72,7 +72,7 @@
     "text": "(A) Automation rate at the calib threshold (recall floor 95% dotted) methods sorted by automation; per-method recall / misses / latency / cost on the right\n(B) embedding_lr, mercury, pplx_decider, llm_json_schema, llm_prompt, rule, jev\n(C) 0.0, 0.2, 0.4, 0.6, 0.8, 1.0\n(D) clean\n(E) The figure claims to show the automation rate at the calibration threshold."
   },
   {
-    "model": "reviewer-a",
+    "model": "<vision-model>",
     "image": "<repo-root>/results/figures/fig5_stability.png",
     "ok": true,
     "seconds": 28.7,

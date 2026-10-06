@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 import seaborn as sns  # noqa: E402
 
-REPO = Path("<repo-root>")
+REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
 from evaluation.risk_coverage import automation_rate, recall_at_threshold  # noqa: E402
 
@@ -42,7 +42,7 @@ LABELS = {  # 記事の表現と一致させる表示名
     "llm_json_schema": "general LLM (schema)",
     "pplx_decider": "pplx-decider",
     "jev": "Jev",
-    "mercury": "mercury-decide",
+    "mercury": "decision-model",
 }
 ACCENT = "#bd0c0c"  # tvhahn ACCENT_RED
 GREY = "#9aa0a6"

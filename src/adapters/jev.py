@@ -99,7 +99,7 @@ class JevAdapter(BaseAdapter):
         payloads = [self.build_payload(item.text) for item in items]
         if self.token_estimate is not None:
             per_request = int(self.token_estimate)
-            basis = "mercury-decide 実測の入力トークン数(同スキーマの概算)"
+            basis = "先行実測の入力トークン数(同スキーマの概算)"
         else:
             per_request = max(estimate_tokens_rough(it.text) + 200 for it in items) if items else 0
             basis = "文字数からの粗い概算(トークナイザ未確認)"

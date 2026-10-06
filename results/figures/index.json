@@ -1,26 +1,26 @@
 {
   "fig1_calibration": [
-    "<repo-root>/results/figures/fig1_calibration.png",
-    "<repo-root>/results/figures/fig1_calibration.svg"
+    "results/figures/fig1_calibration.png",
+    "results/figures/fig1_calibration.svg"
   ],
   "fig2_risk_coverage": [
-    "<repo-root>/results/figures/fig2_risk_coverage.png",
-    "<repo-root>/results/figures/fig2_risk_coverage.svg"
+    "results/figures/fig2_risk_coverage.png",
+    "results/figures/fig2_risk_coverage.svg"
   ],
   "fig3_probability_shape": [
-    "<repo-root>/results/figures/fig3_probability_shape.png",
-    "<repo-root>/results/figures/fig3_probability_shape.svg"
+    "results/figures/fig3_probability_shape.png",
+    "results/figures/fig3_probability_shape.svg"
   ],
   "fig4_tradeoff": [
-    "<repo-root>/results/figures/fig4_tradeoff.png",
-    "<repo-root>/results/figures/fig4_tradeoff.svg"
+    "results/figures/fig4_tradeoff.png",
+    "results/figures/fig4_tradeoff.svg"
   ],
   "fig4_tradeoff_nocost": [
-    "<repo-root>/results/figures/fig4_tradeoff_nocost.png",
-    "<repo-root>/results/figures/fig4_tradeoff_nocost.svg"
+    "results/figures/fig4_tradeoff_nocost.png",
+    "results/figures/fig4_tradeoff_nocost.svg"
   ],
   "fig5_stability": [
-    "<repo-root>/results/figures/fig5_stability.png",
-    "<repo-root>/results/figures/fig5_stability.svg"
+    "results/figures/fig5_stability.png",
+    "results/figures/fig5_stability.svg"
   ]
 }

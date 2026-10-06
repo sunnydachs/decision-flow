@@ -668,7 +668,7 @@ z
     </g>
     <g id="ytick_6">
      <g id="text_6">
-      <!-- mercury-decide -->
+      <!-- decision-model -->
       <g style="fill: #696969" transform="translate(41.477578 118.683115) scale(0.105 -0.105)">
        <use xlink:href="#DejaVuSans-50"/>
        <use xlink:href="#DejaVuSans-48" transform="translate(97.40625 0)"/>
@@ -1503,7 +1503,7 @@ z
    </g>
   </g>
   <g id="text_17">
-   <!-- Among methods meeting the 95% floor, mercury-decide automates the most (37.8%) — 6 urgent claims missed in 500 -->
+   <!-- Among methods meeting the 95% floor, decision-model automates the most (37.8%) — 6 urgent claims missed in 500 -->
    <g style="fill: #696969" transform="translate(21.100391 408.396684) scale(0.09 -0.09)">
     <defs>
      <path id="DejaVuSans-Oblique-24" d="M 2356 4666 

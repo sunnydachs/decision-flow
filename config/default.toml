@@ -26,7 +26,7 @@ stability_subset = 50           # 安定性テストのサブセット件数
 stability_n = 20                # 同一入力の繰り返し回数(1日で完結するよう調整する)
 
 [free_tier]
-# 外部ルーティング の :free は全モデル共有。実測 2026-10-04: 1000 req/day, 20 req/min。
+# mercury が使う共有無料枠(評価対象モデル側)。上限値は環境ごとに調整する。
 daily_limit = 1000
 per_minute_limit = 20
 # 尽きたら停止せず、無料枠非依存の作業(ローカル/有料/指標/テスト)を先に進める
@@ -40,32 +40,25 @@ confirm_external_required = true
 
 [models.llm]
 # 比較用 LLM。2モード(prompt / json_schema 強制)を必ず用意する。
-# 外部エンドポイント経由(OpenAI 互換)。外部ルーティング の無料枠を mercury のために温存する。
-# 構造化出力は実測 2026-10-05 で json_schema 強制が動作を確認(外部エンドポイント 公式 docs も JSON schema 対応を明記)。
-# 注意: 生成モデル(generator-a)とは別系統の OpenAI 系 open-weight。レポートには「このモデルについての結論であり
-#       より大きなモデルには当てはまらない」と明記する。
-provider = "nim"
-model = "llm-generic-20b"
-endpoint = "https://<external-endpoint>/v1/chat/completions"
+# 任意の OpenAI 互換エンドポイントで差し替え可能(provider / endpoint / key_env で経路を指定)。
+# モデルID・エンドポイント・キー名は環境ごとに config/local.toml(git-ignored)で上書きする。
+# レポートには「この LLM についての結論であり、より大きなモデルには当てはまらない」と明記する。
+provider = "openai-compatible"
+model = ""               # 環境ごとに config/local.toml で設定する(README の「設定」を参照)
+endpoint = ""            # 同上
 key_env = "LLM_API_KEY"
-tier = "external_free"   # 外部APIだが 外部ルーティング の無料枠を消費しない
+tier = "external_free"   # 外部APIだが mercury 用の共有無料枠カウンタを消費しない
 max_tokens = 1500        # 短い JSON 出力。切り詰めによる parse 失敗を防ぐ
-# 代替(外部ルーティング の無料枠を使う場合): provider="外部ルーティング",
-#   model="llm-free-a", endpoint="https://外部ルーティング.ai/api/v1/chat/completions",
-#   key_env="OPENROUTER_API_KEY", tier="free"
 alternatives = []
 
 [models.mercury]
-model = "decision-model-v1"
-endpoint = "https://外部ルーティング.ai/api/alpha/decisions"
+# 評価対象の Decision Model。モデルID・エンドポイント・キー名は
+# config/local.toml(git-ignored)で設定する(評価対象の公式ドキュメントを参照)。
+model = ""               # 環境ごとに config/local.toml で設定する
+endpoint = ""            # 同上
+key_env = "DECIDER_API_KEY"
+key_status_endpoint = "" # 共有無料枠の残量確認エンドポイント(未設定なら確認をスキップ)
 tier = "free"
-
-[models.span]
-# 分類タスクでは未使用。chat_guard 用の雛形。
-model = "decision-model-span"
-endpoint = "https://外部ルーティング.ai/api/alpha/decisions"
-tier = "free"
-enabled = false
 
 [models.pplx_decider]
 model = "pplx-decider-v1-27b"
@@ -74,9 +67,8 @@ tier = "paid"
 price_input_usd_per_mtok = 0.04   # 公式: 入力 $0.04 / 100万トークン、出力無料
 
 [models.jev]
-provider = "typesafe"             # "typesafe"(公式) | "外部ルーティング"
+provider = "typesafe"
 model = "jev-1.13.0"              # バージョン固定(jev-latest は使わない)
-外部ルーティング_model = "typesafe/jev-1.13"
 endpoint = "https://api.typesafe.ai/v1/systemone"
 tier = "paid"
 price_input_usd_per_mtok = 0.042  # 公式: 入力 $42/Btok = $0.042/100万トークン
@@ -84,26 +76,19 @@ require_allow_paid_models = true
 
 [data_generation]
 # 評価データ(日本語問い合わせ)の生成に使うモデル。
-# 評価対象(mercury / pplx-decider / jev / 比較用LLM)とは別系統を選ぶこと。
-# 既定は OpenAI 互換エンドポイント 経由(GLM 系)。外部ルーティング の無料枠を評価本体のために温存する。
-provider = "nim"
-endpoint = "https://<external-endpoint>/v1/chat/completions"
+# 評価対象(mercury / pplx-decider / jev / 比較用LLM)とは別系統のモデルを環境ごとに選ぶこと。
+# モデルID・エンドポイント・キー名は config/local.toml(git-ignored)で設定する(README の「設定」を参照)。
+provider = "openai-compatible"
+endpoint = ""            # 環境ごとに config/local.toml で設定する
 key_env = "LLM_API_KEY"
-model = "generator-a"
-fallback_models = ["reviewer-b"]   # 予備(遅いが安定)
-# 実測 2026-10-04: generator-a=8秒/15件・全件有効・rtok=0。deepseek-v4.1-flash=112秒/15件。
-# llm-free-glm は 429、google/llm-free-b は 外部エンドポイント で read timeout。
+model = ""               # 同上
+fallback_models = []     # 予備(連続失敗時に降格)
 urgent_ratio = 0.32          # urgent_claim(severity=high)の目標比率
 # 実測: 要求 0.27→21.7〜23.2%、0.30→23.6〜24.3%、0.34→calib34%/test30.4%(生成側のぶれが大きい)。
 max_tokens = 8000
 temperature = 1.0
 timeout_seconds = 300
-# 外部エンドポイントの deepseek 系は reasoning トークンを消費する。生成には不要なので無効化する
-# (実測 2026-10-04: 未指定だと rtok=114、thinking=false で rtok=0)。
-extra_body = { thinking = false }
-# 代替(外部ルーティング の無料枠を使う場合): provider="外部ルーティング",
-#   endpoint="https://外部ルーティング.ai/api/v1/chat/completions",
-#   key_env="OPENROUTER_API_KEY", model="llm-free-b"
+extra_body = {}
 # 生成は calib と test を別実行で行う(同じデータで較正と評価をしない)。
 
 [embedding]

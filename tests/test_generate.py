@@ -73,17 +73,17 @@ def test_build_breakdown_counts_urgent():
     assert "その他" in text
 
 
-def test_data_generation_config_uses_nim_and_separate_lineage():
-    config = load_config(repo_root=REPO_ROOT)
-    assert config.get("data_generation.provider") == "nim"
+def test_data_generation_config_has_no_hardcoded_provider():
+    """生成モデルの正体は公開リポジトリに載せない:モデルID・エンドポイントは local.toml で設定する。"""
+    # default.toml 単体(ローカル上書きなし)。公開ファイルにモデルIDが残っていないこと。
+    config = load_config(path=REPO_ROOT / "config" / "default.toml",
+                         local_path=REPO_ROOT / "config" / "none.toml", repo_root=REPO_ROOT)
+    assert config.get("data_generation.provider") == "openai-compatible"
     assert config.get("data_generation.key_env") == "LLM_API_KEY"
-    gen_model = str(config.get("data_generation.model"))
-    llm_model = str(config.get("models.llm.model"))
-    # 生成モデルと評価対象 LLM は別系統であること(generator 系で生成、DeepSeek 系で評価)
-    assert "generator" in gen_model and "generator" not in llm_model
-    for evaluated in ("mercury", "pplx-decider", "jev"):
-        assert evaluated not in gen_model
-    assert config.get("data_generation.extra_body") == {"thinking": False}
+    gen_model = str(config.get("data_generation.model") or "")
+    assert gen_model == ""  # モデルID・エンドポイントは config/local.toml(git-ignored)で設定する
+    assert config.get("data_generation.endpoint") == ""
+    assert config.get("data_generation.extra_body") == {}
 
 
 def test_task_definitions_load():

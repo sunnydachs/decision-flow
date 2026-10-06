@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -16,11 +16,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Only lines that still receive security patches. Node 18 (EOL
-        # 2025-04-30) and 20 (EOL 2026-04-30) used to be listed here, so the
-        # matrix was green on runtimes nobody patches any more.
-        # scripts/check_runtimes.py fails the build if this list goes stale.
-        node-version: [22.x, 24.x]
+        # requires-python = ">=3.11" の範囲内で、セキュリティ修正が継続している行だけ。
+        # scripts/check_runtimes.py がこの行がEOLになったら失敗させる。
+        python-version: [ "3.11", "3.12", "3.13", "3.14" ]
 
     steps:
     - uses: actions/checkout@v7
@@ -28,64 +26,13 @@ jobs:
     - name: Check the matrix versions are still supported
       run: python3 scripts/check_runtimes.py
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v7
+    - name: Use Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v7
       with:
-        node-version: ${{ matrix.node-version }}
-        # NOTE: no `cache: 'npm'` here. setup-node fails the job outright when the
-        # lock file it wants to hash does not exist, which makes a fresh repo red
-        # before it has any code. Add the cache back once package-lock.json is
-        # committed.
+        python-version: ${{ matrix.python-version }}
 
-    # A template has no application code yet, so the job detects the stack and
-    # does the right thing instead of failing on a missing manifest. Delete this
-    # step (and the guards below) once the repo has one stack.
-    - name: Detect the project stack
-      id: stack
-      run: |
-        if [ -f package.json ]; then
-          echo "kind=node" >> "$GITHUB_OUTPUT"
-        elif [ -f pyproject.toml ]; then
-          echo "kind=python" >> "$GITHUB_OUTPUT"
-        else
-          echo "kind=none" >> "$GITHUB_OUTPUT"
-        fi
-
-    - name: No manifest yet
-      if: steps.stack.outputs.kind == 'none'
-      run: echo "No package.json or pyproject.toml yet - nothing to test. This is expected for the template repository itself."
-
-    - name: Set up Python
-      if: steps.stack.outputs.kind == 'python'
-      uses: actions/setup-python@v6
-      with:
-        python-version: '3.12'
-
-    - name: Install (python)
-      if: steps.stack.outputs.kind == 'python'
+    - name: Install
       run: pip install -e ".[dev]"
 
-    - name: Run tests (python)
-      if: steps.stack.outputs.kind == 'python'
+    - name: Run tests
       run: python -m pytest -q
-
-    - name: Install dependencies (node)
-      if: steps.stack.outputs.kind == 'node'
-      run: npm install
-
-    - name: Run tests (node)
-      if: steps.stack.outputs.kind == 'node'
-      run: npm test
-
-    # Optional: Codecov upload. Requires CODECOV_TOKEN in repo secrets.
-    - name: Generate coverage (Node 20.x only)
-      if: matrix.node-version == '20.x' && steps.stack.outputs.kind == 'node'
-      run: npx --yes c8 --reporter=text-lcov --reporter=text npm test
-
-    - name: Upload coverage to Codecov (Node 20.x only)
-      if: matrix.node-version == '20.x' && steps.stack.outputs.kind == 'node'
-      uses: codecov/codecov-action@v7
-      with:
-        files: ./coverage/lcov.info
-        token: ${{ secrets.CODECOV_TOKEN }}
-        fail_ci_if_error: false

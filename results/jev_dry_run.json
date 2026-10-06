@@ -22,7 +22,7 @@
   },
   "estimated_input_tokens_per_request": 300,
   "estimated_total_input_tokens": 150000,
-  "token_estimate_basis": "mercury-decide 実測の入力トークン数(同スキーマの概算)",
+  "token_estimate_basis": "先行実測の入力トークン数(同スキーマの概算)",
   "estimated_cost_usd": 0.0063,
   "note": "推定コストはトークン数×公式単価からの概算であり、実際の請求額ではない。",
   "dataset": "data/test/support_classification.jsonl",

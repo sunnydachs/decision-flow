@@ -11,7 +11,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from adapters.registry import FREE_ADAPTERS, PAID_ADAPTERS, build_adapters, build_http
+from adapters.registry import PAID_ADAPTERS, build_adapters, build_http
 from common.cache import AuditLog, ResultCache, cache_key, dataset_fingerprint, prompt_fingerprint
 from common.dataset import Item, external_send_allowed, load_jsonl, load_manifest
 from common.env import load_keys
@@ -77,12 +77,15 @@ def run_benchmark(
         stop_on_exhaustion=bool(config.get("free_tier.stop_on_exhaustion", False)),
     )
     keys = load_keys()
-    # 無料枠はアカウント共有。実際の残量を 外部ルーティング から取得して上限に反映する(無駄な 429 を避ける)
+    # mercury 用の共有無料枠はアカウント共有。実際の残量を取得して上限に反映する(無駄な 429 を避ける)。
+    # キー名・残量確認エンドポイントは mercury の経路設定(models.mercury.*)に従う。
     free_remaining = None
-    if keys.get("OPENROUTER_API_KEY") and any(n in FREE_ADAPTERS for n in adapter_names):
+    mercury_key_env = str(config.get("models.mercury.key_env", "DECIDER_API_KEY"))
+    status_endpoint = str(config.get("models.mercury.key_status_endpoint") or "")
+    if keys.get(mercury_key_env) and "mercury" in adapter_names and status_endpoint:
         from common.ratelimit import fetch_free_model_remaining
 
-        free_remaining = fetch_free_model_remaining(keys["OPENROUTER_API_KEY"])
+        free_remaining = fetch_free_model_remaining(keys[mercury_key_env], status_endpoint)
         if free_remaining is not None and quota.daily_limit is not None:
             quota.daily_limit = min(quota.daily_limit, free_remaining)
     cache = ResultCache(cache_dir / f"{dataset_path.stem}.jsonl")

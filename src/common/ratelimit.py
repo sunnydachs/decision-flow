@@ -43,15 +43,19 @@ class DailyQuotaExhausted(RuntimeError):
     pass
 
 
-def fetch_free_model_remaining(api_key: str, timeout: float = 20.0) -> int | None:
-    """外部ルーティング の無料枠の実残量を取得する(GET /api/v1/key。消費しない)。"""
+def fetch_free_model_remaining(api_key: str, endpoint: str, timeout: float = 20.0) -> int | None:
+    """mercury が使う共有無料枠の実残量を取得する(消費しない)。
+
+    mercury(評価対象モデル)はこの経路専用。比較用 LLM は別経路なのでこれを消費しない。
+    エンドポイントは設定(models.mercury.key_status_endpoint)から渡す。
+    """
     import json
     import urllib.error
     import urllib.request
 
     try:
         req = urllib.request.Request(
-            "https://外部ルーティング.ai/api/v1/key", headers={"Authorization": f"Bearer {api_key}"}
+            endpoint, headers={"Authorization": f"Bearer {api_key}"}
         )
         with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310
             data = json.load(resp)

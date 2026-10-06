@@ -1,68 +1,68 @@
 
-===== fig1_calibration.png @ reviewer-b (54.9s) =====
+===== fig1_calibration.png @ <vision-model> (54.9s) =====
 (A) Exact title: "Calibration (reliability diagram, test n=500)"
 (B) Legend entries, in order: "perfect calibration", "embedding_lr", "pplx_decider", "jev", "mercury"
 (C) Axis labels and tick labels: x-axis label "predicted probability of high risk" with tick labels 0.0, 0.2, 0.4, 0.6, 0.8, 1.0; y-axis label "observed frequency" with tick labels 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
 (D) Legibility problems: none visible; clean
 (E) The figure claims to show calibration (reliability) curves for four models on a test set of 500 samples, comparing predicted probabilities of high risk to observed frequencies against a perfect-calibration reference.
 
-===== fig2_risk_coverage.png @ reviewer-b (55.2s) =====
+===== fig2_risk_coverage.png @ <vision-model> (55.2s) =====
 (A) Title: "Risk-coverage: what can be automated at a fixed recall floor?" with subtitle "(markers = threshold chosen on calib, applied unchanged to test)"
 (B) Legend entries in order: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev, mercury
 (C) Axis labels and tick labels: y-axis label "high-risk recall" with ticks 0.6, 0.7, 0.8, 0.9, 1.0; x-axis label "automation rate (share auto-processed)" with ticks 0.0, 0.2, 0.4, 0.6, 0.8, 1.0; annotation "recall target 95%"
 (D) Legibility problems: none visible; clean
 (E) The figure claims that at a fixed 95% recall target, different automation methods achieve varying automation rates before high-risk recall drops sharply.
 
-===== fig3_probability_shape.png @ reviewer-b (55.5s) =====
+===== fig3_probability_shape.png @ <vision-model> (55.5s) =====
 (A) Title: "Where each method puts its probability mass (test n=500)" with subtitle "rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous".
 (B) Legend entries in order: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev, mercury.
 (C) Axis labels: y-axis "share of items", x-axis "risk-score band". Y-axis tick labels: 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6. X-axis tick labels: = 0, 0-0.02, 0.02-0.1, 0.1-0.5, 0.5-0.9, 0.9-0.98, 0.98-1, = 1.
 (D) Clean.
 (E) The figure claims that the 'rule' and 'jev' methods place nearly all their probability mass at the extreme risk-score bands (= 0 and = 1), while 'pplx_decider' and 'embedding_lr' distribute their mass more continuously across intermediate bands.
 
-===== fig4_tradeoff.png @ reviewer-b (61.0s) =====
+===== fig4_tradeoff.png @ <vision-model> (61.0s) =====
 (A) Title: "Automation rate at the calib threshold (recall floor 95% dotted)" with subtitle "methods sorted by automation; per-method recall / misses / latency / cost on the right".
 (B) Legend entries (method labels, in order): embedding_lr, mercury, pplx_decider, llm_json_schema, llm_prompt, rule, jev.
 (C) Axis labels and tick labels: x-axis tick labels are 0.0, 0.2, 0.4, 0.6, 0.8, 1.0 (repeated for each row); no axis title is present. Right-side per-method text values: embedding_lr: 47.2%, recall 0.922, misses 15, p50 0 ms, $0.0000/1k; mercury: 37.8%, recall 0.969, misses 6, p50 307 ms, $0.0000/1k; pplx_decider: 28.6%, recall 0.979, misses 4, p50 325 ms, $0.0144/1k; llm_json_schema: 20.2%, recall 0.984, misses 3, p50 3372 ms, $0.0000/1k; llm_prompt: 14.2%, recall 0.990, misses 2, p50 4133 ms, $0.0000/1k; rule: 0% (recall floor cannot be met otherwise), recall 1.000, misses 0, p50 0 ms, $0.0000/1k; jev: 0% (recall floor cannot be met otherwise), recall 1.000, misses 0, p50 201 ms, $0.0349/1k.
 (D) Legibility problems: none visible; clean.
 (E) The figure claims that among the listed methods, embedding_lr achieves the highest automation rate (47.2%) at the calibration threshold with a 95% recall floor, while rule and jev achieve 0% automation because the recall floor cannot otherwise be met.
 
-===== fig5_stability.png @ reviewer-b (67.6s) =====
+===== fig5_stability.png @ <vision-model> (67.6s) =====
 (A) Title: "Stability (50-item subset)" with subtitle "the local baseline and pplx_decider never flip; the LLM flips on every axis".
 (B) Legend entries in order: "same input, 20 runs" (blue), "paraphrased instruction / rotated option order" (orange).
 (C) Axis labels and tick labels: Y-axis label "share of items whose label changed"; Y tick labels 0.00, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12. X-axis categories: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider. In-plot text: "0% = never changed" (top left), "not measured: jev, mercury" (top right), and bar value labels 0%, 0%, 0%, 0%, 8%, 8%, 4%, 10%, 0%, 2%.
 (D) Clean.
 (E) The figure claims that across a 50-item subset, the local baseline (rule, embedding_lr) and pplx_decider are stable (0% or 2% change), while LLM-based methods (llm_prompt, llm_json_schema) change labels more often, especially under paraphrased instructions or rotated option order.
 
-===== fig1_calibration.png @ reviewer-a (73.6s) =====
+===== fig1_calibration.png @ <vision-model> (73.6s) =====
 (A) Calibration (reliability diagram, test n=500)
 (B) perfect calibration, embedding_lr, pplx_decider, jev, mercury
 (C) observed frequency; 0.0, 0.2, 0.4, 0.6, 0.8, 1.0; predicted probability of high risk; 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
 (D) clean
 (E) The figure claims to show a calibration (reliability) diagram for a test set of n=500.
 
-===== fig2_risk_coverage.png @ reviewer-a (57.0s) =====
+===== fig2_risk_coverage.png @ <vision-model> (57.0s) =====
 (A) Risk-coverage: what can be automated at a fixed recall floor? (markers = threshold chosen on calib, applied unchanged to test)
 (B) rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev, mercury
 (C) high-risk recall; 0.6, 0.7, 0.8, 0.9, 1.0; automation rate (share auto-processed); 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
 (D) clean
 (E) The figure claims that automation rate and high-risk recall are inversely related, showing the trade-off at a fixed recall floor.
 
-===== fig3_probability_shape.png @ reviewer-a (42.5s) =====
+===== fig3_probability_shape.png @ <vision-model> (42.5s) =====
 (A) Where each method puts its probability mass (test n=500) rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous
 (B) rule, llm_json_schema, jev, embedding_lr, pplx_decider, mercury, llm_prompt
 (C) share of items; 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6; risk-score band; = 0, 0-0.02, 0.02-0.1, 0.1-0.5, 0.5-0.9, 0.9-0.98, 0.98-1, = 1
 (D) clean
 (E) The figure claims that 'rule' and 'jev' methods concentrate probability mass at the extremes (0 and 1), while 'pplx_decider' and 'embedding_lr' maintain a continuous distribution across risk-score bands.
 
-===== fig4_tradeoff.png @ reviewer-a (75.1s) =====
+===== fig4_tradeoff.png @ <vision-model> (75.1s) =====
 (A) Automation rate at the calib threshold (recall floor 95% dotted) methods sorted by automation; per-method recall / misses / latency / cost on the right
 (B) embedding_lr, mercury, pplx_decider, llm_json_schema, llm_prompt, rule, jev
 (C) 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
 (D) clean
 (E) The figure claims to show the automation rate at the calibration threshold.
 
-===== fig5_stability.png @ reviewer-a (28.7s) =====
+===== fig5_stability.png @ <vision-model> (28.7s) =====
 (A) Stability (50-item subset) the local baseline and pplx_decider never flip; the LLM flips on every axis
 
 (B) same input, 20 runs

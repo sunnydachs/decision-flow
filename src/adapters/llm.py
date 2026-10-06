@@ -1,10 +1,10 @@
-"""比較用の汎用 LLM(外部ルーティング chat completions)を 2 モードで呼ぶ。
+"""比較用の汎用 LLM(OpenAI 互換 chat completions)を 2 モードで呼ぶ。
 
   - mode="prompt"      : プロンプトで JSON を頼むだけ(response_format なし)
   - mode="json_schema" : response_format={"type":"json_schema","json_schema":{...,"strict":true}} を強制
 
-構造化出力の公式仕様:
-  https://外部ルーティング.ai/docs/guides/features/structured-outputs
+経路(provider / endpoint / key_env)は設定で差し替える。モデルID・エンドポイント・キー名は
+config/local.toml(git-ignored)で環境ごとに設定する。
 出力の確率は LLM が自己申告した数値であり、公式に確率として定義された値ではない
 (value_type="stated_probability"。較正の検証・再較正の対象にはしない)。
 """
@@ -80,7 +80,7 @@ def parse_llm_content(content: str, labels: list[str]) -> tuple[str | None, dict
 
 class LlmAdapter(BaseAdapter):
     name = "llm"
-    tier = "external_free"  # 外部 API だが 外部ルーティング の無料枠を消費しない(外部エンドポイント経由の場合)
+    tier = "external_free"  # 外部 API だが mercury 用の共有無料枠カウンタを消費しない
 
     def __init__(
         self,
@@ -99,12 +99,18 @@ class LlmAdapter(BaseAdapter):
     ):
         if mode not in ("prompt", "json_schema"):
             raise ValueError("mode は 'prompt' か 'json_schema'")
-        super().__init__(task, model=model or str(config.get("models.llm.model")), http=http,
+        model_id = model or str(config.get("models.llm.model") or "")
+        if not model_id or not str(config.get("models.llm.endpoint") or ""):
+            raise SystemExit(
+                "比較用 LLM が未設定です。config/local.toml(git-ignored)に "
+                "[models.llm] の model と endpoint を設定してください(README の「設定」を参照)。"
+            )
+        super().__init__(task, model=model_id, http=http,
                          cache=cache, quota=quota, audit=audit, rate_limiter=rate_limiter)
         self.mode = mode
         self.key = key
         self.endpoint = endpoint or str(config.get("models.llm.endpoint") or self.endpoint)
-        # 出力が途中で切れて parse 失敗しないよう明示する(llm-generic-20b は短い JSON なので十分)
+        # 出力が途中で切れて parse 失敗しないよう明示する(短い JSON なので十分)
         self.max_tokens = int(config.get("models.llm.max_tokens", 1500))
 
     @property

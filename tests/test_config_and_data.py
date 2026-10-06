@@ -20,15 +20,24 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_load_default_config():
-    cfg = load_config(repo_root=REPO_ROOT)
+    # default.toml 単体(ローカル上書きなし)を検証する。モデルID・エンドポイントの
+    # 正体は config/local.toml(git-ignored)側で管理されるため、ここでは空を期待する。
+    cfg = load_config(path=REPO_ROOT / "config" / "default.toml",
+                      local_path=REPO_ROOT / "config" / "none.toml", repo_root=REPO_ROOT)
     assert cfg.get("run.concurrency") == 4
     assert cfg.get("evaluation.risk_label") == "urgent_claim"
     assert cfg.get("evaluation.risk_severity") == "high"
-    assert cfg.get("models.mercury.model") == "decision-model-v1"
+    # mercury の正体(モデルID・エンドポイント)も公開ファイルには載せない:local.toml で設定する
+    assert cfg.get("models.mercury.model") == ""
+    assert cfg.get("models.mercury.endpoint") == ""
+    assert cfg.get("models.mercury.key_env") == "DECIDER_API_KEY"
     assert cfg.get("models.jev.model") == "jev-1.13.0"  # バージョン固定
-    assert cfg.get("models.llm.model") == "llm-generic-20b"
     assert cfg.get("models.llm.modes") is None  # モードは adapter 名(llm_prompt / llm_json_schema)で区別
     assert cfg.get("models.llm.tier") == "external_free"
+    # 汎用 LLM の経路はコードにハードコードしない(モデルID・エンドポイントは local.toml で設定)
+    assert cfg.get("models.llm.model") == ""
+    assert cfg.get("models.llm.endpoint") == ""
+    assert cfg.get("models.llm.key_env") == "LLM_API_KEY"
     assert cfg.get("budget.perplexity_usd") == 0.5
     assert cfg.get("budget.jev_usd") == 1.0
 
@@ -106,9 +115,9 @@ def test_annotator_agreement():
 
 def test_key_status_never_returns_values(tmp_path):
     env_file = tmp_path / ".env"
-    env_file.write_text("OPENROUTER_API_KEY=secret-value-xyz\n", encoding="utf-8")
+    env_file.write_text("LLM_API_KEY=secret-value-xyz\n", encoding="utf-8")
     status = key_status([env_file])
     assert set(status) == set(ENV_NAMES)
-    assert status["OPENROUTER_API_KEY"] is True
+    assert status["LLM_API_KEY"] is True
     keys = load_keys([env_file])
-    assert keys["OPENROUTER_API_KEY"] == "secret-value-xyz"
+    assert keys["LLM_API_KEY"] == "secret-value-xyz"

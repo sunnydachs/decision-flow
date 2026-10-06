@@ -1,6 +1,6 @@
 """API キーの解決。
 
-解決順: プロセス環境変数 → リポジトリ直下 `.env` → `~/env-file`(最後の受け皿)。
+解決順: プロセス環境変数 → リポジトリ直下 `.env`。
 キーの値は決してログ・例外メッセージ・結果ファイルに出さない。
 存在確認だけが必要な場合は `key_status()` を使う(値の代わりに True/False を返す)。
 """
@@ -9,13 +9,12 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-ENV_NAMES = ("OPENROUTER_API_KEY", "TYPESAFE_API_KEY", "PERPLEXITY_API_KEY")
-_HOME_ENV = Path<env-file>
+ENV_NAMES = ("LLM_API_KEY", "DECIDER_API_KEY", "TYPESAFE_API_KEY", "PERPLEXITY_API_KEY")
 
 
 def default_env_files(repo_root: Path | None = None) -> list[Path]:
     root = repo_root or Path.cwd()
-    return [root / ".env", _HOME_ENV]
+    return [root / ".env"]
 
 
 def _read_env_file(path: Path) -> dict[str, str]:
@@ -48,7 +47,7 @@ def load_keys(env_files: list[Path] | None = None, names: tuple[str, ...] | None
 
 
 def lookup_key(name: str, env_files: list[Path] | None = None) -> str | None:
-    """任意の名前のキーを 1 つ解決する(env → .env → ~/env-file)。値は表示しないこと。"""
+    """任意の名前のキーを 1 つ解決する(env → .env)。値は表示しないこと。"""
     files = env_files if env_files is not None else default_env_files()
     value = os.environ.get(name)
     if value:

@@ -25,8 +25,6 @@ from common.env import require_key
 from common.http import HttpClient
 from tasks.base import load_task
 
-ENDPOINT = "https://外部ルーティング.ai/api/v1/chat/completions"
-
 BUCKETS = (
     "normal",           # 明確な問い合わせ
     "polite_urgent",    # 丁寧な文面だが緊急(見逃しやすい)
@@ -139,8 +137,14 @@ def generate(
     key: str,
     max_batches: int | None = None,
 ) -> dict:
-    endpoint = str(config.get("data_generation.endpoint"))
-    models = [str(config.get("data_generation.model"))] + [
+    endpoint = str(config.get("data_generation.endpoint") or "")
+    gen_model = str(config.get("data_generation.model") or "")
+    if not endpoint or not gen_model:
+        raise SystemExit(
+            "データ生成が未設定です。config/local.toml(git-ignored)に [data_generation] の "
+            "endpoint と model を設定してください(README の「設定」を参照)。"
+        )
+    models = [gen_model] + [
         str(m) for m in (config.get("data_generation.fallback_models") or [])
     ]
     max_tokens = int(config.get("data_generation.max_tokens", 4096))
@@ -250,7 +254,7 @@ def main(argv: list[str] | None = None) -> int:
     if config.get("data_generation.model") is None:
         raise SystemExit("config に data_generation.model を設定してください")
     task = load_task(REPO_ROOT / "config" / "tasks" / "support_classification.toml")
-    key = require_key(str(config.get("data_generation.key_env", "OPENROUTER_API_KEY")), repo_root=REPO_ROOT)
+    key = require_key(str(config.get("data_generation.key_env", "LLM_API_KEY")), repo_root=REPO_ROOT)
     summary = generate(
         task=task, config=config, n=args.n, batch_size=args.batch_size, prefix=args.prefix,
         seed=args.seed, out_path=Path(REPO_ROOT / args.out), key=key, max_batches=args.max_batches,

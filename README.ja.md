@@ -14,9 +14,11 @@
 
 Decision Model が「速い・安い・安全」であることは前提にしていません。数字が示す範囲だけをレポートします。
 
+English | [日本語](README.en.md)
+
 ## 環境構築
 
-Python 3.11 以上(CI と本番は 3.12)。依存は extras で分けています。
+Python 3.11 以上。依存は extras で分けています。
 
 ```bash
 uv venv --python 3.12 .venv
@@ -29,12 +31,15 @@ uv pip install -e ".[jev]"          # Jev の SDK を使う場合(任意)
 API キーは `.env`(git-ignored)に置きます。解決順は **プロセス環境変数 → リポジトリ直下の `.env`** です。
 
 ```bash
-cp .env.example .env   # OPENROUTER_API_KEY / TYPESAFE_API_KEY / PERPLEXITY_API_KEY
+cp .env.example .env   # LLM_API_KEY / DECIDER_API_KEY / TYPESAFE_API_KEY / PERPLEXITY_API_KEY
 ```
 
 キーの値はコード・ログ・結果ファイル・レポートに**出しません**(存在確認だけなら `key_status()`)。
 
 ## 実行コマンド
+
+外部 API を使う方式(`mercury` / `llm_prompt` / `llm_json_schema`)は `config/local.toml` に経路設定が
+必要です(上の「設定」を参照)。ローカルで完結する方式(`rule` / `embedding_lr`)だけなら即実行できます。
 
 ```bash
 # 1) 全方式を同一条件で実行(合成データのスモーク)
@@ -105,25 +110,24 @@ cp .env.example .env   # OPENROUTER_API_KEY / TYPESAFE_API_KEY / PERPLEXITY_API_
 | `models.*` | モデルID・エンドポイント・単価。**コードにハードコードしない**。`models.llm` は `provider`/`endpoint`/`key_env`/`tier` で経路を差し替え可能 |
 | `embedding` | ローカル埋め込みモデル(fastembed の対応モデル) |
 
-### 比較用 LLM の経路(外部ルーティング の無料枠を消費しない)
+### 比較用 LLM の経路(設定で差し替え)
 
-`models.llm` は既定で **OpenAI 互換エンドポイント**(`llm-generic-20b`)を使います。外部ルーティング の `:free` 無料枠は
-mercury(外部ルーティング 経由のみ)のために温存するためです。`tier = "external_free"` は
-「外部 API だが 外部ルーティング の無料枠カウンタを消費しない」の意味で、日次枠・毎分制限は適用されません。
-
-外部ルーティング の `:free` を使いたい場合は `config/local.toml` で上書きします:
+`models.llm` は **任意の OpenAI 互換エンドポイント**で差し替えられます。モデルID・エンドポイント・
+キー名はコードにハードコードせず、`config/local.toml`(git-ignored)で環境ごとに設定します:
 
 ```toml
 [models.llm]
-provider = "外部ルーティング"
-model = "llm-free-a"
-endpoint = "https://外部ルーティング.ai/api/v1/chat/completions"
-key_env = "OPENROUTER_API_KEY"
-tier = "free"
+provider = "openai-compatible"
+model = "<使用するモデルID>"
+endpoint = "<OpenAI 互換の chat/completions エンドポイント>"
+key_env = "LLM_API_KEY"
+tier = "free"   # mercury と共有の無料枠カウンタを消費する経路の場合
 ```
 
-外部エンドポイント経由の `json_schema` 強制は実測で動作を確認済み(`llm-generic-20b`、2026-10-05)。
-第三者性のため、生成モデル(generator)と評価 LLM(llm-generic)は**系統を分けています**。
+キーは `.env`(git-ignored)に置きます(書式は `.env.example`)。`tier = "external_free"` は
+「外部 API だが mercury 用の共有無料枠カウンタを消費しない」の意味で、日次枠・毎分制限は適用されません。
+
+第三者性のため、生成モデルと評価 LLM は**系統を分けています**(系統の内訳は `config/local.toml` で管理)。
 
 タスク定義は `config/tasks/*.toml`(カテゴリと説明・risk_label・タスク指示)。**コードを変えずにタスクを差し替え**できます。
 ルールのパターンは `config/rules/*.toml`。閾値は `runners.calibrate` が `config/thresholds.json` に出力します。
@@ -146,8 +150,6 @@ JSONL(1 行 = 1 件)。`label` と `severity` は**独立した列**です。
 | `data/synthetic/` | 動作確認専用(レポートの評価に使わない) |
 | `data/calib/` | 閾値決定・再較正専用 |
 | `data/test/` | 最終評価専用(調整に使わない) |
-| `data/auxiliary/` | 補助データ(jev-ja-eval。外部妥当性の確認) |
-| `data/validation/` | 公開データ(MASSIVE ja-JP。品質・較正のみ) |
 
 ## コストガードと安全弁
 
@@ -155,9 +157,8 @@ JSONL(1 行 = 1 件)。`label` と `severity` は**独立した列**です。
 - **予算上限**: `budget.perplexity_usd`(既定 $0.5)/ `budget.jev_usd`(既定 $1)。超える見込みで停止します。
   コストは API が返すトークン数 × 公式単価からの**推定値**であり、実際の請求額ではありません。
 - **`--confirm-external`**: `external_ok=false` のデータを外部 API に送るときに必須。
-- **無料枠**: 外部ルーティング の `:free` は全モデル共有(実測 1000 req/day、20 req/min)。
-  `free_tier.daily_limit` に達した方式は pending に退避し、他の方式・ローカル計算・レポートは止まりません。
-  `GET https://外部ルーティング.ai/api/v1/key` の `free_model_daily_requests` で残量を確認できます。
+- **無料枠**: mercury が使う共有無料枠は `free_tier` で管理します。`daily_limit` に達した方式は
+  pending に退避し、他の方式・ローカル計算・レポートは止まりません。
 - **キャッシュ**: `results/cache/` に (method, model, task, item, 反復回, 指示文ハッシュ) で保存。
   日をまたいだ再開や、指示文を変えた後の取り違えを防ぎます。
 - **監査ログ**: `results/audit/` に全リクエストの入力・確率・リクエストID・実行日時(UTC)・モデルIDを保存します。
@@ -166,10 +167,10 @@ JSONL(1 行 = 1 件)。`label` と `severity` は**独立した列**です。
 
 ```
 config/     default.toml, tasks/, rules/, local.toml(任意), thresholds.json(生成物)
-data/       synthetic/ calib/ test/ auxiliary/ validation/, schema.md
+data/       synthetic/ calib/ test/, schema.md
 src/
   tasks/      タスク定義(カテゴリと説明の読み込み)
-  adapters/   base, rule, embedding_lr, llm, mercury, pplx_decider, span, jev, registry
+  adapters/   base, rule, embedding_lr, llm, mercury, pplx_decider, jev, registry
   hybrid/     ルール→判断モデル→閾値→auto/review/block
   evaluation/ classification, calibration, risk_coverage, bootstrap
   runners/    benchmark, calibrate, report, final_report, hybrid_eval, stability, throughput,
@@ -186,5 +187,5 @@ tests/
 ## 出典
 
 各 API の契約・制限・価格は公式ドキュメントで確認したものをコード内の docstring に出典URL付きで記録しています
-(TypeSafe: docs.typesafe.ai / Perplexity: docs.perplexity.ai / 外部ルーティング: 外部ルーティング.ai/docs)。
+(評価対象モデルの公式ドキュメント。経路の詳細は `config/local.toml` で管理)。
 確認できなかった仕様は推測せず、レポートの「制約と注意点」に明記します。

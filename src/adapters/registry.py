@@ -14,7 +14,7 @@ from common.http import HttpClient
 from common.ratelimit import RateLimiter
 from tasks.base import TaskDefinition
 
-FREE_ADAPTERS = ("mercury", "llm_prompt", "llm_json_schema", "span")
+FREE_ADAPTERS = ("mercury", "llm_prompt", "llm_json_schema")
 PAID_ADAPTERS = ("pplx_decider", "jev")
 LOCAL_ADAPTERS = ("rule", "embedding_lr")
 
@@ -46,7 +46,7 @@ def build_adapters(
 ) -> dict[str, BaseAdapter]:
     http = http or build_http(config)
     budgets = budgets if budgets is not None else {}
-    # per-minute 制限は 外部ルーティング の :free のみに適用(他の経路は制限が異なる)
+    # per-minute 制限は mercury が使う共有無料枠(:free 経路)のみに適用(他の経路は制限が異なる)
     free_names_used = [n for n in names if n == "mercury" or
                        (n.startswith("llm_") and str(config.get("models.llm.tier", "free")) == "free")]
     free_limiter = RateLimiter(per_minute_limit=int(config.get("free_tier.per_minute_limit", 20))) if free_names_used else RateLimiter(per_minute_limit=0)
@@ -57,21 +57,22 @@ def build_adapters(
             return keys[name]
         return require_key(name, repo_root=repo_root)
 
-    llm_key_env = str(config.get("models.llm.key_env", "OPENROUTER_API_KEY"))
+    llm_key_env = str(config.get("models.llm.key_env", "LLM_API_KEY"))
 
     for name in names:
         if name == "rule":
             rules = load_rules(repo_root / "config" / "rules" / f"{task.id}.toml")
             adapters[name] = RuleAdapter(task, rules)
         elif name == "mercury":
+            mercury_key_env = str(config.get("models.mercury.key_env", "DECIDER_API_KEY"))
             adapters[name] = MercuryAdapter(
-                task, config, key=need_key("OPENROUTER_API_KEY"), http=http, quota=quota,
+                task, config, key=need_key(mercury_key_env), http=http, quota=quota,
                 cache=cache, audit=audit, rate_limiter=free_limiter,
             )
         elif name in ("llm_prompt", "llm_json_schema"):
             mode = "prompt" if name == "llm_prompt" else "json_schema"
             llm_tier = str(config.get("models.llm.tier", "free"))
-            # 外部ルーティング の無料枠(:free)を使う場合だけ共有カウンタを消費する
+            # mercury と共有の無料枠カウンタ(:free 経路)を使う場合だけ消費する
             llm_quota = quota if llm_tier == "free" else None
             adapter = LlmAdapter(
                 task, config, mode=mode, key=need_key(llm_key_env),

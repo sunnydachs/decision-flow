@@ -297,7 +297,10 @@ def build_all(repo_root: Path = REPO_ROOT, out_dir: Path | None = None) -> dict[
 
     def record(name: str, paths: list[Path]) -> None:
         if paths:
-            written[name] = [str(p) for p in paths]
+            # relative to the repo root: absolute machine paths leak the personal
+            # environment when index.json is committed
+            written[name] = [str(p.relative_to(REPO_ROOT)) if p.is_relative_to(REPO_ROOT)
+                             else str(p) for p in paths]
 
     record("fig1_calibration", fig_calibration(results, repo_root, out_dir, bins=bins))
     record("fig2_risk_coverage", fig_risk_coverage(results, repo_root, out_dir, target=target))

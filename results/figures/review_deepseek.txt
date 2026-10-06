@@ -1,33 +1,33 @@
 
-===== fig1_calibration.png @ reviewer-b (70.4s) =====
+===== fig1_calibration.png @ <vision-model> (70.4s) =====
 (A) Exact title: "Calibration (reliability diagram, test n=500)"
 (B) Legend entries, in order: "perfect calibration", "embedding_lr", "pplx_decider", "jev"
 (C) Axis labels and tick labels: x-axis label: "predicted probability of high risk"; y-axis label: "observed frequency"; x-axis tick labels: 0.0, 0.2, 0.4, 0.6, 0.8, 1.0; y-axis tick labels: 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
 (D) Legibility problems: none visible; clean
 (E) The figure claims to show calibration (reliability) curves for three models ("embedding_lr", "pplx_decider", "jev") compared to perfect calibration on a test set of n=500, plotting observed frequency against predicted probability of high risk.
 
-===== fig2_risk_coverage.png @ reviewer-b (70.5s) =====
+===== fig2_risk_coverage.png @ <vision-model> (70.5s) =====
 (A) Title: "Risk-coverage: what can be automated at a fixed recall floor? (markers = threshold chosen on calib, applied unchanged to test)"
 (B) Legend entries in order: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev
 (C) Axis labels and tick labels: y-axis label "high-risk recall" with ticks 0.6, 0.7, 0.8, 0.9, 1.0; x-axis label "automation rate (share auto-processed)" with ticks 0.0, 0.2, 0.4, 0.6, 0.8, 1.0; annotation "recall target 95%"
 (D) Legibility problems: none visible; clean
 (E) The figure claims that at a fixed 95% recall target, different automation methods achieve different automation rates before recall drops below the target.
 
-===== fig3_probability_shape.png @ reviewer-b (71.3s) =====
+===== fig3_probability_shape.png @ <vision-model> (71.3s) =====
 (A) Title: "Where each method puts its probability mass (test n=500)" with subtitle "rule and jev collapse onto the extremes; pplx_decider and embedding_lr stay continuous".
 (B) Legend entries in order: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider, jev.
 (C) Axis labels and tick labels: y-axis label "share of items" with ticks 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6; x-axis label "risk-score band" with ticks "= 0", "0-0.02", "0.02-0.1", "0.1-0.5", "0.5-0.9", "0.9-0.98", "0.98-1", "= 1".
 (D) Legibility: clean.
 (E) The figure claims that the 'rule' and 'jev' methods place nearly all their probability mass at the extreme risk-score bands (= 0 and = 1), while 'pplx_decider' and 'embedding_lr' maintain continuous distributions across intermediate bands.
 
-===== fig4_tradeoff.png @ reviewer-b (75.1s) =====
+===== fig4_tradeoff.png @ <vision-model> (75.1s) =====
 (A) Title: "Operational trade-off (bubble size = estimated cost per 1000 items)" with subtitle "top-left is cheap-and-fast; empty bottom-left means nobody automates under the recall floor".
 (B) Legend entries (in order, as boxed labels): embedding_lr (0 ms · $0.000/1k); pplx_decider (325 ms · $0.014/1k); llm_json_schema (3372 ms · $0.000/1k); llm_prompt (4133 ms · $0.000/1k); rule (0 ms · $0.000/1k); jev (201 ms · $0.035/1k).
 (C) Axis labels and tick labels: y-axis label "automation rate at call threshold" with ticks 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6; x-axis label "p50 latency per item (ms, log scale)" with ticks 10^0, 10^1, 10^2, 10^3, 10^4.
 (D) Legibility problems: none visible; clean.
 (E) The figure claims an operational trade-off between p50 latency and automation rate at call threshold for several methods, with bubble size indicating estimated cost per 1000 items, showing that cheaper/faster methods tend to have higher automation rates while slower methods have lower rates.
 
-===== fig5_stability.png @ reviewer-b (51.9s) =====
+===== fig5_stability.png @ <vision-model> (51.9s) =====
 (A) Title: "Stability (50-item subset)" with subtitle "the local baseline and pplx_decider never flip; the LLM flips on every axis".
 (B) Legend entries in order: "same input, 20 runs" (blue), "paraphrased instruction / rotated option order" (orange).
 (C) Axis labels and tick labels: Y-axis label "share of items whose label changed" with ticks 0.00, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12. X-axis categories: rule, embedding_lr, llm_prompt, llm_json_schema, pplx_decider. In-plot text: "0% = never changed" (top left), "not measured: jev" (top right), and bar value labels 0%, 0%, 0%, 0%, 8%, 8%, 4%, 10%, 0%, 2%.
