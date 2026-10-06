@@ -35,8 +35,8 @@ from common.dataset import load_jsonl  # noqa: E402
 from evaluation.calibration import reliability_bins  # noqa: E402
 from evaluation.risk_coverage import automation_rate, recall_at_threshold  # noqa: E402
 
-METHODS = ("rule", "embedding_lr", "llm_prompt", "llm_json_schema", "pplx_decider", "jev")
-PROB_METHODS = ("embedding_lr", "pplx_decider", "jev")  # 公式に確率と定義された値のみ
+METHODS = ("rule", "embedding_lr", "llm_prompt", "llm_json_schema", "pplx_decider", "jev", "mercury")
+PROB_METHODS = ("embedding_lr", "pplx_decider", "jev", "mercury")  # 公式に確率と定義された値のみ
 COLORS = {
     "rule": "#6b7280",          # grey
     "embedding_lr": "#2563eb",  # blue
@@ -44,9 +44,10 @@ COLORS = {
     "llm_json_schema": "#ea580c",  # orange (緑と紛らかわないよう別色相)
     "pplx_decider": "#db2777",  # pink
     "jev": "#7c3aed",           # violet
+    "mercury": "#0891b2",       # cyan
 }
 MARKERS = {"rule": "s", "embedding_lr": "o", "llm_prompt": "^", "llm_json_schema": "v",
-           "pplx_decider": "D", "jev": "P"}
+           "pplx_decider": "D", "jev": "P", "mercury": "X"}
 
 
 def _load_raw(results: Path, method: str, split: str = "raw") -> list[dict]:
@@ -144,7 +145,9 @@ def fig_risk_coverage(results: Path, repo_root: Path, out_dir: Path, target: flo
     ax.set_xlim(-0.02, 1.0)
     ax.set_ylim(0.55, 1.02)
     ax.grid(alpha=0.25)
-    ax.legend(fontsize=8, loc="lower left")
+    # 7方式になると図内の空きが足りず曲線と重なるため、凡例は図の外(右)に置く
+    ax.legend(fontsize=8, loc="center left", bbox_to_anchor=(1.01, 0.5),
+              frameon=False)
     return _save(fig, out_dir, "fig2_risk_coverage")
 
 
@@ -177,13 +180,12 @@ def fig_probability_shape(results: Path, repo_root: Path, out_dir: Path):
     return _save(fig, out_dir, "fig3_probability_shape")
 
 
-# --- 4. トレードオフ散布図 ---------------------------------------------------
+# --- 4. トレードオフ(表形式プロット) ----------------------------------------
 def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 0.95):
+    """レイテンシ × 自動化率 × コスト。散布図+接続線は7方式になるとラベルが重なるため、
+    行=方式の表形式プロットにする(調整ループを排除し、数値を読み取りやすくする)。"""
     thresholds = _thresholds(repo_root)
-    fig, ax = plt.subplots(figsize=(8.6, 5.4))
-    # 注記の最終位置を確定してから描く(重なり・はみ出しを防ぐ)。
-    # x が大きいもの(右側)は左向きに置き、y が大きいものは下向きに置く。
-    placed = {}
+    rows = []
     for method in METHODS:
         probs, ys = _risk_arrays(results, repo_root, method)
         raw = _load_raw(results, method)
@@ -195,38 +197,44 @@ def fig_tradeoff(results: Path, repo_root: Path, out_dir: Path, target: float = 
         if th is None:
             continue
         auto = automation_rate(probs, float(th))
+        recall = recall_at_threshold(probs, ys, float(th))
         p50 = float(np.percentile(lat, 50)) if lat else 0.0
         per_1000 = cost / max(1, len(raw)) * 1000.0
-        placed[method] = (max(p50, 1.0), auto, p50, per_1000)
-    for method, (xs, auto, p50, per_1000) in placed.items():
-        ax.scatter([xs], [auto], s=60 + 2600 * per_1000, color=COLORS[method], alpha=0.75,
-                   edgecolor="white", linewidth=1.2, zorder=4)
-    # ラベル位置は adjustText に任せる(手動オフセットの繰り返し調整より確実。
-    # https://github.com/Phlya/adjustText : ラベル同士・データ点・軸との重なりを反復で最小化する)
-    from adjustText import adjust_text
+        misses = sum(1 for p, y in zip(probs, ys) if y == 1 and p < th)
+        rows.append((method, p50, auto, recall, per_1000, misses))
+    # 自動化率の降順(= 運用上の魅力順)で並べる
+    rows.sort(key=lambda r: (-r[2], r[1]))
 
-    texts = []
-    for method, (xs, auto, p50, per_1000) in placed.items():
-        texts.append(ax.text(xs, auto, f"{method}\n{p50:.0f} ms · ${per_1000:.3f}/1k",
-                             fontsize=9, color=COLORS[method], zorder=6,
-                             bbox={"boxstyle": "round,pad=0.28", "fc": "white", "ec": COLORS[method],
-                                   "lw": 0.9, "alpha": 0.92}))
-    # 右側の2点(llm_prompt / llm_json_schema)は「ラベルが長い+右端に寄る」ため、
-    # adjustText に任せても右端をはみ出す。x 軸の上限を伸ばして空きスペースを作ってから調整する。
-    ax.set_xlim(0.6, 3.2e4)
-    adjust_text(texts, ax=ax,
-                expand=(1.35, 1.8),
-                # 軸の外とデータ点から避ける(ensure_inside_axes で枠内に留める)
-                ensure_inside_axes=True,
-                force_text=(0.6, 0.9),
-                arrowprops={"arrowstyle": "-", "color": "#9ca3af", "lw": 0.7})
-    ax.set_xscale("log")
-    ax.set_xlabel("p50 latency per item (ms, log scale)")
-    ax.set_ylabel("automation rate at calib threshold")
-    ax.set_title("Operational trade-off (bubble size = estimated cost per 1000 items)\n"
-                 "top-left is cheap-and-fast; empty bottom-left means nobody automates under the recall floor")
-    ax.grid(alpha=0.25, which="both")
-    ax.set_ylim(-0.05, 0.62)
+    n = len(rows)
+    fig, axes = plt.subplots(n, 1, figsize=(8.4, 0.62 * n + 1.7), sharex=False,
+                             gridspec_kw={"hspace": 0.55})
+    if n == 1:
+        axes = [axes]
+    bar_colors = [COLORS[r[0]] for r in rows]
+    for ax, (method, p50, auto, recall, per_1000, misses) in zip(axes, rows):
+        ax.barh([0], [auto], color=COLORS[method], height=0.62, zorder=3)
+        ax.axvline(target, color="#111827", ls=":", lw=1.1, zorder=2)
+        ax.set_xlim(0, 1.0)
+        ax.set_yticks([])
+        ax.set_ylim(-0.55, 0.75)
+        ax.grid(axis="x", alpha=0.25, zorder=1)
+        ax.text(-0.02, 0.02, method, transform=ax.get_yaxis_transform(),
+                ha="right", va="center", fontsize=10, color=COLORS[method], fontweight="bold")
+        note = (f"recall {recall:.3f}   misses {misses}   p50 {p50:.0f} ms   "
+                f"${per_1000:.4f}/1k")
+        ax.text(1.005, 0.02, note, transform=ax.get_yaxis_transform(),
+                ha="left", va="center", fontsize=8.6, color="#374151")
+        if auto > 0.03:
+            ax.text(auto + 0.015, 0, f"{auto:.1%}", ha="left", va="center",
+                    fontsize=9, color=COLORS[method], zorder=4)
+        else:
+            ax.text(0.012, 0, "0% (recall floor cannot be met otherwise)",
+                    ha="left", va="center", fontsize=8.2, color="#6b7280", zorder=4)
+    axes[0].set_title(
+        "Automation rate at the calib threshold (recall floor 95% dotted)\n"
+        "methods sorted by automation; per-method recall / misses / latency / cost on the right",
+        fontsize=11.5, loc="left")
+    fig.subplots_adjust(left=0.17, right=0.80)
     return _save(fig, out_dir, "fig4_tradeoff")
 
 
