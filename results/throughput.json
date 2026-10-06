@@ -1,5 +1,5 @@
 {
-  "dataset": "/home/arari/projects/decision-flow/data/test/support_classification.jsonl",
+  "dataset": "<repo-root>/data/test/support_classification.jsonl",
   "n_items": 60,
   "concurrency": 12,
   "run_index": 207427,

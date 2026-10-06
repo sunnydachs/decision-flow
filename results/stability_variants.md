@@ -1,6 +1,6 @@
 # 安定性テスト(言い換え・選択肢順序)
 
-- データ: `/home/arari/projects/decision-flow/data/test/support_classification.jsonl` の先頭 50 件
+- データ: `<repo-root>/data/test/support_classification.jsonl` の先頭 50 件
 - 変異版: base, paraphrase_1, paraphrase_2, order_rotated
 
 | method | 変異版間でラベル不一致 | 確率の平均SD | 閾値反転(平均) |

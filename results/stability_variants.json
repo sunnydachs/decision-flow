@@ -1,5 +1,5 @@
 {
-  "dataset": "/home/arari/projects/decision-flow/data/test/support_classification.jsonl",
+  "dataset": "<repo-root>/data/test/support_classification.jsonl",
   "subset": 50,
   "variants": [
     "base",

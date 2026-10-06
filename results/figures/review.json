@@ -1,7 +1,7 @@
 [
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig1_calibration.png",
+    "image": "<repo-root>/results/figures/fig1_calibration.png",
     "ok": true,
     "seconds": 54.9,
     "max_tokens": 1200,
@@ -9,7 +9,7 @@
   },
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig2_risk_coverage.png",
+    "image": "<repo-root>/results/figures/fig2_risk_coverage.png",
     "ok": true,
     "seconds": 55.2,
     "max_tokens": 1200,
@@ -17,7 +17,7 @@
   },
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig3_probability_shape.png",
+    "image": "<repo-root>/results/figures/fig3_probability_shape.png",
     "ok": true,
     "seconds": 55.5,
     "max_tokens": 1200,
@@ -25,7 +25,7 @@
   },
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig4_tradeoff.png",
+    "image": "<repo-root>/results/figures/fig4_tradeoff.png",
     "ok": true,
     "seconds": 61.0,
     "max_tokens": 1200,
@@ -33,7 +33,7 @@
   },
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig5_stability.png",
+    "image": "<repo-root>/results/figures/fig5_stability.png",
     "ok": true,
     "seconds": 67.6,
     "max_tokens": 1200,
@@ -41,7 +41,7 @@
   },
   {
     "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig1_calibration.png",
+    "image": "<repo-root>/results/figures/fig1_calibration.png",
     "ok": true,
     "seconds": 73.6,
     "max_tokens": 3600,
@@ -49,7 +49,7 @@
   },
   {
     "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig2_risk_coverage.png",
+    "image": "<repo-root>/results/figures/fig2_risk_coverage.png",
     "ok": true,
     "seconds": 57.0,
     "max_tokens": 3600,
@@ -57,7 +57,7 @@
   },
   {
     "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig3_probability_shape.png",
+    "image": "<repo-root>/results/figures/fig3_probability_shape.png",
     "ok": true,
     "seconds": 42.5,
     "max_tokens": 1200,
@@ -65,7 +65,7 @@
   },
   {
     "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig4_tradeoff.png",
+    "image": "<repo-root>/results/figures/fig4_tradeoff.png",
     "ok": true,
     "seconds": 75.1,
     "max_tokens": 1200,
@@ -73,7 +73,7 @@
   },
   {
     "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig5_stability.png",
+    "image": "<repo-root>/results/figures/fig5_stability.png",
     "ok": true,
     "seconds": 28.7,
     "max_tokens": 1200,

@@ -109,7 +109,7 @@ p50/p95 は 1 件あたりのレイテンシ、スループットは同じ並列
 ## 6. 安定性
 
 ### 同一入力の反復
-- データ: `/home/arari/projects/decision-flow/data/test/support_classification.jsonl` の先頭 50 件
+- データ: `<repo-root>/data/test/support_classification.jsonl` の先頭 50 件
 - 反復回数: 20
 
 | method | 項目数 | 確率の平均SD | 確率の平均IQR | 閾値反転(平均) | 反転した項目 | 常に不確実(≥0.3) | ラベル不一致率 |
@@ -123,7 +123,7 @@ p50/p95 は 1 件あたりのレイテンシ、スループットは同じ並列
 確率を返さない方式(rule)はラベル不一致率のみ。閾値は calib 由来(`config/thresholds.json`)。
 
 ### 言い換え・選択肢順序の変異版
-- データ: `/home/arari/projects/decision-flow/data/test/support_classification.jsonl` の先頭 50 件
+- データ: `<repo-root>/data/test/support_classification.jsonl` の先頭 50 件
 - 変異版: base, paraphrase_1, paraphrase_2, order_rotated
 
 | method | 変異版間でラベル不一致 | 確率の平均SD | 閾値反転(平均) |

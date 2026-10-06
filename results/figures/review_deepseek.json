@@ -1,7 +1,7 @@
 [
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig1_calibration.png",
+    "image": "<repo-root>/results/figures/fig1_calibration.png",
     "ok": true,
     "seconds": 70.4,
     "max_tokens": 1200,
@@ -9,7 +9,7 @@
   },
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig2_risk_coverage.png",
+    "image": "<repo-root>/results/figures/fig2_risk_coverage.png",
     "ok": true,
     "seconds": 70.5,
     "max_tokens": 1200,
@@ -17,7 +17,7 @@
   },
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig3_probability_shape.png",
+    "image": "<repo-root>/results/figures/fig3_probability_shape.png",
     "ok": true,
     "seconds": 71.3,
     "max_tokens": 1200,
@@ -25,7 +25,7 @@
   },
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig4_tradeoff.png",
+    "image": "<repo-root>/results/figures/fig4_tradeoff.png",
     "ok": true,
     "seconds": 75.1,
     "max_tokens": 1200,
@@ -33,7 +33,7 @@
   },
   {
     "model": "deepseek-ai/deepseek-v4.1-flash",
-    "image": "/home/arari/projects/decision-flow/results/figures/fig5_stability.png",
+    "image": "<repo-root>/results/figures/fig5_stability.png",
     "ok": true,
     "seconds": 51.9,
     "max_tokens": 1200,

@@ -1,6 +1,6 @@
 # スループット実測
 
-- データ: `/home/arari/projects/decision-flow/data/test/support_classification.jsonl` の先頭 60 件
+- データ: `<repo-root>/data/test/support_classification.jsonl` の先頭 60 件
 - 並列数: 12(全方式で統一)
 - run_index: 207427(キャッシュに当たらない一意な値)
 - キャッシュを避けるため専用の run_index で新規に呼び出した実測値。

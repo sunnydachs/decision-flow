@@ -87,4 +87,4 @@ pplx_decider
 
 (E) the local baseline and pplx_decider never flip; the LLM flips on every axis
 
-review -> /home/arari/projects/decision-flow/results/figures/review.json
+review -> <repo-root>/results/figures/review.json

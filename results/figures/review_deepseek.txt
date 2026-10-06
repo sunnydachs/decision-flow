@@ -34,4 +34,4 @@
 (D) Legibility: clean.
 (E) The figure claims that across a 50-item subset, the local baseline (rule, embedding_lr) and pplx_decider are highly stable (0-2% label change), while LLM-based methods (llm_prompt, llm_json_schema) show higher instability (4-10% label change) under input and instruction variations.
 
-review -> /home/arari/projects/decision-flow/results/figures/review_deepseek.json
+review -> <repo-root>/results/figures/review_deepseek.json

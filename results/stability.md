@@ -1,6 +1,6 @@
 # 安定性テスト
 
-- データ: `/home/arari/projects/decision-flow/data/test/support_classification.jsonl` の先頭 50 件
+- データ: `<repo-root>/data/test/support_classification.jsonl` の先頭 50 件
 - 反復回数: 20
 
 | method | 項目数 | 確率の平均SD | 確率の平均IQR | 閾値反転(平均) | 反転した項目 | 常に不確実(≥0.3) | ラベル不一致率 |

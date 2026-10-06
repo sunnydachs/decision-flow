@@ -32,7 +32,7 @@
 3. 保存して採点:
 
 ```bash
-cd /home/arari/projects/decision-flow
+cd <repo-root>
 .venv/bin/python -m runners.review_sample --score results/review/review_sample.csv
 ```
 
