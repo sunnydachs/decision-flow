@@ -26,9 +26,10 @@ embed = [
 jev = [
   "typesafe-sdk>=0.7",
 ]
-# figures: 記事用の図の生成(matplotlib は重いので任意)
+# figures: 記事用の図の生成(matplotlib は重いので任意。seaborn は tvhahn 流儀の A/B 比較でのみ使用)
 figures = [
   "matplotlib>=3.8",
+  "seaborn>=0.13",
 ]
 
 [tool.setuptools.packages.find]
