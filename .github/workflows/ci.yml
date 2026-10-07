@@ -32,7 +32,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install
-      run: pip install -e ".[dev,figures]"
+      run: pip install -e ".[dev,figures,jev]"
 
     - name: Run tests
       run: python -m pytest -q
