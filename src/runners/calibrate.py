@@ -46,7 +46,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="calib から閾値を決める")
     parser.add_argument("--calib", required=True, help="calib データ(JSONL)")
     parser.add_argument("--raw-dir", default="results/raw")
-    parser.add_argument("--methods", default="mercury,pplx_decider,llm_prompt,llm_json_schema,rule,embedding_lr")
+    parser.add_argument("--methods", default="mercury,pplx_decider,llm_prompt,llm_json_schema,rule,embedding_lr,jev")
     parser.add_argument("--out", default="config/thresholds.json")
     args = parser.parse_args(argv)
 
