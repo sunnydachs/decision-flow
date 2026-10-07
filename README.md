@@ -17,6 +17,8 @@ Methods compared:
 The harness does not assume Decision Models are "fast, cheap, and safe". It only reports
 what the measured numbers show.
 
+English | [日本語](README.ja.md)
+
 ## Setup
 
 Python 3.11+. Dependencies are split into extras.
@@ -203,5 +205,3 @@ API contracts, limits, and prices are recorded in code docstrings with source UR
 official documentation of each evaluated model (route details are managed in
 `config/local.toml`). Unverified specs are never guessed; they are noted in the report's
 "Constraints and caveats" section.
-
-[日本語](README.md)

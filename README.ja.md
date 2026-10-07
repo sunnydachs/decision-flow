@@ -14,7 +14,7 @@
 
 Decision Model が「速い・安い・安全」であることは前提にしていません。数字が示す範囲だけをレポートします。
 
-English | [日本語](README.en.md)
+English | [README.md](README.md)
 
 ## 環境構築
 

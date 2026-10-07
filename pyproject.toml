@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "decision-flow"
 version = "0.1.0"
 description = "Decision-layer PoC: Rule / LLM / Decision Model / Hybrid evaluated on identical data and metrics"
-readme = "README.en.md"
+readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.11"
