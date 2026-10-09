@@ -1,0 +1,43 @@
+# gitleaks configuration — secrets + personal-environment leaks.
+#
+# Used by BOTH the CI gitleaks action (.github/workflows/gitleaks.yml) and, on a
+# developer machine with the fleet guard installed, the local commit hooks.
+#
+# This file is PUBLIC: it must never contain a real username, home path, email
+# or any other personal identifier — only the *shapes* of what must not ship.
+# The machine-specific rules (the literal local username, the literal home
+# path) live in ~/.config/gitleaks/fleet.toml on the developer's machine and are
+# never committed.
+
+[extend]
+useDefault = true
+
+# Absolute home / user-profile paths must not be baked into a repo. Placeholder
+# users used in docs, tests and CI are allowlisted below.
+[[rules]]
+id = "absolute-home-path"
+description = "Absolute home path (a clone must run anywhere; no machine-specific paths)"
+regex = '''(?i)(?:/home/|/Users/|/mnt/[a-z]/Users/)[a-z][a-z0-9_.-]{1,30}/'''
+tags = ["personal-environment"]
+
+[[rules.allowlists]]
+description = "Documentation, test and CI placeholders (not a real account)"
+regexes = [
+  '''(?i)/(?:home|Users)/(?:you|user|username|youruser|name|me|someone|example|dev|foo|bar|test|alice|bob|runner|runneradmin|ubuntu|ci|vagrant|theuser|youruser)/''',
+  '''(?i)/mnt/[a-z]/Users/(?:you|user|name|example|dev)/''',
+]
+
+# A personal (non-noreply) email address in a handful of providers. The GitHub
+# noreply alias is intentionally NOT matched.
+[[rules]]
+id = "personal-email"
+description = "Personal email address (use the provider noreply alias instead)"
+regex = '''(?i)\b[A-Za-z0-9._%+-]+@(?:gmail|googlemail|outlook|hotmail|live|yahoo|icloud|me\.com|proton|protonmail|pm\.me|qq|163|126|ymail)\.[a-z]{2,}\b'''
+tags = ["personal-environment"]
+
+# References to a personal notes vault / agent scratch dir.
+[[rules]]
+id = "personal-vault-path"
+description = "Personal notes vault or agent scratch path"
+regex = '''(?i)Obsidian Vault|obsidian://|/\.hermes/cache/scratch/'''
+tags = ["personal-environment"]
